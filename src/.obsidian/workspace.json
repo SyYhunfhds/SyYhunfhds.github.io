@@ -4,12 +4,12 @@
     "type": "split",
     "children": [
       {
-        "id": "b508525bc20b3c8a",
+        "id": "7f9bd784e0c72eeb",
         "type": "tabs",
-        "dimension": 83.22147651006712,
+        "dimension": 82.19814241486068,
         "children": [
           {
-            "id": "d81292b60a5a378b",
+            "id": "fe6885fc661b31a7",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -21,17 +21,17 @@
               "icon": "lucide-file",
               "title": "hello"
             },
-            "group": "a1ff300cee3d93b3"
+            "group": "535491c8d3b9323c"
           }
         ]
       },
       {
-        "id": "7f9bd784e0c72eeb",
+        "id": "a26c5d814f1ec9c2",
         "type": "tabs",
-        "dimension": 16.778523489932887,
+        "dimension": 17.80185758513932,
         "children": [
           {
-            "id": "273ff5ace6b7688b",
+            "id": "4e56bf097c2bd5a6",
             "type": "leaf",
             "state": {
               "type": "outline",
@@ -44,7 +44,7 @@
               "icon": "lucide-list",
               "title": "hello 的大纲"
             },
-            "group": "a1ff300cee3d93b3"
+            "group": "535491c8d3b9323c"
           }
         ]
       }
@@ -103,7 +103,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "78bfbbd18c50805d",
@@ -195,8 +195,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "d81292b60a5a378b",
+  "active": "fe6885fc661b31a7",
   "lastOpenFiles": [
+    "light-mind/hello.md",
+    "未命名.md",
+    "static-assets/Pasted image 20250705221913.png",
+    "static-assets/Pasted image 20250705220954.png",
     "static-assets/Pasted image 20250705214847.png",
     "static-assets"
   ]
