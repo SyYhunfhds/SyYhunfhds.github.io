@@ -1,7 +1,7 @@
 {
   "name": "syyhunhds_v_hope_blogs",
   "description": "SyYhunfhds personal blog built on vuepress-theme-hope",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "license": "CC-BA-NY-SC 4.0",
   "type": "module",
   "scripts": {

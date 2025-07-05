@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 
 name: Deploy VuePress site to Pages
 
@@ -22,24 +23,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 1. Setup pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      # 2. Setup Node.js and tell it to cache pnpm dependencies
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: '18'
+          cache: 'pnpm' # Use pnpm's cache
 
+      # 3. Install dependencies from within the 'src' directory
       - name: Install dependencies
-        run: |
-          corepack enable
-          npm ci
+        run: pnpm install --frozen-lockfile
+        working-directory: ./src # Explicitly set the directory for this step
 
+      # 4. Build the site from within the 'src' directory
       - name: Build with VuePress
-        env:
-          NODE_OPTIONS: --max_old_space_size=8192
-        run: |-
-          npm run docs:build
-          > src/.vuepress/dist/.nojekyll
+        run: pnpm run docs:build
+        working-directory: ./src # Explicitly set the directory for this step
 
+      # 5. Upload the artifact from the correct build output path
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
