@@ -1,4 +1,4 @@
 User-agent:*
 Disallow:
 
-Sitemap: https://syyhunfhds.github.io/syy-v-hope-docs/sitemap.xml
+Sitemap: https://SyYhunfhds.github.io/syy-v-hope-docs/sitemap.xml
