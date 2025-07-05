@@ -2,7 +2,7 @@
 home: true
 layout: Blog
 icon: house
-title: Pythonic
+title: SyYhunfhds Home
 heroImage: https://theme-hope-assets.vuejs.press/logo.svg
 heroText: MemorySeer
 heroFullScreen: true

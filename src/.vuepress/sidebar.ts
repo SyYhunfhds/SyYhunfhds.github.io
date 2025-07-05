@@ -11,16 +11,29 @@ export default sidebar({
       children: "structure",
     },
     {
-      text: "文章",
-      icon: "book",
-      prefix: "posts/",
+      text: "红队",
+      icon: "user-secret",
+      prefix: "redteam/",
+      children: "structure",
+    },
+    {
+      text: "蓝队",
+      icon: "file-contract",
+      prefix: "blueteam/",
+      children: "structure",
+    },
+    {
+      text: "Python",
+      icon: "laptop-code",
+      prefix: "Python/",
+      children: "structure",
+    },
+    {
+      text: "随笔",
+      icon: "book-open",
+      prefix: "light-mind/",
       children: "structure",
     },
     "intro",
-    {
-      text: "幻灯片",
-      icon: "person-chalkboard",
-      link: "https://ecosystem.vuejs.press/zh/plugins/markdown/revealjs/demo.html",
-    },
   ],
 });
