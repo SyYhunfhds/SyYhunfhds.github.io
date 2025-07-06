@@ -24,9 +24,5 @@ export default defineUserConfig({
       tasklist: true,
       component: true, // 启用 GFM 自定义容器
     }),
-    markdownMathPlugin({
-      // 选项
-      copy: true, // 启用数学公式复制功能 // 仅限KateX引擎，MathJax引擎暂不支持此功能。
-    }),
   ],
 });

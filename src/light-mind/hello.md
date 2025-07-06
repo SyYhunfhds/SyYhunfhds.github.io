@@ -177,3 +177,34 @@ $$
 
 ***
 ## VuePress组件拓展
+### 媒体组件
+#### Bilibili
+<BiliBili bvid="BV1kt411o7C3" />
+*也是蜜汁渲染不出来*
+
+### 工具组件
+#### share
+**全部组件（灰色）**
+<Share />
+**全部组件（彩色）**
+<Share colorful/>
+**自定义分享服务**
+<Share :services="['qq','weibo']" />
+
+配置存档，*好像这么存不太对*
+```javascript
+plugins: {
+    components: {
+       components: ["Badge", "VPCard"],
+       componentOptions: {
+        share: {
+          services: [
+            "douban", "email", "qq", "linkedin", "pinterest"
+            // 这里还有其他关键字，详情请查阅https://plugin-components.vuejs.press/zh/guide/utilities/share.html#%E8%AE%BE%E7%BD%AE%E7%BB%84%E4%BB%B6
+          ],
+        },
+       },
+       
+     },
+  },
+```
