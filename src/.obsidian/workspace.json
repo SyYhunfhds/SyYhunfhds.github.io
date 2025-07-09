@@ -29,7 +29,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CTF/README.md",
+                "file": "渗透靶场/README.md",
                 "mode": "source",
                 "source": false
               },
@@ -37,7 +37,8 @@
               "title": "README"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "a26c5d814f1ec9c2",
@@ -209,11 +210,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b44904467a9ff783",
+  "active": "4ba50720c584a4ab",
   "lastOpenFiles": [
-    "渗透靶场/TryHackMe/Tier0",
     "CTF/README.md",
+    "渗透靶场/TryHackMe/README.md",
     "渗透靶场/README.md",
+    "渗透靶场/TryHackMe/Tier0",
     "渗透靶场/HackMyVM",
     "渗透靶场/TryHackMe",
     "渗透靶场/HackTheBox",
@@ -233,7 +235,6 @@
     "Python/README.md",
     "CTF",
     "posts/随笔/hello.md",
-    "posts/随笔",
     "未命名.md"
   ]
 }
