@@ -20,8 +20,7 @@
               },
               "icon": "lucide-file",
               "title": "README"
-            },
-            "group": "535491c8d3b9323c"
+            }
           },
           {
             "id": "4ba50720c584a4ab",
@@ -29,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "渗透靶场/README.md",
+                "file": "渗透靶场/TryHackMe/Starting Point/Tier0/Fawn.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Fawn"
             }
           }
         ],
@@ -51,15 +50,14 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "渗透靶场/README.md",
-                "followCursor": false,
+                "file": "渗透靶场/TryHackMe/Starting Point/Tier0/Fawn.md",
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "README 的大纲"
-            },
-            "group": "535491c8d3b9323c"
+              "title": "Fawn 的大纲"
+            }
           }
         ]
       }
@@ -212,10 +210,16 @@
   },
   "active": "4ba50720c584a4ab",
   "lastOpenFiles": [
+    "渗透靶场/TryHackMe/Starting Point/Tier0/assets/Pasted image 20250709174018.png",
+    "渗透靶场/TryHackMe/Starting Point/Tier0/assets/Pasted image 20250709173902.png",
+    "渗透靶场/TryHackMe/Starting Point/Tier0/assets/Pasted image 20250709172538.png",
+    "渗透靶场/TryHackMe/Starting Point/Tier0/assets",
+    "渗透靶场/README.md",
+    "渗透靶场/TryHackMe/Starting Point/Tier0/Fawn.md",
+    "渗透靶场/TryHackMe/Starting Point",
     "CTF/README.md",
     "渗透靶场/TryHackMe/README.md",
-    "渗透靶场/README.md",
-    "渗透靶场/TryHackMe/Tier0",
+    "渗透靶场/TryHackMe/Starting Point/Tier0",
     "渗透靶场/HackMyVM",
     "渗透靶场/TryHackMe",
     "渗透靶场/HackTheBox",
@@ -231,9 +235,7 @@
     "light-mind/README.md",
     "light-mind",
     "blueteam/README.md",
-    "blueteam",
     "Python/README.md",
-    "CTF",
     "posts/随笔/hello.md",
     "未命名.md"
   ]
