@@ -52,9 +52,9 @@ OS and Service detection performed. Please report any incorrect results at https
 Nmap done: 1 IP address (1 host up) scanned in 49.79 seconds
 
 ```
-- `-T5`：
-- `-A`：
-- `-p 20,21`：
+- `-T5`：最大线程
+- `-A --agressive`：进攻性扫描，扫描系统信息、脚本扫描和`tracert`路由跟踪
+- `-p 20,21`：扫描FTP端口`20,21`
 ### Task6 扫描到的系统是什么
 ```
 Unix
@@ -81,9 +81,9 @@ Using binary mode to transfer files.
 ftp> 
 
 ```
-- `-4`：
-- `-A`：
-- `-a`：
+- `-4`：显式使用IPv4地址
+- `-A`：Active mode，启动交互模式
+- `-a`：匿名登录模式
 - `anonymous@10.129.247.214 21`：`<username>@<host> <port>`
 ### Task10 FTP除了`dir`外另一个用来列出文件的指令（在Linux系统里也适用）是什么
 ```shell
