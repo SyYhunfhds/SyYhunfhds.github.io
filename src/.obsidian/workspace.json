@@ -51,7 +51,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "a26c5d814f1ec9c2",
@@ -64,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "redteam/Technique Journey/FTP 渗透.md",
+                "file": "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "FTP 渗透 的大纲"
+              "title": "Fawn 的大纲"
             }
           }
         ]
@@ -222,7 +222,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b44904467a9ff783",
+  "active": "4ba50720c584a4ab",
   "lastOpenFiles": [
     "redteam/Technique Journey/FTP 渗透.md",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
