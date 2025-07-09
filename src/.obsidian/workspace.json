@@ -28,7 +28,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "渗透靶场/TryHackMe/Starting Point/Tier0/Fawn.md",
+                "file": "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
                 "mode": "source",
                 "source": false
               },
@@ -50,7 +50,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "渗透靶场/TryHackMe/Starting Point/Tier0/Fawn.md",
+                "file": "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
@@ -208,18 +208,18 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4ba50720c584a4ab",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
-    "渗透靶场/TryHackMe/Starting Point/Tier0/assets/Pasted image 20250709174018.png",
-    "渗透靶场/TryHackMe/Starting Point/Tier0/assets/Pasted image 20250709173902.png",
-    "渗透靶场/TryHackMe/Starting Point/Tier0/assets/Pasted image 20250709172538.png",
-    "渗透靶场/TryHackMe/Starting Point/Tier0/assets",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/assets/Pasted image 20250709174018.png",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/assets/Pasted image 20250709173902.png",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/assets/Pasted image 20250709172538.png",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/assets",
     "渗透靶场/README.md",
-    "渗透靶场/TryHackMe/Starting Point/Tier0/Fawn.md",
-    "渗透靶场/TryHackMe/Starting Point",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
+    "渗透靶场/HackTheBox/Starting Point",
     "CTF/README.md",
     "渗透靶场/TryHackMe/README.md",
-    "渗透靶场/TryHackMe/Starting Point/Tier0",
+    "渗透靶场/HackTheBox/Starting Point/Tier0",
     "渗透靶场/HackMyVM",
     "渗透靶场/TryHackMe",
     "渗透靶场/HackTheBox",
