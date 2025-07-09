@@ -6,6 +6,9 @@ tags:
   - XFTP
   - Nmap
 date: 2025-07-09
+category:
+  - 打靶
+  - HTB
 ---
 [[toc]]
 ## 参考资料 && 参考WP

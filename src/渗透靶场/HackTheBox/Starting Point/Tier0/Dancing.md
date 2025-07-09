@@ -7,6 +7,9 @@ tags:
   - enum4linux扫描SMB信息
   - SMB基础操作
 icons: sqaure-share-nodes
+category:
+  - 打靶
+  - HTB
 ---
 [[toc]]
 ## 参考资料 &&  参考WP
