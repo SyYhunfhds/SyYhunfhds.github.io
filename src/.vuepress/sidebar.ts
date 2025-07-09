@@ -34,6 +34,12 @@ export default sidebar({
       prefix: "light-mind/",
       children: "structure",
     },
+    {
+      text: "渗透靶场",
+      icon: "crosshairs",
+      prefix: "渗透靶场/",
+      children: "structure",
+    },
     "intro",
   ],
 });

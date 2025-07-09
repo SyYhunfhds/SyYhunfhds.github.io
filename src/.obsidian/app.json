@@ -2,6 +2,6 @@
   "useMarkdownLinks": true,
   "newLinkFormat": "relative",
   "newFileLocation": "folder",
-  "attachmentFolderPath": "static-assets",
+  "attachmentFolderPath": "./assets",
   "alwaysUpdateLinks": true
 }
