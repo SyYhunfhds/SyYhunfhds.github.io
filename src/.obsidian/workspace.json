@@ -50,8 +50,7 @@
               "title": "Crocodile"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "a26c5d814f1ec9c2",
@@ -64,13 +63,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
+                "file": "草稿/端口扫描新时代工具.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Crocodile 的大纲"
+              "title": "端口扫描新时代工具 的大纲"
             }
           }
         ]
@@ -222,15 +221,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "2ab0230f145fbba7",
+  "active": "ea124ac7b1e21976",
   "lastOpenFiles": [
+    "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710205119.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710205058.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710203406.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710203100.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Sequal.md",
     "草稿/端口扫描新时代工具.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Appointment.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710185814.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710180100.png",
@@ -238,7 +237,6 @@
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710180039.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710174158.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710174054.png",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250710173954.png",
     "redteam/Technique Journey/工具库迭代.md",
     "草稿",
     "未命名.md",
