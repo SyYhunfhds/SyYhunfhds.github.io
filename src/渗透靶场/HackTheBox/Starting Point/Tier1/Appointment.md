@@ -9,6 +9,7 @@ tags:
   - SMB弱口令
   - SQL注入
   - sqlmap
+date: 2025-07-10
 ---
 ## 参考资料 && 参考WP
 - [OWASP TOP10 2021](https://owasp.org/Top10/)

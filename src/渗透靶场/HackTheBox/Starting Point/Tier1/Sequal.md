@@ -1,6 +1,15 @@
 ---
 title: Sequal
 icon: database
+tags:
+  - Mysql
+  - MariaDB
+  - Nmap
+  - PwnBox
+date: 2025-07-10
+category:
+  - 打靶
+  - HTB
 ---
 [[toc]]
 ## 参考资料 && 参考WP
@@ -57,10 +66,15 @@ byd各种连接超时
 
 ### flag
 ```shell
-mysql -h 10.129.210.168 -u root --connect-timeout=10 --reconnect --init-command="select * from htb;"
+mysql -h <IP地址> -u root --connect-timeout=10 --reconnect --init-command="use htb;select * from config;"
 ```
 ……
-
+![](assets/Pasted%20image%2020250710185814.png)
+```
+7b4bec00d1a39e3dd4e021ec3d915da8 
+```
+抓紧时间上一下HTB的PwnBox，拿完flag就走人
 ## 回顾
+
 ***
 ## 页面尾部
