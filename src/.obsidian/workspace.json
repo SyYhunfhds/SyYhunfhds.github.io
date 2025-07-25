@@ -9,20 +9,6 @@
         "dimension": 82.19814241486068,
         "children": [
           {
-            "id": "2ab0230f145fbba7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Crocodile"
-            }
-          },
-          {
             "id": "053b18471b3e8bd8",
             "type": "leaf",
             "state": {
@@ -51,35 +37,35 @@
             }
           },
           {
-            "id": "a18ccdaf1b66cfcf",
+            "id": "66f5163bc6a22c38",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/逆向咸鱼的一个全自动漏扫工具/项目结构兼功能分析.md",
+                "file": "Python/代码审计学习笔记/Python反序列化.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "项目结构兼功能分析"
+              "title": "Python反序列化"
             }
           },
           {
-            "id": "0910afa0213d2a36",
+            "id": "ee7df610133383f4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/探索Python库/PromptTookit.md",
+                "file": "Python/开源项目开发随笔/如何发布第一个Pypi包？.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "PromptTookit"
+              "title": "如何发布第一个Pypi包？"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       },
       {
         "id": "a26c5d814f1ec9c2",
@@ -92,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/探索Python库/PromptTookit.md",
+                "file": "Python/开源项目开发随笔/如何发布第一个Pypi包？.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "PromptTookit 的大纲"
+              "title": "如何发布第一个Pypi包？ 的大纲"
             }
           }
         ]
@@ -250,38 +236,46 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "0910afa0213d2a36",
+  "active": "ee7df610133383f4",
   "lastOpenFiles": [
-    "Python/探索Python库/assets/Pasted image 20250716180346.png",
-    "Python/探索Python库/assets/Pasted image 20250716180328.png",
-    "Python/探索Python库/assets/Pasted image 20250716175618.png",
-    "Python/探索Python库/assets/Pasted image 20250716175410.png",
-    "Python/探索Python库/assets/Pasted image 20250716174409.png",
-    "Python/探索Python库/assets/Pasted image 20250716174021.png",
-    "Python/探索Python库/assets/Pasted image 20250716173734.png",
-    "Python/探索Python库/assets/Pasted image 20250716173126.png",
-    "Python/探索Python库/assets/Pasted image 20250716172910.png",
-    "src.7z",
-    "Python/探索Python库/assets/Pasted image 20250715232456.png",
-    "Python/探索Python库/assets/Pasted image 20250715232049.png",
-    "Python/探索Python库/assets",
-    "Python/探索Python库/PromptTookit.md",
-    "Python/逆向咸鱼的一个全自动漏扫工具/项目结构兼功能分析.md",
-    "Python/探索Python库",
-    "Python/逆向咸鱼的一个全自动漏扫工具/assets",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Responder.md",
-    "Python/逆向咸鱼的一个全自动漏扫工具",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725215653.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725215018.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725214749.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725214325.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725214118.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725210929.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725210853.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725210009.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725205851.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725204807.png",
+    "Python/开源项目开发随笔/assets/Pasted image 20250725204127.png",
+    "Python/开源项目开发随笔/assets",
+    "Python/开源项目开发随笔/如何发布第一个Pypi包？.md",
+    "Python/代码审计学习笔记/Python反序列化.md",
+    "Python/开源项目开发随笔",
+    "草稿/PythonFofaSY库开发/项目结构规划.md",
+    "草稿/PythonFofaSY库开发/项目模块规划图.md",
+    "草稿/PyYaml反序列化漏洞介绍.md",
+    "草稿/PythonFofaSY库开发",
+    "Python/代码审计学习笔记/assets",
+    "Python/代码审计学习笔记",
+    "Python/随便弄点/WebSocket 回声服务器.md",
+    "Python/随便弄点",
     "草稿/NetNTLMv2 哈希捕获.md",
+    "Python/探索Python库/PromptTookit.md",
+    "src.7z",
+    "Python/探索Python库/assets",
+    "草稿/逆向咸鱼的一个全自动漏扫工具/项目结构兼功能分析.md",
+    "Python/探索Python库",
+    "草稿/逆向咸鱼的一个全自动漏扫工具/assets",
+    "渗透靶场/HackTheBox/Starting Point/Tier1/Responder.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
     "草稿/端口扫描新时代工具.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Sequal.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Appointment.md",
     "redteam/Technique Journey/工具库迭代.md",
-    "草稿",
     "未命名.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/assets",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Redeemer.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Explosion.md",
     "渗透靶场/HackTheBox/Starting Point/未命名.md",
     "README.md",
@@ -289,14 +283,6 @@
     "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
     "渗透靶场/HackTheBox/README.md",
     "渗透靶场/README.md",
-    "redteam/Technique Journey/SMB 渗透.md",
-    "redteam/Technique Journey/FTP 渗透.md",
-    "redteam/Technique Journey/FTP",
-    "redteam/Technique Journey",
-    "CTF/README.md",
-    "渗透靶场/TryHackMe/README.md",
-    "light-mind/hello.md",
-    "redteam/README.md",
-    "light-mind/README.md"
+    "redteam/Technique Journey/SMB 渗透.md"
   ]
 }
