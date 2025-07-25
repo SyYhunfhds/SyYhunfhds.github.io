@@ -236,8 +236,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "ee7df610133383f4",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
+    "翻译/Medium",
     "Python/开源项目开发随笔/如何发布第一个Pypi包？.md",
     "翻译/hello.md",
     "翻译/README.md",
@@ -282,7 +283,6 @@
     "README.md",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Fawn.md",
-    "渗透靶场/HackTheBox/README.md",
-    "渗透靶场/README.md"
+    "渗透靶场/HackTheBox/README.md"
   ]
 }
