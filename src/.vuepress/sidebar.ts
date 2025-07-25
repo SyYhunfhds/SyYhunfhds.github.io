@@ -35,6 +35,12 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "搬运翻译",
+      icon: "book-open",
+      prefix: "翻译/",
+      children: "structure",
+    },
+    {
       text: "渗透靶场",
       icon: "crosshairs",
       prefix: "渗透靶场/",

@@ -7,5 +7,6 @@ export default navbar([
   "/Python/",
   "/light-mind/",
   "/CTF/",
-  "/渗透靶场/"
+  "/渗透靶场/",
+  "/翻译/",
 ]);
