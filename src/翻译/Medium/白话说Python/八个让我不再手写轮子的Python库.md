@@ -72,6 +72,8 @@ if __name__ == "__main__":
 :::info 评论搬运
 **Paul Robello**：
 >如果你想开发一个TUI（文本形式的用户界面），那么我会推荐基于`Rich`构建的`Textual`
+
+
 :::
 ## 3.`Pendulum` —— `datatime`会背叛你，但`Pendulum`不会
 你是否曾经尝试过在Python中导出两个`datetime`对象然后……发现结果好像有点不对劲？是的，我也一样。来试试`Pendulum`吧——`datetime`的替代品，一样能**时区**，**格式化时间**、**持续时间**和**历法**，还能像大人一样算数
@@ -151,6 +153,12 @@ print(r.html.find('h1')[0].text)
 
 ✔*用在哪里*：爬取网页，但又不想使用传统的HTML解析器
 ⚡*有趣的事实*：它底层使用了`Pyppeteer`。Python中调用JS渲染——Selenium可以扔路边了
+
+:::info Pyppeteer
+*Kimi K2生成*
+**Pyppeteer** 是 **Puppeteer** 的 Python 非官方移植版，用于通过 **DevTools 协议** 控制 **无头 Chrome 或 Chromium** 浏览器。它允许开发者以编程方式自动化浏览器操作，如页面抓取、表单提交、截图、PDF 生成等。
+Pyppeteer 的更新频率较低，可能滞后于 Puppeteer 的新特性；若需更活跃的维护，可考虑 **Playwright**（支持 Python，功能更强大）。首次运行时会自动下载 Chromium，可能因网络问题失败（需手动配置镜像或跳过）。
+:::
 
 :::info 搬运评论
 ![](assets/Pasted%20image%2020250726114930.png)
