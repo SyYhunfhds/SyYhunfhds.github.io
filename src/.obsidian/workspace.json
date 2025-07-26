@@ -252,6 +252,8 @@
   },
   "active": "ee7df610133383f4",
   "lastOpenFiles": [
+    "翻译/Medium/白话说Python/assets/Pasted image 20250726114930.png",
+    "翻译/Medium/白话说Python/assets",
     "翻译/授权申请模板.md",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "翻译/README.md",
@@ -284,7 +286,6 @@
     "Python/随便弄点",
     "草稿/NetNTLMv2 哈希捕获.md",
     "Python/探索Python库/PromptTookit.md",
-    "src.7z",
     "草稿/逆向咸鱼的一个全自动漏扫工具/项目结构兼功能分析.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Responder.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
@@ -296,7 +297,6 @@
     "渗透靶场/HackTheBox/Starting Point/Tier0/Redeemer.md",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Explosion.md",
     "渗透靶场/HackTheBox/Starting Point/未命名.md",
-    "README.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md"
+    "README.md"
   ]
 }
