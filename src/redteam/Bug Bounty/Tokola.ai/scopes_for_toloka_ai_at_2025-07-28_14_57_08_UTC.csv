@@ -1,0 +1,21 @@
+identifier,asset_type,instruction,eligible_for_bounty,eligible_for_submission,availability_requirement,confidentiality_requirement,integrity_requirement,max_severity,system_tags,created_at,updated_at
+https://toloka.ai/,URL,Main landing page,true,true,,,,high,,2024-08-15 16:39:16 UTC,2024-08-15 16:39:16 UTC
+https://mindrift.ai/,URL,Landing page for experts,true,true,,,,high,,2024-08-15 16:41:13 UTC,2024-08-15 16:41:13 UTC
+https://we.toloka.ai,URL,Platform for tolokers. Other endpoints except /auth (such as /api) are out of scope ,false,false,,,,critical,,2024-08-15 16:43:22 UTC,2024-10-03 11:19:33 UTC
+auth.toloka.ai,URL,Authentication service,true,true,,,,critical,,2024-08-15 16:44:32 UTC,2024-08-15 17:10:03 UTC
+sso.auth.toloka.ai,URL,Cookie installing service,true,true,,,,critical,,2024-08-15 16:46:10 UTC,2024-08-15 16:49:00 UTC
+ladybug.a9s.toloka.ai,URL,Experts platform installation for bugbounty users,true,true,,,,critical,,2024-08-15 16:51:04 UTC,2024-12-23 16:13:32 UTC
+iframe-toloka.com,URL,Cookie-free domain,false,false,,,,high,,2024-08-15 16:52:23 UTC,2024-08-23 11:37:40 UTC
+workspace.toloka.dev,URL,Cookie-free domain,true,true,,,,high,,2024-08-15 16:53:22 UTC,2024-08-15 16:53:22 UTC
+platform.toloka.ai,URL,Platform for requesters,false,false,,,,critical,,2024-08-15 17:01:33 UTC,2024-08-15 17:01:33 UTC
+https://we.toloka.ai/auth,URL,Login page,true,true,,,,critical,,2024-08-15 17:02:42 UTC,2024-08-15 17:02:42 UTC
+tb.toloka.dev,URL,Template builder for tasks. Severity can be raised if you will be able to escape iframe and execute code on *.toloka.ai. Older version source code can be found at https://github.com/Toloka/template-builder,true,true,,,,medium,,2024-08-15 17:04:58 UTC,2024-11-04 12:49:58 UTC
+https://api-ui.toloka.ai,URL,Frontend API,true,true,,,,medium,,2024-08-15 17:07:04 UTC,2024-08-15 17:07:04 UTC
+mindrift.toloka.ai,URL,Platform for experts,true,true,,,,critical,,2024-08-15 17:15:55 UTC,2024-08-15 17:15:55 UTC
+tolokamodels.tech,URL,Toloka ML platform,false,false,,,,high,,2024-09-03 12:19:11 UTC,2024-09-03 12:19:11 UTC
+experts-portal.toloka.ai,URL,Experts portal,true,true,,,,critical,,2024-10-03 11:24:23 UTC,2024-10-03 11:24:23 UTC
+ai.toloka.expert,GOOGLE_PLAY_APP_ID,Mindrift mobile app https://play.google.com/store/apps/details?id=ai.toloka.expert,true,true,,,,critical,,2024-12-16 12:47:20 UTC,2024-12-16 12:52:30 UTC
+id6504492387,APPLE_STORE_APP_ID,Mindrift mobile app https://apps.apple.com/app/mindrift/id6504492387,true,true,,,,critical,,2024-12-16 12:52:17 UTC,2024-12-16 12:52:17 UTC
+workspace.toloka.ai,URL,iframe for template builder,true,true,,,,high,,2024-12-16 17:03:14 UTC,2024-12-16 17:03:14 UTC
+https://support.toloka.help,URL,This is just Zendesk page thus it is out of scope,false,false,,,,none,,2025-02-13 17:47:44 UTC,2025-02-13 17:47:44 UTC
+https://console.toloka.ai,URL,Console for requesters,false,false,,,,critical,,2025-03-07 14:48:30 UTC,2025-03-07 14:48:30 UTC
