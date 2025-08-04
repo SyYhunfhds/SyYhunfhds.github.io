@@ -49,9 +49,19 @@
               "icon": "lucide-file",
               "title": "Python反序列化"
             }
+          },
+          {
+            "id": "068c22ae4354f8b6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       },
       {
         "id": "a26c5d814f1ec9c2",
@@ -64,13 +74,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/代码审计学习笔记/Python反序列化.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Python反序列化 的大纲"
+              "title": "大纲"
             }
           }
         ]
@@ -222,8 +231,9 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "66f5163bc6a22c38",
+  "active": "068c22ae4354f8b6",
   "lastOpenFiles": [
+    "Python/代码审计学习笔记/Python反序列化.md",
     "Python/探索Python库/Playwright/Python爬虫编写 - Playwright.md",
     "草稿/Python爬虫进阶之路.md",
     "Python/探索Python库/Playwright/assets/Pasted image 20250805005350.png",
@@ -240,7 +250,6 @@
     "Python/探索Python库/Playwright/assets/Pasted image 20250802232642.png",
     "Python/探索Python库/Playwright/assets",
     "Python/探索Python库/Playwright",
-    "Python/代码审计学习笔记/Python反序列化.md",
     "redteam/Technique Journey/403绕过.md",
     "redteam/随笔.md",
     "redteam/Bug Bounty/Tokola.ai/扫站日记.md",
