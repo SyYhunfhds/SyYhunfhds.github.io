@@ -54,10 +54,14 @@
             "id": "068c22ae4354f8b6",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "八个让我不再手写轮子的Python库"
             }
           }
         ],
@@ -74,12 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "大纲"
+              "title": "八个让我不再手写轮子的Python库 的大纲"
             }
           }
         ]
@@ -233,11 +238,11 @@
   },
   "active": "068c22ae4354f8b6",
   "lastOpenFiles": [
+    "翻译/Medium/OSINT Team/网安每日任务指南 - 用Python赶走无聊的工作.md",
     "翻译/授权申请模板.md",
     "翻译/Medium/白话说Python/assets/Pasted image 20250726114930.png",
     "翻译/Medium/白话说Python/assets",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
-    "翻译/Medium/OSINT Team/网安每日任务指南 - 用Python赶走无聊的工作.md",
     "翻译/Medium/白话说Python",
     "翻译/Medium/OSINT Team",
     "翻译/Medium",

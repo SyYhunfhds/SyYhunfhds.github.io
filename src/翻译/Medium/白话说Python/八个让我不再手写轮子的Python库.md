@@ -26,7 +26,7 @@ aliases:
 **原文链接**：https://python.plainenglish.io/8-python-libraries-so-good-i-stopped-writing-my-own-scripts-8b5cca0d6aa1
 :::
 :::warning
-原文为**Member Only**限制级阅读
+原文为**Member Only**限制级阅读。如有版权侵犯，译者将尽快删除译文
 :::
 [[toc]]
 ***
