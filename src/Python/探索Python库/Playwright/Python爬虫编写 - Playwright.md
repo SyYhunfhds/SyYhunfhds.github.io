@@ -458,8 +458,7 @@ def test_locate_posts_list_by_CSS(page: Page):
     logger.info(f"posts_list count after: {posts.count()}")
 ```
 
-……愣是实装不了一点，网络不好的话是真的坐牢
-
+……愣是实装不了一点，网络状况不好的话是真的坐牢
 
 
 ### 尝试交互操作

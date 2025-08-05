@@ -1,0 +1,17 @@
+identifier,asset_type,instruction,eligible_for_bounty,eligible_for_submission,availability_requirement,confidentiality_requirement,integrity_requirement,max_severity,system_tags,created_at,updated_at
+*.bykea.net,WILDCARD,,TRUE,TRUE,,,,high,"Node.js, PostgresSQL, Cloudflare WAF, React, MongoDB",2023-09-18 03:41:28 UTC,2024-03-05 10:16:10 UTC
+com.bykea.pk,GOOGLE_PLAY_APP_ID,"The customer android app enables users to book rides, deliveries, and manage payments, offering a seamless experience for various services.",TRUE,TRUE,,,,critical,"Kotlin, Java",2023-09-18 03:41:28 UTC,2024-09-12 09:30:01 UTC
+com.bykea.pk.partner,GOOGLE_PLAY_APP_ID,"The driver app offers core features such as wallet management, invoicing, booking visibility, and acceptance, supporting seamless driver operations on the platform.",TRUE,TRUE,,,,critical,"Java, Kotlin, Urdu",2023-09-18 03:41:28 UTC,2024-09-12 09:25:23 UTC
+1351179184,APPLE_STORE_APP_ID,"The customer iOS app enables users to book rides, deliveries, and manage payments, offering a seamless experience for various services.",TRUE,TRUE,,,,critical,"Objective-C, Swift",2023-09-18 03:41:28 UTC,2024-09-12 09:30:29 UTC
+bykea.com,URL,,TRUE,TRUE,none,none,low,low,Wordpress,2023-09-18 03:57:47 UTC,2023-09-22 09:08:24 UTC
+https://maps.bykea.net,URL,,TRUE,TRUE,none,none,low,low,"Node.js, Cloudflare WAF, PostgresSQL",2023-09-19 04:14:16 UTC,2023-09-22 09:08:22 UTC
+https://leaflet-map.bykea.net,URL, ,TRUE,TRUE,none,none,low,low,"JavaScript, Cloudflare WAF",2023-09-19 04:16:28 UTC,2023-09-22 09:08:21 UTC
+https://nominatim.bykea.net,URL, ,TRUE,TRUE,none,none,low,low,"PostgresSQL, Python, PHP, Cloudflare WAF",2023-09-19 04:33:00 UTC,2023-09-22 09:08:19 UTC
+https://googleplace*.bykea.net,WILDCARD,,TRUE,TRUE,none,none,low,low,Cloudflare WAF,2023-09-19 04:38:07 UTC,2023-09-22 09:08:14 UTC
+https://geocode-beta.bykea.net,URL,,TRUE,TRUE,none,none,low,low,Cloudflare WAF,2023-09-19 04:55:31 UTC,2023-09-22 09:08:27 UTC
+www.tilismtechservices.com,URL,"This is a third-party service; therefore, issues related to this asset are out of scope for our program.",FALSE,FALSE,,,,none,,2023-11-29 08:20:26 UTC,2024-09-09 13:19:58 UTC
+https://api.bykea.net,URL,"This core microservice handles booking creation and facilitates communication between critical microservices, powering both the apps and overall business operations.",TRUE,TRUE,,,,critical,,2024-03-05 10:17:16 UTC,2024-09-12 09:39:36 UTC
+https://kronos*.bykea.net,WILDCARD,"This API-based microservice manages invoicing functionalities, playing a vital role in our platform¡¯s financial operations. ",TRUE,TRUE,,,,critical,,2024-03-05 10:20:56 UTC,2024-09-12 07:28:58 UTC
+https://loadboard*.bykea.net/,WILDCARD,This asset is an API-based microservice that allows drivers to view and accept customer bookings.,TRUE,TRUE,,,,critical,,2024-03-05 10:21:47 UTC,2024-09-09 13:13:55 UTC
+https://raptor*.bykea.net,WILDCARD,This asset is an API-based microservice responsible for authentication processes.,TRUE,TRUE,,,,critical,,2024-03-05 10:27:48 UTC,2024-09-09 13:12:11 UTC
+https://*test*.bykea.net,WILDCARD,,TRUE,TRUE,low,low,low,low,,2024-03-06 04:32:25 UTC,2024-03-06 04:32:25 UTC
