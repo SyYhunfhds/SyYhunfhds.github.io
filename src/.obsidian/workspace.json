@@ -70,12 +70,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+                "file": "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python 加速和优化程序内存的第三方库"
+              "title": "Python爬虫编写 - Playwright"
             }
           }
         ],
@@ -92,13 +92,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+                "file": "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Python 加速和优化程序内存的第三方库 的大纲"
+              "title": "Python爬虫编写 - Playwright 的大纲"
             }
           }
         ]
@@ -133,7 +133,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Pasted image 20250801235114.png",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -154,7 +154,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -252,8 +253,8 @@
   },
   "active": "a38494a30bffcf77",
   "lastOpenFiles": [
-    "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+    "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain GUI 项目规划.md",

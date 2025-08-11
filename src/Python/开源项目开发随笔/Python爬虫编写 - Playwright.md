@@ -43,7 +43,6 @@ Sitemap: https://thehackernews.com/videos/sitemap.xml
 ### 熟悉网站脉络
 #### 定位站点板块元素
 对于HackerNews站点`https://thehackernews.com/`，通过控制台可以查找到不同板块对应的元素路径：`/html/body/nav/div[2]/ul`
-![](assets/Pasted%20image%2020250801235114.png)
 整个导航栏的代码如下：
 ```html
 
