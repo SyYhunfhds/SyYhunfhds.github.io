@@ -51,31 +51,31 @@
             }
           },
           {
-            "id": "068c22ae4354f8b6",
+            "id": "fbba90478e5b5d4b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "redteam/Bug Bounty/bykea/bykea渗透日记.md",
+                "file": "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "bykea渗透日记"
+              "title": "Subdomain-GUI 开发随笔"
             }
           },
           {
-            "id": "7106dc0fb09775e1",
+            "id": "5045382a11c76fdd",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
+                "file": "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "使用PostgreSQL关键字绕过WAF"
+              "title": "Python项目重构 工具&&指南"
             }
           }
         ],
@@ -92,13 +92,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
+                "file": "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "使用PostgreSQL关键字绕过WAF 的大纲"
+              "title": "Python项目重构 工具&&指南 的大纲"
             }
           }
         ]
@@ -250,53 +250,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "7106dc0fb09775e1",
+  "active": "5045382a11c76fdd",
   "lastOpenFiles": [
+    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
+    "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
+    "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
+    "Python/开源项目开发随笔/Subdomain GUI/Subdomain GUI 项目规划.md",
+    "Python/代码审计学习笔记/Python反序列化.md",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810064843.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810055936.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810055511.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810052142.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810045637.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810044655.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810044521.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810040258.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810040054.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810035951.png",
+    "Python/开源项目开发随笔/Subdomain GUI/assets",
+    "Python/开源项目开发随笔/Subdomain GUI",
+    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
+    "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
     "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
-    "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
+    "redteam/Bug Bounty/Verily Lifes Science/随笔.md",
+    "redteam/Bug Bounty/NBA/NBA日记.md",
+    "redteam/Bug Bounty/Verily Lifes Science",
     "redteam/Bug Bounty/bykea/bykea渗透日记.md",
+    "redteam/Bug Bounty/NBA",
+    "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
     "翻译/Medium/Infosec",
-    "redteam/Bug Bounty/bykea/assets/Pasted image 20250805063859.png",
     "redteam/Bug Bounty/bykea/assets",
     "未命名.md",
     "草稿/子域名泄露.md",
     "redteam/Technique Journey/子域名泄露（subdomain takeover）.md",
     "redteam/Technique Journey/403绕过.md",
     "redteam/Bug Bounty/bykea/scopes_for_bykea_at_2025-08-04_18_38_34_UTC.csv",
-    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright.md",
     "redteam/Bug Bounty/bykea",
     "Python/探索Python库/Playwright/HackerNews网站结构.md",
     "README.md",
-    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "翻译/Medium/OSINT Team/网安每日任务指南 - 用Python赶走无聊的工作.md",
     "翻译/授权申请模板.md",
-    "翻译/Medium/白话说Python/assets/Pasted image 20250726114930.png",
     "翻译/Medium/白话说Python/assets",
     "翻译/Medium/白话说Python",
-    "翻译/Medium/OSINT Team",
-    "翻译/Medium",
-    "Python/代码审计学习笔记/Python反序列化.md",
     "草稿/Python爬虫进阶之路.md",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250805005350.png",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250804235954.png",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250804230019.png",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250804214953.png",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250804214939.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Responder.md",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250803122539.png",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250802234836.png",
-    "Python/探索Python库/Playwright/assets/Pasted image 20250802233343.png",
-    "Python/探索Python库/Playwright/assets",
-    "Python/探索Python库/Playwright",
     "redteam/随笔.md",
     "redteam/Bug Bounty/Tokola.ai/扫站日记.md",
     "redteam/Bug Bounty/starbucks/随笔.md",
-    "Python/开源项目开发随笔/如何发布第一个Pypi包？.md",
-    "翻译/hello.md",
-    "翻译/README.md",
-    "翻译/Medium/未命名.md",
-    "草稿/PythonFofaSY库开发/项目结构规划.md",
-    "草稿/PythonFofaSY库开发/项目模块规划图.md",
-    "草稿/PyYaml反序列化漏洞介绍.md"
+    "Python/开源项目开发随笔/如何发布第一个Pypi包？.md"
   ]
 }
