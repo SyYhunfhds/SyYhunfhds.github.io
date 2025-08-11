@@ -65,17 +65,17 @@
             }
           },
           {
-            "id": "5045382a11c76fdd",
+            "id": "a38494a30bffcf77",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
+                "file": "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python项目重构 工具&&指南"
+              "title": "Python 加速和优化程序内存的第三方库"
             }
           }
         ],
@@ -92,13 +92,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
+                "file": "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Python项目重构 工具&&指南 的大纲"
+              "title": "Python 加速和优化程序内存的第三方库 的大纲"
             }
           }
         ]
@@ -250,10 +250,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "5045382a11c76fdd",
+  "active": "a38494a30bffcf77",
   "lastOpenFiles": [
-    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
+    "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain GUI 项目规划.md",
     "Python/代码审计学习笔记/Python反序列化.md",
@@ -296,7 +297,6 @@
     "渗透靶场/HackTheBox/Starting Point/Tier1/Responder.md",
     "redteam/随笔.md",
     "redteam/Bug Bounty/Tokola.ai/扫站日记.md",
-    "redteam/Bug Bounty/starbucks/随笔.md",
-    "Python/开源项目开发随笔/如何发布第一个Pypi包？.md"
+    "redteam/Bug Bounty/starbucks/随笔.md"
   ]
 }
