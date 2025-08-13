@@ -250,8 +250,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b44904467a9ff783",
+  "active": "e9a3d36a1288820e",
   "lastOpenFiles": [
+    "sitemap.xsl",
+    "sitemap.xml",
+    "robots.txt",
     "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
     "翻译/Medium/Infosec/邮件OTP绕过实战.md",
     "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
@@ -289,14 +292,11 @@
     "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
     "redteam/Bug Bounty/Verily Lifes Science/随笔.md",
     "redteam/Bug Bounty/NBA/NBA日记.md",
-    "redteam/Bug Bounty/Verily Lifes Science",
     "redteam/Bug Bounty/bykea/bykea渗透日记.md",
-    "redteam/Bug Bounty/NBA",
     "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
     "未命名.md",
     "草稿/子域名泄露.md",
     "redteam/Technique Journey/子域名泄露（subdomain takeover）.md",
-    "redteam/Technique Journey/403绕过.md",
-    "Python/探索Python库/Playwright/HackerNews网站结构.md"
+    "redteam/Technique Journey/403绕过.md"
   ]
 }
