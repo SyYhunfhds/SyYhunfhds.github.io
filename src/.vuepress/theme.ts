@@ -137,6 +137,7 @@ export default hopeTheme({
   plugins: {
     blog: true,
     seo: true, // 启用SEO爬虫引擎优化
+    sitemap: true, // 启用站点地图
     // 启用之前需安装 @waline/client
     // 警告: 这是一个仅供演示的测试服务，在生产环境中请自行部署并使用自己的服务！
     // comment: {
@@ -157,7 +158,6 @@ export default hopeTheme({
     icon: {
       prefix: "fa6-solid:",
     },
-    
     // 如果你需要 PWA。安装 @vuepress/plugin-pwa 并取消下方注释
     // pwa: {
     //   favicon: "/favicon.ico",

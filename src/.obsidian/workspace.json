@@ -51,31 +51,31 @@
             }
           },
           {
-            "id": "fbba90478e5b5d4b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Subdomain-GUI 开发随笔"
-            }
-          },
-          {
             "id": "a38494a30bffcf77",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+                "file": "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Python 加速和优化程序内存的第三方库"
+              "title": "APK密钥泄露挖掘"
+            }
+          },
+          {
+            "id": "e9a3d36a1288820e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "邮件OTP绕过实战"
             }
           }
         ],
@@ -92,13 +92,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+                "file": "翻译/Medium/Infosec/邮件OTP绕过实战.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Python 加速和优化程序内存的第三方库 的大纲"
+              "title": "邮件OTP绕过实战 的大纲"
             }
           }
         ]
@@ -250,10 +250,33 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a38494a30bffcf77",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
-    "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
+    "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
+    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+    "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
+    "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
+    "redteam/Bug Bounty/Coolapp",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812195813.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812183711.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170326.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170104.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812162603.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812160607.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812152633.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812124443.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets",
+    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
+    "redteam/Bug Bounty/APK/敏感信息泄露",
+    "redteam/Bug Bounty/APK",
+    "翻译/授权申请模板.md",
+    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+    "翻译/Medium/StrangeRwhite的频道",
+    "草稿/APK自动挖洞.md",
+    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+    "翻译/Medium/Ibtissam hammadi的频道",
+    "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
     "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
@@ -261,42 +284,19 @@
     "Python/代码审计学习笔记/Python反序列化.md",
     "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810064843.png",
     "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810055936.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810055511.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810052142.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810045637.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810044655.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810044521.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810040258.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810040054.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810035951.png",
     "Python/开源项目开发随笔/Subdomain GUI/assets",
     "Python/开源项目开发随笔/Subdomain GUI",
     "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
-    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
     "redteam/Bug Bounty/Verily Lifes Science/随笔.md",
     "redteam/Bug Bounty/NBA/NBA日记.md",
     "redteam/Bug Bounty/Verily Lifes Science",
     "redteam/Bug Bounty/bykea/bykea渗透日记.md",
     "redteam/Bug Bounty/NBA",
     "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
-    "翻译/Medium/Infosec",
-    "redteam/Bug Bounty/bykea/assets",
     "未命名.md",
     "草稿/子域名泄露.md",
     "redteam/Technique Journey/子域名泄露（subdomain takeover）.md",
     "redteam/Technique Journey/403绕过.md",
-    "redteam/Bug Bounty/bykea/scopes_for_bykea_at_2025-08-04_18_38_34_UTC.csv",
-    "redteam/Bug Bounty/bykea",
-    "Python/探索Python库/Playwright/HackerNews网站结构.md",
-    "README.md",
-    "翻译/Medium/OSINT Team/网安每日任务指南 - 用Python赶走无聊的工作.md",
-    "翻译/授权申请模板.md",
-    "翻译/Medium/白话说Python/assets",
-    "翻译/Medium/白话说Python",
-    "草稿/Python爬虫进阶之路.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Responder.md",
-    "redteam/随笔.md",
-    "redteam/Bug Bounty/Tokola.ai/扫站日记.md",
-    "redteam/Bug Bounty/starbucks/随笔.md"
+    "Python/探索Python库/Playwright/HackerNews网站结构.md"
   ]
 }
