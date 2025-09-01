@@ -63,23 +63,9 @@
               "icon": "lucide-file",
               "title": "简单高效地仅使用浏览器挖掘XSS漏洞"
             }
-          },
-          {
-            "id": "9431bc615642b377",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "翻译/Medium/Level Up Coding/Python 协议初探.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Python 协议初探"
-            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 3
       },
       {
         "id": "c9fc60e5ff763220",
@@ -92,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/Level Up Coding/Python 协议初探.md",
+                "file": "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Python 协议初探 的大纲"
+              "title": "简单高效地仅使用浏览器挖掘XSS漏洞 的大纲"
             }
           }
         ]
@@ -251,42 +237,42 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "9431bc615642b377",
+  "active": "e5f1405490b5464f",
   "lastOpenFiles": [
     "翻译/Medium/Level Up Coding/assets/subtyping.drawio.svg",
     "翻译/Medium/Level Up Coding/assets",
     "翻译/Medium/Level Up Coding/Python后现代超模工具库.md",
     "翻译/Medium/Level Up Coding/Python 协议初探.md",
-    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
-    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
-    "CTF/HackerOne CTF/HackerOne 101 CTF.md",
-    "草稿/Python爬虫进阶之路.md",
-    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
-    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
     "翻译/Medium/Level Up Coding",
-    "草稿/jsfuck + xss 日语Payload解析.md",
-    "草稿/tex2pdf.-23d4012a51a75d42/input.tex",
-    "草稿/tex2pdf.-23d4012a51a75d42",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814132001.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814125806.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814125415.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814124917.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814123506.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814123222.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814121034.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250814120855.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250813205621.png",
-    "CTF/HackerOne CTF/assets/Pasted image 20250813205152.png",
-    "CTF/HackerOne CTF/assets",
-    "CTF/README.md",
     "翻译/Medium/Ibtissam hammadi的频道/Git泄露目录挖掘.md",
-    "CTF/HackerOne CTF",
-    "redteam/Bug Bounty/Flipkart",
-    "redteam/Bug Bounty/Syfe",
-    "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
-    "redteam/Bug Bounty/Vid Mate/Coolapp APK密钥泄露 （中文原文）.md",
+    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
+    "翻译/Medium/Ibtissam hammadi的频道",
+    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813100440.png",
+    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813100131.png",
+    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813100301.png",
+    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813095708.png",
+    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813095027.png",
     "redteam/Bug Bounty/Vid Mate/assets",
     "redteam/Bug Bounty/Vid Mate",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812195813.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170326.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812183711.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170104.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812162603.png",
+    "redteam/Bug Bounty/APK/敏感信息泄露/assets",
+    "redteam/Bug Bounty/APK/敏感信息泄露",
+    "redteam/Bug Bounty/APK",
+    "CTF/HackerOne CTF/HackerOne 101 CTF.md",
+    "CTF/HackerOne CTF/assets",
+    "CTF/HackerOne CTF",
+    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
+    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+    "草稿/Python爬虫进阶之路.md",
+    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
+    "草稿/jsfuck + xss 日语Payload解析.md",
+    "CTF/README.md",
+    "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
+    "redteam/Bug Bounty/Vid Mate/Coolapp APK密钥泄露 （中文原文）.md",
     "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
     "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
     "翻译/授权申请模板.md",
