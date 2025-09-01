@@ -6,7 +6,7 @@
       {
         "id": "7f9bd784e0c72eeb",
         "type": "tabs",
-        "dimension": 82.50773993808049,
+        "dimension": 81.656346749226,
         "children": [
           {
             "id": "053b18471b3e8bd8",
@@ -23,59 +23,59 @@
             }
           },
           {
-            "id": "4047e4ac526a2139",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "草稿/NetNTLMv2 哈希捕获.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "NetNTLMv2 哈希捕获"
-            }
-          },
-          {
-            "id": "66f5163bc6a22c38",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Python/代码审计学习笔记/Python反序列化.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Python反序列化"
-            }
-          },
-          {
             "id": "a38494a30bffcf77",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
+                "file": "草稿/Python爬虫进阶之路.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "APK密钥泄露挖掘"
+              "title": "Python爬虫进阶之路"
             }
           },
           {
-            "id": "e9a3d36a1288820e",
+            "id": "334145630d82abe7",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+                "file": "CTF/HackerOne CTF/HackerOne 101 CTF.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "邮件OTP绕过实战"
+              "title": "HackerOne 101 CTF"
+            }
+          },
+          {
+            "id": "e5f1405490b5464f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "简单高效地仅使用浏览器挖掘XSS漏洞"
+            }
+          },
+          {
+            "id": "9431bc615642b377",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "翻译/Medium/Level Up Coding/Python 协议初探.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Python 协议初探"
             }
           }
         ],
@@ -84,7 +84,7 @@
       {
         "id": "c9fc60e5ff763220",
         "type": "tabs",
-        "dimension": 17.492260061919502,
+        "dimension": 18.343653250773993,
         "children": [
           {
             "id": "e71379d11b5574c7",
@@ -92,13 +92,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/Infosec/邮件OTP绕过实战.md",
-                "followCursor": false,
+                "file": "翻译/Medium/Level Up Coding/Python 协议初探.md",
+                "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "邮件OTP绕过实战 的大纲"
+              "title": "Python 协议初探 的大纲"
             }
           }
         ]
@@ -240,6 +240,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:创建新数据库": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -250,53 +251,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e9a3d36a1288820e",
+  "active": "e71379d11b5574c7",
   "lastOpenFiles": [
-    "google2b44fb6be55be652.html",
-    "sitemap.xsl",
-    "sitemap.xml",
-    "robots.txt",
-    "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
-    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
-    "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
-    "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
-    "redteam/Bug Bounty/Coolapp",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812195813.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812183711.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170326.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170104.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812162603.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812160607.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812152633.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812124443.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets",
-    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
-    "redteam/Bug Bounty/APK/敏感信息泄露",
-    "redteam/Bug Bounty/APK",
-    "翻译/授权申请模板.md",
-    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
-    "翻译/Medium/StrangeRwhite的频道",
-    "草稿/APK自动挖洞.md",
+    "翻译/Medium/Level Up Coding/Python后现代超模工具库.md",
+    "翻译/Medium/Level Up Coding/Python 协议初探.md",
     "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
+    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+    "CTF/HackerOne CTF/HackerOne 101 CTF.md",
+    "草稿/Python爬虫进阶之路.md",
+    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
+    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
+    "翻译/Medium/Level Up Coding",
+    "草稿/jsfuck + xss 日语Payload解析.md",
+    "草稿/tex2pdf.-23d4012a51a75d42/input.tex",
+    "草稿/tex2pdf.-23d4012a51a75d42",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814132001.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814125806.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814125415.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814124917.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814123506.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814123222.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814121034.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250814120855.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250813205621.png",
+    "CTF/HackerOne CTF/assets/Pasted image 20250813205152.png",
+    "CTF/HackerOne CTF/assets",
+    "CTF/README.md",
+    "翻译/Medium/Ibtissam hammadi的频道/Git泄露目录挖掘.md",
+    "CTF/HackerOne CTF",
+    "redteam/Bug Bounty/Flipkart",
+    "redteam/Bug Bounty/Syfe",
+    "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
+    "redteam/Bug Bounty/Vid Mate/Coolapp APK密钥泄露 （中文原文）.md",
+    "redteam/Bug Bounty/Vid Mate/assets",
+    "redteam/Bug Bounty/Vid Mate",
+    "google2b44fb6be55be652.html",
+    "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
+    "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
+    "翻译/授权申请模板.md",
+    "草稿/APK自动挖洞.md",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
-    "翻译/Medium/Ibtissam hammadi的频道",
     "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
     "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain GUI 项目规划.md",
     "Python/代码审计学习笔记/Python反序列化.md",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810064843.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets/Pasted image 20250810055936.png",
-    "Python/开源项目开发随笔/Subdomain GUI/assets",
-    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
     "redteam/Bug Bounty/Verily Lifes Science/随笔.md",
-    "redteam/Bug Bounty/NBA/NBA日记.md",
-    "redteam/Bug Bounty/bykea/bykea渗透日记.md",
-    "翻译/Medium/Infosec/使用PostgreSQL关键字绕过WAF.md",
-    "未命名.md",
-    "草稿/子域名泄露.md",
-    "redteam/Technique Journey/子域名泄露（subdomain takeover）.md",
-    "redteam/Technique Journey/403绕过.md"
+    "redteam/Bug Bounty/NBA/NBA日记.md"
   ]
 }

@@ -82,7 +82,7 @@ inurl:search?q= inurl:redirect?url= site:example.com
 ```html
 "><script>alert(1)</script>
 ```
-
+#### Google Dorking技巧
 :::tip
 **Google Dorking**是一种**高级信息搜集技巧**，旨在使用Google搜索引擎提供的搜索语法，来搜索互联网上隐藏的站点或页面（可用于发现一些历史遗留站点）。**Exploit-DB**提供了一个收集了很多Dork Payload的仓库——[**Google Hacking Database (GHDB)**](https://www.exploit-db.com/google-hacking-database)
 
