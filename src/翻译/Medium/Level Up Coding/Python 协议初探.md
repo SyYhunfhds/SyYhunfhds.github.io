@@ -1114,18 +1114,23 @@ represent(implicit_color)
 	必须**实现协议的两个方法**抽象的`draw`和不抽象的`complex_method`以便在结构上满足协议
 
 ### 协议支持运行时结构化子类型关系吗？（*Can Protocols Support Runtime Structural Subtyping?*）
-在先前的讨论中，`issubclass()`是**运行时**子类型关系检查的一种内置方式。当你调用`issubclass(A, B)`
+在先前的讨论中，`issubclass()`是**运行时**子类型关系检查的一种内置方式。当你调用`issubclass(A, B)`，如果`B`的元类定义了`__subclasscheck__`方法，那么Python会在内部调用`B.__subclasscheck__(A)`。由于协议也是`ABCMeta`的实例，并且`ABCMeta`定义了`__subclasscheck__`，因此所有的协议类都会**继承**`ABCMeta`的机制。这意味着协议也可以通过`__subclasshook__`实现自定义运行时结构化子类型关系
 As discussed earlier, `issubclass()` is the built-in way to check whether one class is a subtype of another **at runtime**. When you call `issubclass(A, B)`, Python internally calls `B.__subclasscheck__(A)`, **provided that** `B`’s metaclass defines this method. Since `Protocol` is an instance of `ABCMeta`, and `ABCMeta` defines `__subclasscheck__`, all protocol classes **inherit** this mechanism. This means Protocols are technically capable of supporting runtime structural subtyping via `__subclasshook__`.
-
+自然地，有人会想到：“为了使协议在运行时也支持结构化子类型，我应该重载`__subclasshook__`”。
 Naturally, one might think: “To make structural subtyping work at runtime with Protocols, I should override __subclasshook__.”  
-  
+这理论上确实可行，但Python其实提供了`@runtime_checkable`装饰器，允许开发者更简洁地、标准地达成这一目的
 While that is technically possible, Python provides a cleaner and standardized approach using the `@runtime_checkable` decorator.
 
+> ***注意：**`isubclass(SomeClass, MyProtocol)`当且仅当使用`@runtime_checkable`装饰了`MyProtocol`后才可以正常使用。*
+> *另外，`@runtime_checkable`也只是检查同名属性或方法**是否存在**，而不会校验方法**签名***
+> *如果你确实有**自定义的、更细致的运行时子类型关系约束**需求，你可以在你自己的协议类中**重载**`__subclasshook__`，实现需要的逻辑*
+> *`@runtime_checkable`事实上也是依赖的`__subclasshook__`，所以如果你重载了它，你的自定义关系逻辑便能被`issubclass()`调用到*
 > **_Note:_** `_issubclass(SomeClass, MyProtocol)_` _will_ **_only work_** _if_ `_MyProtocol_` _is decorated with_ `_@runtime_checkable_`_.  
 > However,_ `_@runtime_checkable_` _only checks for the_ **_existence_** _of attributes/methods — it does_ **_not_** _validate method_ **_signatures_**_.  
 > _If you need a **custom and stricter runtime subtype check**, you can **override** `**__subclasshook__**` in your Protocol class to implement your own logic.  
 > In fact, `@runtime_checkable` internally relies on `__subclasshook__`, so if you override it, your custom logic will be used during `issubclass()`checks.
 
+```Python
 from typing import Protocol, runtime_checkable  
   
 class Bird(Protocol):  
@@ -1140,25 +1145,29 @@ class Dog:
         print("Walking dog")  
   
 class BadDog:  
-    def walk(self) -> None:  # Wrong signature!  
+    def walk(self) -> None:  # 参数不匹配，因此函数签名不匹配
         print("BadDog walking")  
   
 class Parrot:  
     def fly(self, i: int) -> None:  
         print("Parrot flying")  
   
-print(issubclass(Dog, Animal))      # ✅ True: method exists with correct name  
-print(issubclass(BadDog, Animal))   # ✅ True: @runtime_checkable only checks existence  
-# print(issubclass(Parrot, Bird))   # ❌ TypeError: Bird is not runtime-checkable
+print(issubclass(Dog, Animal))      # ✅ 方法同名，因此返回True
+print(issubclass(BadDog, Animal))   # ✅ @runtime_checkable只检查是否存在同名方法和属性，因此返回True  
+# print(issubclass(Parrot, Bird))   # ❌ TypeError: Bird 没有被 runtime_checkable 装饰
+```
 
-# ABCs and Protocols in Action: `collections.abc.Hashable`
-
+## 实战中的抽象基类和协议 （*ABCs and Protocols in Action: `collections.abc.Hashable`*）
+让我们来看看抽象基类和协议被应用到Python标准库中的例子
 Let’s look at an example where ABCs and Protocols are used as part of python standard library
 
+> 如果一个模块定义了存根文件（`.pyi`），静态类型检查器（比如`mypy`）便会转而从存根文件中读取该模块的对象类型和接口，而不会使用针对静态代码分析实现的运行时结构化子类型关系检查逻辑。当然，如果模块没有定义存根文件，类型检查器便会退回去分析实际的类型定义关系。标准库和很多高热度的第三方库都会使用[typeshed](https://github.com/python/typeshed)维护存根文件
 > Static type checkers like mypy use stub files (.pyi) when they are available for a module. These stubs describe the types and interfaces of the standard library and third-party packages. When stubs exist, type checkers use them instead of the actual runtime implementations for static analysis. If no stubs are defined, the type checker falls back to analyzing the actual class definitions. For the standard library and many popular third-party packages, these stubs are maintained in [typeshed](https://github.com/python/typeshed).
 
+`collections.abc`的`Hashable`的实现大致如下：
 In `collections.abc`, `Hashable` is implemented like this:
 
+```Python
 from abc import ABCMeta, abstractmethod  
   
 class Hashable(metaclass=ABCMeta):  
@@ -1173,27 +1182,35 @@ class Hashable(metaclass=ABCMeta):
         if cls is Hashable:  
             return _check_methods(C, "__hash__")  
         return NotImplemented
-
+```
+这里，`__subclasshook__`会检查给定类是否实现了`__hash__`方法。**因此，任何实现了`__hash__`方法的类都会在运行时被视为`Hashbale`的子类**
 Here, `__subclasshook__` checks if a class implements `__hash__`. **Hence, any class that implements a** `**__hash__**` **method will be considered a subclass of** `**Hashable**` **at runtime**.
 
+```Python
 class MyHashable:  
     def __hash__(self) -> int:  
         return 10  
   
 print(issubclass(MyHashable, Hashable))  # True
-
+```
+然而，正如我们之前谈到的，`__subclasshook__`只在**运行时**有效，所以，理论上来说，这一行为应该不适用于**静态类型检查**
 However, as discussed, `__subclasshook__` works only **at runtime**. So, theoretically, this behavior should **not** apply at **static type checking time**.  
+例如，在下面的代码中，由于`MyHashable`**没有显式继承自**`Hashable`，并且`Hashble`也没有被定义为协议，所以函数应该抛出类型检查错误
 For example, this function should raise a type checker error, because `MyHashable` does **not explicitly inherit** from `Hashable` and also `Hashable` is not defined as a Protocol.
 
+```Python
 def do_hashing(h: Hashable) -> None:  
     pass  
   
 h = MyHashable()  
 do_hashing(h)
-
+```
+**但这段代码确实能跑！凭啥？**
 **But it does not raise an error! Why?  
+**这是因为类型存根(typeshed所维护)针对静态类型检查定义了不同的`Hashable`版本**：
 **This happens because the type stubs (in typeshed) define `Hashable` differently for static type checking:
 
+```Python
 from typing import Protocol, runtime_checkable  
 from abc import ABCMeta, abstractmethod  
   
@@ -1201,47 +1218,61 @@ from abc import ABCMeta, abstractmethod
 class Hashable(Protocol, metaclass=ABCMeta):  
     @abstractmethod  
     def __hash__(self) -> int: ...
-
+```
+现在，`Hashable`也是一个针对静态分析优化了结构化子类型关系的**协议**——所有拥有`__hash__`方法的类型现在都可被`mypy`这样的类型检查器视作`Hashable`的子类
 Here, `Hashable` is a **Protocol** that uses structural subtyping for static analysis — meaning any type that has a `__hash__` method is considered `Hashable` by type checkers like `mypy`.
-
+我们已经了解了许多知识，现在让我们总结一下对Python中的抽象基类和协议的探索。
 We’ve covered a lot of ground. Let’s summarize the key takeaways from our exploration of ABCs and Protocols in Python.
 
-# Summary
-
+# 总结
+`A`是否为`B`的子类（或子类型）？从下面**两个维度**入手对于理解这个问题可谓大有裨益：
 When determining whether `A` is a subclass (or subtype) of `B`, it helps to think across **two dimensions**:
 
 - **Nominal vs Structural**
+	**名义继承的子类型**与**运行时结构化的子类型**
 - **Static vs Dynamic**
+	**静态检查**与**动态自定义hook、check和register**
 
-## Subtype Checks
+## 子类型检查 （*Subtype Checks*）
 
-**At runtime**
+### 运行时子类型检查
 
 - `issubclass(A, B)` is used to determine if `A` is a subclass of `B`.
+	`issubclass(A, B)`用于检查`A`是否为`B`的子类
 - Before the `abc` module, this check only supported **nominal subtyping** — i.e., it only worked for classes that explicitly inherited from `B`.
+	在引入`abc`模块前，`issubclass()`只支持**名义继承上的子类型关系检查**——也就是说只对显式继承自`B`的类有用
 - With the introduction of `abc`, runtime **structural subtyping** became possible using `__subclasscheck__` and `__subclasshook__`.
+	在引入`abc`的同时，运行时**结构化逻辑子类型关系检查**也因`__subclasscheck__`和`__subclasshook__`而成为可能
 
-**At static time**
+### 静态（兼容结构化子类型）检查
 
 - Static type checkers like `mypy` initially only supported **nominal subtyping**.
+	静态类型检查器起初只支持**名义继承的子类型关系检查**
 - With the addition of `Protocol`, static **structural subtyping** became possible — allowing type checkers to verify compatibility based on structure alone, without requiring inheritance.
-
+	`Protocol`的引入使得静态分析器兼容**结构化子类型**成为可能——运行检查器仅根据结构识别逻辑子类型，而不需要解析继承关系
+下面的图表演示了动态、静态、具名子类型和逻辑子类型四个维度上的子类型检查：
 The below image describes subtype checks across static/dynamic and nominal/structural dimensions.
 
-![](https://miro.medium.com/v2/resize:fit:948/1*HUbjRJ0J0gvK1gy6klbJZQ.png)
+[原图在此](https://miro.medium.com/v2/resize:fit:948/1*HUbjRJ0J0gvK1gy6klbJZQ.png)
+![使用Drawio重新画了一张](assets/subtyping.drawio.svg)
 
-## Interface Contract Enforcement
+## 接口契约强化 （*Interface Contract Enforcement*）
 
-**With ABCs**
+### 考虑抽象基类
 
 - You can define interface-like contracts using `@abstractmethod`.
+	使用`@abstractmethod`定义接口契约
 - At **runtime**, these checks are **existential** — they only ensure the method exists, not what it looks like.
+	**存在主义形式**的**运行时**检查——只确保存在同名的方法，而不关心方法的具体实现
 - By adding type annotations to abstract methods, you can make static checkers perform **signature-aware** checks.
+	通过给抽象方法添加类型注解来明示类型检查器应当检查**方法签名**是否一致
 
-**With Protocols**
+### 考虑协议
 
 - You can enforce contracts **structurally** — any class that implements the required methods with matching signatures is accepted, even if it doesn’t inherit from the Protocol.
+	可以**结构上**强化契约的实现——任何实现了所需的方法且方法签名匹配的类都是可接受的，即使并没有继承自对应协议
 
+```Python
 from typing import Protocol  
   
 class SupportsClose(Protocol):  
@@ -1254,22 +1285,25 @@ class File:
 def close_resource(resource: SupportsClose):  
     resource.close()  
   
-close_resource(File())  # Error: 'File' does not implement 'close'
-
+close_resource(File())  # Error: File类没有实现close方法
+```
+在上面的例子中，`File`的实例只有在**定义了`close`方法后才可作为`close_resource`函数的参数**。这便是**协议如何间接强化契约**的，依赖对应方法是否存在以及签名是否匹配，而不依赖实际的继承关系
 In the above example, an instance of `File` can only be passed to `close_resource` **if it defines a** `**close**` **method**. This illustrates how **Protocols enforce contracts indirectly** — based on the presence and signature of methods, rather than inheritance.
 
+:::tip
+我讲完了！如果你全部搞懂了，请给自己竖个大拇指。
+我衷心希望这篇文章能够帮助你清晰地理解Python抽象基类和协议的基本概念。请在评论区留下你的指正、问题亦或是别样的观点——我洗耳恭听！
 That’s it! If you made it all the way through, give yourself a pat on the back.  
 I hope this article helped clarify some of the foundational concepts around ABCs and Protocols in Python. If you noticed any mistakes, have questions, or would like to share a different perspective, please feel free to leave a comment — I’d love to hear your thoughts!
+:::
 
-# References and further reading
+# 参考资料与拓展阅读
 
-- [Raymond Hettinger : Build powerful, new data structures with Python’s abstract base classes](https://www.youtube.com/watch?v=S_ipdVNSFlo)
-- [Protocol: the keystone of type hints](https://www.youtube.com/watch?v=kDDCKwP7QgQ)
-- [Protocols in Python: Why You Need Them — presented by Rogier van der Geer](https://www.youtube.com/watch?v=Lddegb2ToNY)
-- [typing.Protocol`: type hints as Guido intended — presented by Luciano Ramalho](https://www.youtube.com/watch?v=0_IQoxBFepw)
-- [Interfaces and Protocols](https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html)
+- [Youtube视频 Raymond Hettinger：使用Python抽象基类构建健壮的现代数据结构](https://www.youtube.com/watch?v=S_ipdVNSFlo)
+- [Youtube视频 协议：类型提示的基石](https://www.youtube.com/watch?v=kDDCKwP7QgQ)
+- [Youtube视频 Rogier Van der geer - Python中的协议：为什么你需要它们](https://www.youtube.com/watch?v=Lddegb2ToNY)
+- [Youtube视频 Luciano Ramalho - 像Python之父一样编写类型提示](https://www.youtube.com/watch?v=0_IQoxBFepw)
+- [大佬的个人博客 glyph - 接口与协议](https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html)
 - [PEP 544 — Protocols: Structural subtyping](https://peps.python.org/pep-0544/)
 - [Protocol Documentation](https://typing.python.org/en/latest/spec/protocol.html#protocols)
 - [PEP 3119 — Introducing Abstract Base Classes](https://peps.python.org/pep-3119/)
-
-# 页面底部

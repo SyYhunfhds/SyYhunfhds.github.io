@@ -251,8 +251,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e71379d11b5574c7",
+  "active": "9431bc615642b377",
   "lastOpenFiles": [
+    "翻译/Medium/Level Up Coding/assets/subtyping.drawio.svg",
+    "翻译/Medium/Level Up Coding/assets",
     "翻译/Medium/Level Up Coding/Python后现代超模工具库.md",
     "翻译/Medium/Level Up Coding/Python 协议初探.md",
     "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
@@ -285,7 +287,6 @@
     "redteam/Bug Bounty/Vid Mate/Coolapp APK密钥泄露 （中文原文）.md",
     "redteam/Bug Bounty/Vid Mate/assets",
     "redteam/Bug Bounty/Vid Mate",
-    "google2b44fb6be55be652.html",
     "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
     "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
     "翻译/授权申请模板.md",
@@ -297,7 +298,6 @@
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
     "Python/开源项目开发随笔/Subdomain GUI/Subdomain GUI 项目规划.md",
     "Python/代码审计学习笔记/Python反序列化.md",
-    "redteam/Bug Bounty/Verily Lifes Science/随笔.md",
-    "redteam/Bug Bounty/NBA/NBA日记.md"
+    "redteam/Bug Bounty/Verily Lifes Science/随笔.md"
   ]
 }
