@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Python/随便弄点/WebSocket 回声服务器.md",
+                "file": "Python/随便弄点/WebSocket回声服务器.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "WebSocket 回声服务器"
+              "title": "WebSocket回声服务器"
             }
           }
         ],
@@ -64,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Python/随便弄点/WebSocket 回声服务器.md",
+                "file": "Python/随便弄点/WebSocket回声服务器.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "WebSocket 回声服务器 的大纲"
+              "title": "WebSocket回声服务器 的大纲"
             }
           }
         ]
@@ -233,7 +233,7 @@
     "Python/随便弄点/assets",
     "翻译/Medium/Level Up Coding/Python 协议初探.md",
     "light-mind/WebSocketIO初探.md",
-    "Python/随便弄点/WebSocket 回声服务器.md",
+    "Python/随便弄点/WebSocket回声服务器.md",
     "light-mind/简单操作系统.md",
     "light-mind/assets/Pasted image 20250910112254.png",
     "light-mind/assets/Pasted image 20250420135045.png",
