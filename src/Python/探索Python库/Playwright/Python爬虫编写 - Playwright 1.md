@@ -638,6 +638,27 @@ link_button = page.get_by_text('Next Page')
 ![](assets/Pasted%20image%2020250804214953.png)
 ![](assets/Pasted%20image%2020250804230019.png)
 测试完成，目前只有PDF模式可用
+## 尝试爬取ExploitDB网站
+### 首先尝试爬取主站
+定位页面主panel不是难事，问题在于如何从表格行中简单高效地提取出文本和超链接——直接对表格行使用`inner_text`快但是不细致，不能提取出URL，而使用`nth`配合`expect`遍历元素又有些复杂
+决定再次使用XPath尝试定位
+
+### 花絮
+![](assets/Pasted%20image%2020250904101612.png)
+奇异搞笑的单数行双数行……
+![](assets/Pasted%20image%2020250904141619.png)
+花絮，定位表格行
+![](assets/Pasted%20image%2020250904143549.png)
+![](assets/Pasted%20image%2020250904143618.png)
+定位到哪了？
+![](assets/Pasted%20image%2020250904182857.png)
+Xpath定位表格行
+```xpath
+//tr[@class="odd" or @class="even"]
+```
+![](assets/Pasted%20image%2020250904185001.png)
+花絮，再定位到表格行使用`td`标签定位表格中的元素
+测试发现死活取不出超链接
 
 ***
 # 页面尾部

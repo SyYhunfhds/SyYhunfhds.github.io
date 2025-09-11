@@ -23,20 +23,6 @@
             }
           },
           {
-            "id": "a38494a30bffcf77",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "草稿/Python爬虫进阶之路.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Python爬虫进阶之路"
-            }
-          },
-          {
             "id": "334145630d82abe7",
             "type": "leaf",
             "state": {
@@ -51,21 +37,21 @@
             }
           },
           {
-            "id": "e5f1405490b5464f",
+            "id": "cc45033f8523442c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
+                "file": "Python/随便弄点/WebSocket 回声服务器.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "简单高效地仅使用浏览器挖掘XSS漏洞"
+              "title": "WebSocket 回声服务器"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "c9fc60e5ff763220",
@@ -78,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
+                "file": "Python/随便弄点/WebSocket 回声服务器.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "简单高效地仅使用浏览器挖掘XSS漏洞 的大纲"
+              "title": "WebSocket 回声服务器 的大纲"
             }
           }
         ]
@@ -119,7 +105,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "WebSoc",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -237,53 +223,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e5f1405490b5464f",
+  "active": "cc45033f8523442c",
   "lastOpenFiles": [
-    "翻译/Medium/Level Up Coding/assets/subtyping.drawio.svg",
+    "Python/随便弄点/assets/Pasted image 20250911224315.png",
+    "Python/随便弄点/assets/Pasted image 20250911224156.png",
+    "Python/随便弄点/assets/Pasted image 20250911222015.png",
+    "Python/随便弄点/assets/Pasted image 20250911204346.png",
+    "Python/随便弄点/assets/Pasted image 20250911190158.png",
+    "Python/随便弄点/assets",
+    "翻译/Medium/Level Up Coding/Python 协议初探.md",
+    "light-mind/WebSocketIO初探.md",
+    "Python/随便弄点/WebSocket 回声服务器.md",
+    "light-mind/简单操作系统.md",
+    "light-mind/assets/Pasted image 20250910112254.png",
+    "light-mind/assets/Pasted image 20250420135045.png",
+    "light-mind/assets/Pasted image 20250910104438.png",
+    "light-mind/assets/Pasted image 20250910103011.png",
+    "light-mind/assets/Pasted image 20250910101306.png",
+    "light-mind/assets/Pasted image 20250910101228.png",
+    "light-mind/assets",
+    "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+    "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
+    "Python/开源项目开发随笔/写个JA3指纹玩具.md",
+    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
+    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
     "翻译/Medium/Level Up Coding/assets",
     "翻译/Medium/Level Up Coding/Python后现代超模工具库.md",
-    "翻译/Medium/Level Up Coding/Python 协议初探.md",
-    "翻译/Medium/Level Up Coding",
-    "翻译/Medium/Ibtissam hammadi的频道/Git泄露目录挖掘.md",
-    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
-    "翻译/Medium/Ibtissam hammadi的频道",
-    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813100440.png",
-    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813100131.png",
-    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813100301.png",
-    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813095708.png",
-    "redteam/Bug Bounty/Vid Mate/assets/Pasted image 20250813095027.png",
-    "redteam/Bug Bounty/Vid Mate/assets",
-    "redteam/Bug Bounty/Vid Mate",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812195813.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170326.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812183711.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812170104.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets/Pasted image 20250812162603.png",
-    "redteam/Bug Bounty/APK/敏感信息泄露/assets",
-    "redteam/Bug Bounty/APK/敏感信息泄露",
-    "redteam/Bug Bounty/APK",
-    "CTF/HackerOne CTF/HackerOne 101 CTF.md",
-    "CTF/HackerOne CTF/assets",
-    "CTF/HackerOne CTF",
-    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
     "翻译/Medium/Infosec/邮件OTP绕过实战.md",
+    "CTF/HackerOne CTF/HackerOne 101 CTF.md",
     "草稿/Python爬虫进阶之路.md",
-    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
+    "翻译/Medium/Ibtissam hammadi的频道/APK密钥挖掘指南（初级）.md",
+    "翻译/Medium/Level Up Coding",
     "草稿/jsfuck + xss 日语Payload解析.md",
+    "草稿/tex2pdf.-23d4012a51a75d42/input.tex",
+    "草稿/tex2pdf.-23d4012a51a75d42",
+    "CTF/HackerOne CTF/assets",
     "CTF/README.md",
+    "翻译/Medium/Ibtissam hammadi的频道/Git泄露目录挖掘.md",
+    "CTF/HackerOne CTF",
+    "redteam/Bug Bounty/Flipkart",
+    "redteam/Bug Bounty/Syfe",
     "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
     "redteam/Bug Bounty/Vid Mate/Coolapp APK密钥泄露 （中文原文）.md",
     "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
     "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
     "翻译/授权申请模板.md",
     "草稿/APK自动挖洞.md",
-    "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
     "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md",
-    "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
-    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
-    "Python/开源项目开发随笔/Subdomain GUI/Subdomain-GUI 开发随笔.md",
-    "Python/开源项目开发随笔/Subdomain GUI/Subdomain GUI 项目规划.md",
-    "Python/代码审计学习笔记/Python反序列化.md",
-    "redteam/Bug Bounty/Verily Lifes Science/随笔.md"
+    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md"
   ]
 }
