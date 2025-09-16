@@ -323,7 +323,96 @@ def receive_echo(data):
     continue_input_thread.set()
 ```
 
+#### 服务端保存聊天信息
+![](assets/Pasted%20image%2020250912095502.png)
+如上，给服务端增加了新的事件监听器，监听`chat`事件的消息，然后存入`tablib.Dataset`中用于演示
+客户端同步编写`chat`事件，发送数据
+但客户端收不到回复的话，由于当前是事件驱动型地恢复输入线程，因此，服务端必须给出回复客户端才能继续发送消息：
+```Python
+@socketio.on('chat')
+def handle_chat(msg):
+    ...
+    # 给客户端发消息以解除客户端的聊天限制
+    socketio.emit('generic_msg', {
+        'event': 'chat',
+        'status': 200
+    }, to=request.sid)
+```
+增加了新的消息返回格式，客户端则需要监听`generic_msg`事件，判断是否恢复输入线程：
+```Python
+@sio.on('generic_msg')
+def receive_generic_msg(data):
+    logger.info(f"接收到通用消息: {Fore.CYAN}{data}{Style.RESET_ALL}")
+    if isinstance(data, dict):
+        from_event = data.get('event')
+        if from_event == 'chat':
+            status = data.get('status')
+            if status == 403:
+                logger.warning(f"{Fore.YELLOW}您已被禁止发言{Style.RESET_ALL}")
+                continue_input_thread.clear() # 清除事件以暂停输入线程
+            elif status == 200:
+                logger.info(f"{Fore.GREEN}您已被允许发言{Style.RESET_ALL}")
+                continue_input_thread.set() # 设置事件，发送信号，放行输入线程
+            else:
+                logger.warning(f"{Fore.YELLOW}未知的状态码: {status}{Style.RESET_ALL}")
+                continue_input_thread.clear() # 清除事件以暂停输入线程
+```
+（已经开始写出屎山代码了）
 
+但是现在，由于`request.sid`是唯一但不持久的，不利于消息和会话持久化，因此，我们可以在客户端生成UUID（或者由服务端发放Token），服务端根据新的Token保存消息
+在这里，我使用客户端生成UUID的方法
+![](assets/Pasted%20image%2020250912111047.png)
+使用`connect`函数的`auth`参数传递字典，字典中包含UUID即可（不要直接传UUID）
+`auth`参数是被置于GET请求参数中传输的：
+![](assets/Pasted%20image%2020250912111141.png)
+因此，可以使用`flask.request.get('client_id')`获取我们生成的UUID
+```Python
+@socketio.on('chat')
+def handle_chat(msg):
+    print(f'获得查询参数: {request.args}')
+    client_id = request.args.get('client_id')
+    print(f"Received chat message from client {Fore.BLUE}{request.sid}: {Fore.MAGENTA}{msg}{Fore.RESET}")
+    msgdata.append([client_id, msg, now().isoformat()])
+    print(msgdata)
+    # 给客户端发消息以解除客户端的聊天限制
+    socketio.emit('generic_msg', {
+        'event': 'chat',
+        'status': 200
+    }, to=request.sid)
+```
+
+## 实现更多聊天功能
+### 使用UUID作为身份唯一辨识的方式
+（省略数据库服务编写过程）
+记得在`app.app_context`上下文执行数据库操作，不然会启动不了服务
+
+![](assets/Pasted%20image%2020250913102424.png)
+这里的数据库使用`sqlite + flask_sqlalchemy`配置
+
+分离服务端和客户端配置后，只有客户端才会有携带`client_id`的配置
+![](assets/Pasted%20image%2020250913103453.png)
+（现在没有是因为还没有保存配置）
+![](assets/Pasted%20image%2020250913163157.png)
+客户端加载配置时会尝试从字典中读取`id`的值，如果没有就会自己生成——当然，肯定是有被碰撞出来的风险，但现在还没重构，就先不管了，能用就行
+客户端启动连接时，会将`client_id`置于GET请求参数中传输（但更规范的方式是使用`auth`参数传输用于身份认证的`dict`，这里是因为AI犯病）
+![](assets/Pasted%20image%2020250913163419.png)
+使用`auth`参数传递身份认证数据时，服务端中负责监听`connect`事件的函数会收到`auth`参数，客户端所发送的`dict`就在其中
+```Python
+@socketio.on('connect')
+def test_connect(auth):
+    client_id = auth.get('client_id')
+    client_username = auth.get('client_username', 'N/A')
+    
+    logger.info(f"{Fore.GREEN}Client {client_id}({client_username}) connected {Fore.RESET}")
+
+```
+
+
+### 客户端本地多用户管理
+在上面的代码中，由于本地客户端只有一个主配置文件，不利于多客户端保存和测试身份令牌
+因此，需要隔离不同用户的配置
+![](assets/Pasted%20image%2020250913191001.png)
+![](assets/Pasted%20image%2020250913191107.png)
 
 
 ***
