@@ -10,6 +10,7 @@ export default sidebar({
       link: "demo/",
       children: "structure",
     },
+    /*
     {
       text: "红队",
       icon: "user-secret",
@@ -22,6 +23,7 @@ export default sidebar({
       prefix: "blueteam/",
       children: "structure",
     },
+     */
     {
       text: "Python",
       icon: "laptop-code",

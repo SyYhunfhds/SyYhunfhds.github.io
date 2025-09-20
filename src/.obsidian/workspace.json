@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/OSINT Team/TSxNINJA/最速管理员面板泄露漏洞.md",
+                "file": "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "最速管理员面板泄露漏洞"
+              "title": "AI赚钱小技巧（一）"
             }
           }
         ],
@@ -64,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/OSINT Team/TSxNINJA/最速管理员面板泄露漏洞.md",
+                "file": "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "最速管理员面板泄露漏洞 的大纲"
+              "title": "AI赚钱小技巧（一） 的大纲"
             }
           }
         ]
@@ -225,13 +225,17 @@
   },
   "active": "cc45033f8523442c",
   "lastOpenFiles": [
+    "light-mind/README.md",
+    "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
+    "light-mind/WebSocketIO初探.md",
+    "翻译/Medium/OSINT Team/TSxNINJA/最速管理员面板泄露漏洞.md",
+    "翻译/Medium/LearnAItoprofit.com",
     "翻译/Medium/OSINT Team/TSxNINJA/assets/Pasted image 20250920183158.png",
     "翻译/Medium/OSINT Team/TSxNINJA/assets/1_6uAGD00oWXMgg2gMpDVNNQ.webp",
     "翻译/Medium/OSINT Team/TSxNINJA/assets/Pasted image 20250920182422.png",
     "翻译/Medium/OSINT Team/TSxNINJA/assets/1_P0r0uGmuQIvwYQlYCAFD7A.webp",
     "翻译/Medium/OSINT Team/TSxNINJA/assets",
     "light-mind/简单操作系统.md",
-    "翻译/Medium/OSINT Team/TSxNINJA/最速管理员面板泄露漏洞.md",
     "翻译/Medium/OSINT Team/TSxNINJA",
     "light-mind/assets/Pasted image 20250920130820.png",
     "light-mind/assets/Pasted image 20250920114336.png",
@@ -239,11 +243,9 @@
     "light-mind/assets/Pasted image 20250920000956.png",
     "light-mind/assets/Pasted image 20250919223552.png",
     "light-mind/assets/Pasted image 20250919214605.png",
-    "light-mind/assets/Pasted image 20250919132038.png",
     "Python/随便弄点/WebSocket回声服务器.md",
     "Python/随便弄点/assets",
     "翻译/Medium/Level Up Coding/Python 协议初探.md",
-    "light-mind/WebSocketIO初探.md",
     "light-mind/assets",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
     "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
@@ -263,13 +265,11 @@
     "CTF/HackerOne CTF/assets",
     "CTF/README.md",
     "翻译/Medium/Ibtissam hammadi的频道/Git泄露目录挖掘.md",
-    "CTF/HackerOne CTF",
     "redteam/Bug Bounty/APK/敏感信息泄露/APK密钥泄露挖掘.md",
     "redteam/Bug Bounty/Vid Mate/Coolapp APK密钥泄露 （中文原文）.md",
     "翻译/Medium/StrangeRwhite的频道/邮件OTP绕过实战.md",
     "redteam/Bug Bounty/Coolapp/Coolapp硬编码密钥暴露漏洞.md",
     "翻译/授权申请模板.md",
-    "草稿/APK自动挖洞.md",
-    "Python/开源项目开发随笔/Python爬虫编写 - Playwright.md"
+    "草稿/APK自动挖洞.md"
   ]
 }
