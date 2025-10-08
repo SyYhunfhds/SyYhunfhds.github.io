@@ -28,30 +28,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
+                "file": "light-mind/前沿密码学攻击技术研究.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AI赚钱小技巧（一）"
-            }
-          },
-          {
-            "id": "6cd923005ac328cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "翻译/Medium/Ibtissam hammadi的频道/Git任意文件删除漏洞.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Git任意文件删除漏洞"
+              "title": "前沿密码学攻击技术研究"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "c9fc60e5ff763220",
@@ -64,13 +50,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "翻译/Medium/Ibtissam hammadi的频道/Git任意文件删除漏洞.md",
+                "file": "light-mind/前沿密码学攻击技术研究.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Git任意文件删除漏洞 的大纲"
+              "title": "前沿密码学攻击技术研究 的大纲"
             }
           }
         ]
@@ -93,7 +79,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": true
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -105,7 +91,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:getshell",
+                "query": "file:we",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -223,53 +209,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "6cd923005ac328cf",
+  "active": "cc45033f8523442c",
   "lastOpenFiles": [
+    "light-mind/assets/Pasted image 20251008222059.png",
+    "light-mind/assets/Pasted image 20251008210642.png",
+    "light-mind/assets/Pasted image 20251008210638.png",
+    "light-mind/assets/Pasted image 20251008193521.png",
+    "light-mind/assets/Pasted image 20251006172740.png",
+    "light-mind/assets/Pasted image 20251006165611.png",
+    "light-mind/assets/Pasted image 20251005225757.png",
+    "light-mind/tex2pdf.-8362e4337b107a76/input.tex",
+    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005202322.png",
+    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005202232.png",
+    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005201615.png",
+    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005144652.png",
+    "light-mind/tex2pdf.-8362e4337b107a76/assets",
+    "light-mind/tex2pdf.-8362e4337b107a76",
+    "light-mind/tex2pdf.-d5f13d5b133365d0/input.tex",
+    "light-mind/tex2pdf.-d5f13d5b133365d0/assets",
+    "light-mind/tex2pdf.-d5f13d5b133365d0",
+    "light-mind/tex2pdf.-c2c9577c99d56b06/input.tex",
+    "light-mind/tex2pdf.-c2c9577c99d56b06/assets",
+    "light-mind/tex2pdf.-c2c9577c99d56b06",
+    "[7位可约LSFR测试如下](.md",
+    "light-mind/前沿密码学攻击技术研究.md",
+    "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
+    "7位可约LSFR测试如下.md",
+    "light-mind/简单操作系统.md",
+    "Python/随便弄点/WebSocket回声服务器.md",
     "翻译/Medium/Ibtissam hammadi的频道/Git任意文件删除漏洞.md",
     "渗透靶场/HackTheBox/Starting Point/Tier 2/Archetype.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets/Pasted image 20250924230325.png",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets/Pasted image 20250924223510.png",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Responder NTLM哈希捕获.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Three 子域名挖掘和AWS桶接管.md",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets/Pasted image 20250924222611.png",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets/Pasted image 20250924222526.png",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets/Pasted image 20250924221538.png",
-    "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets/Pasted image 20250924221157.png",
     "渗透靶场/HackTheBox/Starting Point/Tier 2/assets",
-    "light-mind/简单操作系统.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2",
     "草稿/Linux进程、分页、内存管理探幽（去除Prompt）.md",
     "light-mind/Linux进程、分页、内存管理探幽（去除Prompt）.md",
-    "light-mind/assets/Pasted image 20250923180621.png",
     "light-mind/AI工具一览.md",
     "light-mind/hello.md",
     "草稿/Linux进程、分页、内存管理探幽.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250921195354.png",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250921195348.png",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/assets/Pasted image 20250921195050.png",
     "CTF/HackerOne CTF/HackerOne 101 CTF.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
     "light-mind/README.md",
     "light-mind/WebSocketIO初探.md",
     "翻译/Medium/OSINT Team/TSxNINJA/最速管理员面板泄露漏洞.md",
-    "翻译/Medium/LearnAItoprofit.com",
-    "翻译/Medium/OSINT Team/TSxNINJA/assets",
-    "翻译/Medium/OSINT Team/TSxNINJA",
-    "Python/随便弄点/WebSocket回声服务器.md",
-    "Python/随便弄点/assets",
     "翻译/Medium/Level Up Coding/Python 协议初探.md",
-    "light-mind/assets",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
     "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
-    "Python/开源项目开发随笔/写个JA3指纹玩具.md",
-    "Python/探索Python库/Playwright/Python爬虫编写 - Playwright 1.md",
-    "翻译/Medium/Infosec/简单高效地仅使用浏览器挖掘XSS漏洞.md",
-    "翻译/Medium/Level Up Coding/assets",
-    "翻译/Medium/Level Up Coding/Python后现代超模工具库.md",
-    "翻译/Medium/Infosec/邮件OTP绕过实战.md",
-    "翻译/Medium/Level Up Coding",
-    "草稿/tex2pdf.-23d4012a51a75d42/input.tex"
+    "Python/开源项目开发随笔/写个JA3指纹玩具.md"
   ]
 }

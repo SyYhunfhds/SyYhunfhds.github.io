@@ -414,6 +414,10 @@ def test_connect(auth):
 ![](assets/Pasted%20image%2020250913191001.png)
 ![](assets/Pasted%20image%2020250913191107.png)
 
+### 聊天记录保存和查看
+![](assets/Pasted%20image%2020250926184300.png)
+如何保存聊天记录就不做记录了（想不起来了）
+
 
 ***
 # 页面尾部
