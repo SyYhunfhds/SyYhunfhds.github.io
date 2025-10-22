@@ -5,8 +5,10 @@ export default navbar([
   // "/redteam/",
   // "/blueteam/",
   "/Python/",
+  "/Golang/",
   "/light-mind/",
   "/CTF/",
   "/渗透靶场/",
   "/翻译/",
+
 ]);

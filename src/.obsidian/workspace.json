@@ -23,17 +23,17 @@
             }
           },
           {
-            "id": "cc45033f8523442c",
+            "id": "4fc41454901b210d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "light-mind/前沿密码学攻击技术研究.md",
+                "file": "Golang/学习笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "前沿密码学攻击技术研究"
+              "title": "学习笔记"
             }
           }
         ],
@@ -50,13 +50,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "light-mind/前沿密码学攻击技术研究.md",
+                "file": "Golang/学习笔记.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "前沿密码学攻击技术研究 的大纲"
+              "title": "学习笔记 的大纲"
             }
           }
         ]
@@ -209,53 +209,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "cc45033f8523442c",
+  "active": "4fc41454901b210d",
   "lastOpenFiles": [
-    "light-mind/assets/Pasted image 20251008222059.png",
-    "light-mind/assets/Pasted image 20251008210642.png",
-    "light-mind/assets/Pasted image 20251008210638.png",
-    "light-mind/assets/Pasted image 20251008193521.png",
-    "light-mind/assets/Pasted image 20251006172740.png",
-    "light-mind/assets/Pasted image 20251006165611.png",
-    "light-mind/assets/Pasted image 20251005225757.png",
-    "light-mind/tex2pdf.-8362e4337b107a76/input.tex",
-    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005202322.png",
-    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005202232.png",
-    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005201615.png",
-    "light-mind/tex2pdf.-8362e4337b107a76/assets/Pasted image 20251005144652.png",
-    "light-mind/tex2pdf.-8362e4337b107a76/assets",
-    "light-mind/tex2pdf.-8362e4337b107a76",
-    "light-mind/tex2pdf.-d5f13d5b133365d0/input.tex",
-    "light-mind/tex2pdf.-d5f13d5b133365d0/assets",
-    "light-mind/tex2pdf.-d5f13d5b133365d0",
-    "light-mind/tex2pdf.-c2c9577c99d56b06/input.tex",
-    "light-mind/tex2pdf.-c2c9577c99d56b06/assets",
-    "light-mind/tex2pdf.-c2c9577c99d56b06",
-    "[7位可约LSFR测试如下](.md",
+    "Golang/assets/Pasted image 20251022210225.png",
+    "Golang/assets/Pasted image 20251022205453.png",
+    "Golang/assets/Pasted image 20251022205131.png",
+    "Golang/assets/Pasted image 20251022181316.png",
+    "Golang/assets/Pasted image 20251022180312.png",
+    "Golang/assets/Pasted image 20251022175348.png",
+    "Golang/assets/Pasted image 20251022170050.png",
+    "Golang/assets/Pasted image 20251021232202.png",
+    "Golang/assets/Pasted image 20251021224256.png",
+    "Golang/assets/Pasted image 20251021214315.png",
+    "Golang/assets/Pasted image 20251021213732.png",
+    "Golang/assets",
+    "Golang/学习笔记.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier 2/Archetype.md",
+    "Golang/README.md",
+    "Python/README.md",
+    "翻译/Medium/Infosec/隐藏API挖掘.md",
+    "Golang",
     "light-mind/前沿密码学攻击技术研究.md",
+    "light-mind/tex2pdf.-f9ebd06d69d54231/input.pdf",
+    "light-mind/tex2pdf.-f9ebd06d69d54231/input.aux",
+    "light-mind/简单操作系统.md",
+    "light-mind/tex2pdf.-f9ebd06d69d54231/input.log",
+    "light-mind/tex2pdf.-f9ebd06d69d54231/input.tex",
+    "light-mind/tex2pdf.-f9ebd06d69d54231/assets",
+    "light-mind/tex2pdf.-f9ebd06d69d54231",
+    "翻译/Medium/Infosec/assets",
+    "light-mind/Observer attack.md",
+    "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
+    "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
+    "未命名.md",
+    "[程序实现](.md",
+    "light-mind/tex2pdf.-8362e4337b107a76/input.tex",
+    "[7位可约LSFR测试如下](.md",
     "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
     "7位可约LSFR测试如下.md",
-    "light-mind/简单操作系统.md",
     "Python/随便弄点/WebSocket回声服务器.md",
     "翻译/Medium/Ibtissam hammadi的频道/Git任意文件删除漏洞.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/Archetype.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Responder NTLM哈希捕获.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Three 子域名挖掘和AWS桶接管.md",
     "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier 2/assets",
     "草稿/Linux进程、分页、内存管理探幽（去除Prompt）.md",
     "light-mind/Linux进程、分页、内存管理探幽（去除Prompt）.md",
     "light-mind/AI工具一览.md",
     "light-mind/hello.md",
-    "草稿/Linux进程、分页、内存管理探幽.md",
-    "CTF/HackerOne CTF/HackerOne 101 CTF.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
-    "light-mind/README.md",
-    "light-mind/WebSocketIO初探.md",
-    "翻译/Medium/OSINT Team/TSxNINJA/最速管理员面板泄露漏洞.md",
-    "翻译/Medium/Level Up Coding/Python 协议初探.md",
-    "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
-    "翻译/Medium/白话说Python/Python项目重构 工具&&指南.md",
-    "Python/开源项目开发随笔/写个JA3指纹玩具.md"
+    "草稿/Linux进程、分页、内存管理探幽.md"
   ]
 }

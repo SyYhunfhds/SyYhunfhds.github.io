@@ -31,6 +31,12 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "Golang",
+      icon: "laptop-code",
+      prefix: "Golang/",
+      children: "structure",
+    },
+    {
       text: "随笔",
       icon: "book-open",
       prefix: "light-mind/",
