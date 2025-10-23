@@ -28,16 +28,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/学习笔记.md",
+                "file": "Golang/学习笔记（一）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "学习笔记"
+              "title": "学习笔记（一）"
+            }
+          },
+          {
+            "id": "52b4ad0ff31626d4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/学习笔记二.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "学习笔记二"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
         "id": "c9fc60e5ff763220",
@@ -50,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/学习笔记.md",
+                "file": "Golang/学习笔记二.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "学习笔记 的大纲"
+              "title": "学习笔记二 的大纲"
             }
           }
         ]
@@ -209,21 +223,22 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "4fc41454901b210d",
+  "active": "52b4ad0ff31626d4",
   "lastOpenFiles": [
+    "Golang/assets/Pasted image 20251023145821.png",
+    "Golang/assets/Pasted image 20251023145818.png",
+    "Golang/assets/Pasted image 20251023142353.png",
+    "Golang/assets/Pasted image 20251023142349.png",
+    "Golang/学习笔记二.md",
+    "Golang/学习笔记（一）.md",
+    "Golang/assets/Pasted image 20251023114233.png",
+    "Golang/assets/Pasted image 20251022213604.png",
     "Golang/assets/Pasted image 20251022210225.png",
     "Golang/assets/Pasted image 20251022205453.png",
     "Golang/assets/Pasted image 20251022205131.png",
     "Golang/assets/Pasted image 20251022181316.png",
     "Golang/assets/Pasted image 20251022180312.png",
-    "Golang/assets/Pasted image 20251022175348.png",
-    "Golang/assets/Pasted image 20251022170050.png",
-    "Golang/assets/Pasted image 20251021232202.png",
-    "Golang/assets/Pasted image 20251021224256.png",
-    "Golang/assets/Pasted image 20251021214315.png",
-    "Golang/assets/Pasted image 20251021213732.png",
     "Golang/assets",
-    "Golang/学习笔记.md",
     "渗透靶场/HackTheBox/Starting Point/Tier 2/Archetype.md",
     "Golang/README.md",
     "Python/README.md",
@@ -255,7 +270,6 @@
     "草稿/Linux进程、分页、内存管理探幽（去除Prompt）.md",
     "light-mind/Linux进程、分页、内存管理探幽（去除Prompt）.md",
     "light-mind/AI工具一览.md",
-    "light-mind/hello.md",
-    "草稿/Linux进程、分页、内存管理探幽.md"
+    "light-mind/hello.md"
   ]
 }
