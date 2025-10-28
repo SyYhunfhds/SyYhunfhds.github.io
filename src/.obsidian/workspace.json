@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
+                "file": "Golang/语法/学习笔记（一）：Hello World.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "学习笔记（一）：Gin部署与Gin路由"
+              "title": "学习笔记（一）：Hello World"
             }
           },
           {
@@ -64,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
+                "file": "Golang/语法/学习笔记（一）：Hello World.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "学习笔记（一）：Gin部署与Gin路由 的大纲"
+              "title": "学习笔记（一）：Hello World 的大纲"
             }
           }
         ]
@@ -105,7 +105,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "Pasted image 20251020230056.png",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -126,7 +126,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -225,6 +226,7 @@
   },
   "active": "c7a2ebf8bde76011",
   "lastOpenFiles": [
+    "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
     "Golang/Gin框架/assets/12.jpg",
     "Golang/Gin框架/assets/Pasted image 20251028230134.png",
     "Golang/Gin框架/assets/Pasted image 20251028223639.png",
@@ -237,8 +239,6 @@
     "Golang/Gin框架/assets/Pasted image 20251028215417.png",
     "Golang/语法/学习笔记（七）.md",
     "Golang/语法/学习笔记（六）：反射.md",
-    "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
-    "Golang/Gin框架/assets/Pasted image 20251028190528.png",
     "Golang/语法/学习笔记（四）：package.md",
     "Golang/语法/学习笔记（五）：协程.md",
     "Golang/语法/学习笔记（三）：结构体.md",

@@ -49,7 +49,6 @@ fmt.Print // 顾名思义不换行的字符串打印
 fmt.Println // 换行的字符串打印
 fmt.Printf // 格式化打印, 和C语言差不多
 ```
-![](语法/assets/Pasted%20image%2020251020230056.png)
 ##### `Print`和`Println`
 对于多个字符串字面量作为函数参数的情况，`Print`和`Println`都会自动连接字面量，但`Println`连接字符串时不会在中间加`\n`，而是加个空格：
 ```go
