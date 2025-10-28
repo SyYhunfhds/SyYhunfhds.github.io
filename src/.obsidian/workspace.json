@@ -105,7 +105,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "Pasted image 20251020230056.png",
+                "query": "Pasted image 20251020232610.png",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -126,8 +126,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -224,7 +223,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c7a2ebf8bde76011",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
     "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
     "Golang/Gin框架/assets/12.jpg",
