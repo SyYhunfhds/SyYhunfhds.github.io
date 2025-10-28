@@ -49,7 +49,7 @@ fmt.Print // 顾名思义不换行的字符串打印
 fmt.Println // 换行的字符串打印
 fmt.Printf // 格式化打印, 和C语言差不多
 ```
-![](assets/Pasted%20image%2020251020230056.png)
+![](语法/assets/Pasted%20image%2020251020230056.png)
 ##### `Print`和`Println`
 对于多个字符串字面量作为函数参数的情况，`Print`和`Println`都会自动连接字面量，但`Println`连接字符串时不会在中间加`\n`，而是加个空格：
 ```go
@@ -60,7 +60,7 @@ fmt.Printf // 格式化打印, 和C语言差不多
 ```
 ##### `Printf`
 `Printf`直接类比C语言的`printf`理解和使用，但Go还给Printf函数加了`%v`占位符，可以处理**任何类型**的变量
-![](assets/Pasted%20image%2020251020232610.png)
+![](语法/assets/Pasted%20image%2020251020232610.png)
 :::tip `%v`的魅力
 当我们开始处理更复杂的类型，比如结构体 (struct) 时，%v 还有两个更有用的变体：
 - `%v`: 默认值。对于结构体，它只打印各个字段的值。
@@ -94,7 +94,7 @@ v:  {101 Bob}
 :::
 
 `%v`变种也并非只能用在结构体上，用在一般变量上也是可以的……就是不那么有趣……
-![](assets/Pasted%20image%2020251020233431.png)
+![](语法/assets/Pasted%20image%2020251020233431.png)
 
 ## 基础语法
 ### 变量定义
@@ -112,9 +112,9 @@ s := "Hello World";
 
 Go的社区规范是**能让编译器自行推导就让编译器自行推导**，除非是在函数外面/包级别的情形，才必须使用`var`关键字，让编译器在进入函数堆栈前给包级别的*全局变量* 分配好内存空间
 
-![](assets/Pasted%20image%2020251020231129.png)
+![](语法/assets/Pasted%20image%2020251020231129.png)
 和C语言不同的是，Go的变量在定义后必须至少被调用一次，否则就无法通过编译（导入的包也是至少要使用一次的）
-![](assets/Pasted%20image%2020251020231239.png)
+![](语法/assets/Pasted%20image%2020251020231239.png)
 :::note
 刚刚发现Golang语句末尾的分号不是必需的
 :::
@@ -144,7 +144,7 @@ import (
 :::
 #### 变量声明的其他语法
 使用`var`时可以对多个变量赋上同样的值：
-![](assets/Pasted%20image%2020251021183951.png)
+![](语法/assets/Pasted%20image%2020251021183951.png)
 :::note
 小括号语法也可以给`import`用：
 ```go
@@ -157,7 +157,7 @@ import (
 记得定义了变量就一定要用
 ***
 也可以一次性声明多个值不同的变量：
-![](assets/Pasted%20image%2020251021184110.png)
+![](语法/assets/Pasted%20image%2020251021184110.png)
 
 *短变量声明符* 左右两边可以有不止一个变量和参数，只要个数对应上就行：
 ```go
@@ -294,7 +294,7 @@ int8 int16 int32 int64
 uint8 uint16 uint32 uint64
 ```
 知道数值写大了写小了会溢出不给编译就行了
-![](assets/Pasted%20image%2020251021190731.png)
+![](语法/assets/Pasted%20image%2020251021190731.png)
 高位向低位转换时也有可能溢出
 ```go
 func main() {
@@ -390,7 +390,7 @@ func main() {
 	fmt.Println(pi) // 3.14
 }
 ```
-![](assets/Pasted%20image%2020251021193137.png)
+![](语法/assets/Pasted%20image%2020251021193137.png)
 不过Golang也逃不掉浮点数精度丢失（截图是教程里的）
 
 导入一下`decimal`试试看
@@ -410,7 +410,7 @@ func main() {
 }
 ```
 Go不支持重载运算符，所以`decimal`额外实现了多种运算函数来处理特殊高精度数运算
-![](assets/Pasted%20image%2020251021212539.png)
+![](语法/assets/Pasted%20image%2020251021212539.png)
 视频教程里的运算更是冗长……
 
 浮点型也可以转换成整型，或者转回来——注意自己收拾精度丢失的问题
@@ -427,10 +427,10 @@ Go源头上不支持**隐式类型转换**
 ##### 字符串转义符
 参考其他语言，不多做赘述
 ##### 多行字符串
-![](assets/Pasted%20image%2020251021213732.png)
+![](语法/assets/Pasted%20image%2020251021213732.png)
 使用反引号` `` `包裹
 ##### 字符串方法
-![](assets/Pasted%20image%2020251021214315.png)
+![](语法/assets/Pasted%20image%2020251021214315.png)
 ```go
 func main() {
 	s := "hello world"
@@ -592,7 +592,7 @@ func main() {
 ```
 ### 基本数据类型间的转换
 由于Golang没有隐式类型转换，所以哪怕是整型，也必须转换到一致的数据宽度才能运算……
-![](assets/Pasted%20image%2020251021224256.png)
+![](语法/assets/Pasted%20image%2020251021224256.png)
 ### 复合数据类型
 #### 数组
 字符串切片就是一种数组……啊呸，切片……
@@ -668,7 +668,7 @@ func main() {
 	// adult
 }
 ```
-![](assets/Pasted%20image%2020251021232202.png)
+![](语法/assets/Pasted%20image%2020251021232202.png)
 ### `for`循环结构
 ```go
 for 初始化语句; 逻辑判断; 迭代语句 {
@@ -807,7 +807,7 @@ func main() {
 
 ##### `switch`的`fallthrough`
 `fallthrough`关键字可以执行满足条件的`case`的下一个`case`——这是为了兼容C语言风味的`switch-case`：
-![](assets/Pasted%20image%2020251022170050.png)
+![](语法/assets/Pasted%20image%2020251022170050.png)
 ### 关键字大全
 ```go
 break
@@ -870,7 +870,7 @@ func main() {
 }
 ```
 **注意：数组的长度也是数组的一部分；长度必须是常量**
-![](assets/Pasted%20image%2020251022175348.png)
+![](语法/assets/Pasted%20image%2020251022175348.png)
 我嘞个不支持*variable array*
 
 :::info
@@ -884,7 +884,7 @@ func myGoFunction(n int) {
 :::
 
 数组是可变类型，可以通过索引直接修改数组中的元素
-![](assets/Pasted%20image%2020251022180312.png)
+![](语法/assets/Pasted%20image%2020251022180312.png)
 
 在初始化数组时，也可以直接对指定索引进行赋值：
 ```go
@@ -994,7 +994,7 @@ func main() {
 ```
 
 对于从已有数组创建的切片，其`len`和`cap`行为略有差异：
-![](assets/Pasted%20image%2020251022205131.png)
+![](语法/assets/Pasted%20image%2020251022205131.png)
 ```go
 func main() {  
     a := []string{"java", "go", "php", "python"}  
@@ -1047,7 +1047,7 @@ func main() {
 #### 切片的操作
 ##### 切片扩容
 Golang中无法通过下标访问切片长度之外的元素：
-![](assets/Pasted%20image%2020251022210225.png)
+![](语法/assets/Pasted%20image%2020251022210225.png)
 这时需要使用`append`函数来为切片扩容（并返回指向新切片的指针）：
 ```go
 func main() {  
@@ -1094,7 +1094,7 @@ func copy(dst []Type, src []Type) int
  
 The copy built-in function copies elements from a source slice into a destination slice. (As a special case, it also will copy bytes from a string to a slice of bytes.) The source and destination may overlap. Copy returns the number of elements copied, which will be the minimum of len(src) and len(dst).
 ```
-![](assets/Pasted%20image%2020251022213604.png)
+![](语法/assets/Pasted%20image%2020251022213604.png)
 ##### 从切片中删除元素
 Golang本身并没有从切片中删除元素的方法。可以使用切片自身的特性来删除元素
 
@@ -1172,7 +1172,7 @@ type Interface interface {
     Swap(i, j int)      // 3. 如何交换索引 i 和 j 的元素？
 }
 ```
-![](assets/Pasted%20image%2020251023114233.png)
+![](语法/assets/Pasted%20image%2020251023114233.png)
 ### 键值对 `map`
 `map`是一种无序的键值对结构，是**引用类型**，必须*初始化* 才能使用
 ```go

@@ -9,82 +9,54 @@
         "dimension": 81.34674922600618,
         "children": [
           {
-            "id": "52b4ad0ff31626d4",
+            "id": "81a2e67a6e9850fe",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/学习笔记（二）：函数.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "学习笔记（二）：函数"
-            }
-          },
-          {
-            "id": "c9938c60147b6206",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/学习笔记（三）：结构体.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "学习笔记（三）：结构体"
-            }
-          },
-          {
-            "id": "24af7c682a81cf04",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/学习笔记（四）：package.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "学习笔记（四）：package"
-            }
-          },
-          {
-            "id": "415b17f6421d1e04",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/学习笔记（五）：协程.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "学习笔记（五）：协程"
-            }
-          },
-          {
-            "id": "1d84e3d240352536",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/学习笔记（七）.md",
+                "file": "Golang/语法/学习笔记（七）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
               "title": "学习笔记（七）"
             }
+          },
+          {
+            "id": "c7a2ebf8bde76011",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/Gin框架/学习笔记（一）.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "学习笔记（一）"
+            }
+          },
+          {
+            "id": "6971e5adf9553134",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/语法/学习笔记（四）：package.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "学习笔记（四）：package"
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 1
       },
       {
         "id": "c9fc60e5ff763220",
         "type": "tabs",
-        "dimension": 18.653250773993808,
+        "dimension": 18.65325077399381,
         "children": [
           {
             "id": "e71379d11b5574c7",
@@ -92,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/学习笔记（七）.md",
+                "file": "Golang/Gin框架/学习笔记（一）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "学习笔记（七） 的大纲"
+              "title": "学习笔记（一） 的大纲"
             }
           }
         ]
@@ -133,7 +105,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "file:we",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -158,7 +130,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 248.5
   },
   "right": {
     "id": "78bfbbd18c50805d",
@@ -251,28 +223,34 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1d84e3d240352536",
+  "active": "c7a2ebf8bde76011",
   "lastOpenFiles": [
-    "Golang/学习笔记（七）.md",
-    "Golang/学习笔记（五）：协程.md",
-    "Golang/学习笔记（六）：反射.md",
-    "Golang/assets/e0bd6add404683ae223c8161f9a56d16.png",
-    "Golang/assets/Pasted image 20251026180305.png",
-    "Golang/assets/Pasted image 20251026174050.png",
-    "Golang/学习笔记（三）：结构体.md",
-    "Golang/学习笔记（四）：package.md",
-    "Golang/assets/Pasted image 20251026001153.png",
-    "Golang/assets/Pasted image 20251026001055.png",
-    "Golang/assets/Pasted image 20251026000536.png",
-    "Golang/assets/1.png",
-    "Golang/assets/Pasted image 20251025230120.png",
-    "Golang/assets/Pasted image 20251025230039.png",
-    "Golang/assets/Pasted image 20251025222150.png",
-    "Golang/学习笔记（一）：Hello World.md",
+    "Golang/Gin框架/assets/Pasted image 20251028223639.png",
+    "Golang/Gin框架/assets/Pasted image 20251028223608.png",
+    "Golang/Gin框架/assets/Pasted image 20251028223456.png",
+    "Golang/Gin框架/assets/Pasted image 20251028223130.png",
+    "Golang/Gin框架/assets/Pasted image 20251028220345.png",
+    "Golang/Gin框架/assets/Pasted image 20251028220214.png",
+    "Golang/Gin框架/assets/Pasted image 20251028215602.png",
+    "Golang/Gin框架/assets/Pasted image 20251028215417.png",
+    "Golang/语法/学习笔记（七）.md",
+    "Golang/语法/学习笔记（六）：反射.md",
+    "Golang/Gin框架/学习笔记（一）.md",
+    "Golang/Gin框架/assets/Pasted image 20251028190528.png",
+    "Golang/Gin框架/assets/Pasted image 20251028185444.png",
+    "Golang/Gin框架/assets/Pasted image 20251028184142.png",
+    "Golang/语法/学习笔记（四）：package.md",
+    "Golang/语法/学习笔记（五）：协程.md",
+    "Golang/语法/学习笔记（三）：结构体.md",
+    "Golang/语法/学习笔记（二）：函数.md",
+    "Golang/Gin框架/assets",
+    "Golang/Gin框架",
+    "Golang/语法",
+    "2025-10-26.md",
+    "Golang/语法/学习笔记（一）：Hello World.md",
     "未命名.md",
-    "Golang/学习笔记（二）：函数.md",
     "未命名 1.md",
-    "Golang/assets",
+    "Golang/语法/assets",
     "渗透靶场/HackTheBox/Starting Point/Tier 2/Archetype.md",
     "Golang/README.md",
     "Python/README.md",
@@ -285,19 +263,13 @@
     "light-mind/tex2pdf.-f9ebd06d69d54231/input.log",
     "light-mind/tex2pdf.-f9ebd06d69d54231/input.tex",
     "light-mind/tex2pdf.-f9ebd06d69d54231/assets",
-    "light-mind/tex2pdf.-f9ebd06d69d54231",
-    "翻译/Medium/Infosec/assets",
     "light-mind/Observer attack.md",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
     "[程序实现](.md",
-    "light-mind/tex2pdf.-8362e4337b107a76/input.tex",
     "[7位可约LSFR测试如下](.md",
     "翻译/Medium/LearnAItoprofit.com/AI赚钱小技巧（一）.md",
     "7位可约LSFR测试如下.md",
-    "Python/随便弄点/WebSocket回声服务器.md",
-    "翻译/Medium/Ibtissam hammadi的频道/Git任意文件删除漏洞.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Responder NTLM哈希捕获.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Three 子域名挖掘和AWS桶接管.md"
+    "Python/随便弄点/WebSocket回声服务器.md"
   ]
 }
