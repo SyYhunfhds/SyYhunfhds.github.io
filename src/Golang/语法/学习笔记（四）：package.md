@@ -28,8 +28,8 @@ go mod init <包名> # 初始化Go项目
 ```go
 import "<Module名>/<package名>"
 ```
-![](语法/assets/Pasted%20image%2020251024234107.png)
-![](语法/assets/Pasted%20image%2020251024234203.png)
+![](../assets/Pasted%20image%2020251024234107.png)
+![](../assets/Pasted%20image%2020251024234203.png)
 ```go
 // main.go
 package main  
@@ -41,15 +41,15 @@ func main() {
 }
 ```
 主Module名为`golang-journey`，自定义包路径位于根目录，`package`名为`logging`，因此导入路径为`golang-journey/logging`
-![](语法/assets/Pasted%20image%2020251024234320.png)
+![](../assets/Pasted%20image%2020251024234320.png)
 
 - `log1.go`虽然文件名不叫`logging`，但文件第一行的`package`名为`logging`，因此被编译器视为`logging`命名空间的源代码；`package`语句只能放在第一行
 - `debug`**在这里是小写字母开头，是私有函数**，只能被`logging`包的文件调用；而其他方法都是大写字母开头，是公有函数，因此可被导出，被其他目录的包（比如`main`包）调用：
-	![](语法/assets/Pasted%20image%2020251024234539.png)
+	![](../assets/Pasted%20image%2020251024234539.png)
 	（补全补不出来`debug`）
 
 如果只想导包，而不使用包内的数据，也可以使用`_`：
-![](语法/assets/Pasted%20image%2020251025000346.png)
+![](../assets/Pasted%20image%2020251025000346.png)
 类似地，可以给导入的包设置别名：
 ```go
 import (  
@@ -70,13 +70,13 @@ func main() {
 2. 然后*自动执行* **`init()`函数
 3. 最后执行`main()`函数
 `init()`函数无法被代码主动调用；`init()`函数不需要参数，也没有返回值
-![](语法/assets/Pasted%20image%2020251025144241.png)
+![](../assets/Pasted%20image%2020251025144241.png)
 补都补不出来
 ##### 导包顺序如何影响包的初始化顺序
 对于导入多个包的情况，Golang会从main包开始检查起所导入的包，每个包中又可能导入其他包。Golang编译器由此建立树状图（描述了包的引用关系），再根据引用顺序决定编译顺序，依次编译包中的代码。
 在运行时，最后导入的包会最先初始化并调用其init函数
-![](语法/assets/Pasted%20image%2020251025145043.png)
-![](语法/assets/Pasted%20image%2020251025145121.png)
+![](../assets/Pasted%20image%2020251025145043.png)
+![](../assets/Pasted%20image%2020251025145121.png)
 ## Golang包管理（二）：调库侠，上号！
 #### 找包
 可以在[`pkg`网站](https://pkg.go.dev)找常见的第三方包：
@@ -84,7 +84,7 @@ func main() {
 pkg.go.dev
 ```
 ### 安装包
-![](语法/assets/Pasted%20image%2020251025145510.png)
+![](../assets/Pasted%20image%2020251025145510.png)
 比如前面提到的高精度浮点数库`decimal`
 库名后面括号里的路径`github.com/shopspring/decimal`就是安装路径，同时也是`import`关键字要接的包路径：
 ```sh
@@ -102,7 +102,7 @@ go: downloading golang.org/x/exp v0.0.0-20251023183803-a4bb9ffd2546
 go: added golang.org/x/exp v0.0.0-20251023183803-a4bb9ffd2546
 ```
 （安装流行日志库`slog`）
-![](语法/assets/Pasted%20image%2020251025145756.png)
+![](../assets/Pasted%20image%2020251025145756.png)
 *现在其实已经内置了*
 
 ### 查阅文档使用这个包
@@ -129,7 +129,7 @@ type 接口名 interface {
 - **接口名**通常以`er`结尾，例如写操作接口会命名为`-Writer`，而字符串功能接口则为`-Stringer`；接口名应当体现该接口的类型含义
 
 示例：编写`Usber`接口，让`Phone`和`Camera`结构体实现这个接口中的方法
-![](语法/assets/Pasted%20image%2020251025180206.png)
+![](../assets/Pasted%20image%2020251025180206.png)
 ```go
 type Phone struct {  
     brand string  
@@ -307,7 +307,7 @@ func main() {
 ```
 
 下面再来看看`fmt.Println`方法的实现，旧版是`...interface{}`，也是用到了*空接口表示任意类型*
-![](语法/assets/Pasted%20image%2020251025184833.png)
+![](../assets/Pasted%20image%2020251025184833.png)
 这里的`any`实际上是`interface{}`的别名（Go 1.18引入）
 ```go
 // any is an alias for interface{}.
@@ -463,7 +463,7 @@ func main() {
 ```go
 switch v := x.(type)
 ```
-![](语法/assets/Pasted%20image%2020251025190644.png)
+![](../assets/Pasted%20image%2020251025190644.png)
 ```go
 // 根据传入的第一个参数判断采取何种操作  
 func add(a, b any) any {  
@@ -658,7 +658,7 @@ fmt.Printf("[%T] %#v\n", innelL, innelL)
 ```
 也能打印出来整个切片，并且类型确实是`[]string`
 接下来尝试一下索引操作……？
-![](语法/assets/Pasted%20image%2020251025205205.png)
+![](../assets/Pasted%20image%2020251025205205.png)
 这时候就该上**类型断言**了：
 ```go
 fmt.Println(innelL.([]string)[0])  // x.(T)会返回两个返回值, 这里实际上默认断言成功了, 实战还是不要这么写
