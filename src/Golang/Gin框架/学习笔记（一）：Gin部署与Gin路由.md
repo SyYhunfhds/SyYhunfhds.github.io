@@ -1,5 +1,5 @@
 ---
-title: Golang Gin框架（一）
+title: Golang Gin框架（一）：Gin部署与Gin路由
 date: 2025-10-27
 ---
 ## 参考资料
@@ -923,8 +923,108 @@ func UploadMultipleFiles(c *gin.Context) {
 ![](assets/Pasted%20image%2020251028223130.png)
 
 
-### routes group
+### 路由组 / routes group
 - routes group是为了管理一些相同的URL
+**示例（转载自topgoer文档）** 
+```go
+func main() {
+   // 1.创建路由
+   // 默认使用了2个中间件Logger(), Recovery()
+   r := gin.Default()
+   // 路由组1 ，处理GET请求
+   v1 := r.Group("/v1")
+   // {} 是书写规范
+   {
+      v1.GET("/login", login)
+      v1.GET("submit", submit)
+   }
+   v2 := r.Group("/v2")
+   {
+      v2.POST("/login", login)
+      v2.POST("/submit", submit)
+   }
+   r.Run(":8000")
+}
+```
+
+
+**我自己的demo**：
+```go
+func main() {  
+    router := gin.Default()  
+  
+    router.MaxMultipartMemory = 8 << 20 // 限制最大上传文件为8MB  
+  
+    router.GET("/", func(c *gin.Context) {  
+       c.String(http.StatusOK, "Hello World!")  
+    })  
+    userApi := router.Group("/user")  
+    // 注意大括号不要放在上一行; 这只是为了代码文风更好看而已  
+    {  
+       userApi.POST("/add", api.AddUser)  
+       userApi.GET("/:username/:action", api.ReportWhatUserIsDoing)  
+    }  
+    router.GET("/book", api.SelectBook)  
+    fileApi := router.Group("/file")  
+    {  
+       fileApi.POST("/upload/single", api.UploadSingleFile)  
+       fileApi.POST("/upload/multiple", api.UploadMultipleFiles)  
+    }  
+  
+    err := router.Run(":8080")  
+    if err != nil {  
+       slog.Error("启动服务失败", "err", err)  
+    }  
+}
+```
+![](assets/Pasted%20image%2020251028230134.png)
+### 路由原理 （AI）
+
+Gin 的路由核心（以及很多高性能 Go Web 框架，如 `httprouter`）采用了一种专门为此优化的数据结构——**基数树 (Radix Tree)**，有时也叫**前缀树 (Trie)**。
+
+#### Radix Tree 是如何工作的？
+
+你可以把 Radix Tree 想象成一个高度压缩的字典树。它把 URL 路径按 `/` 分割，并将每一段作为树的一个节点。
+
+**我们来构建一个简单的 Radix Tree：**
+
+假设你注册了以下路由：
+*   `/search`
+*   `/support`
+*   `/users/:id`
+*   `/users/profile`
+*   `/static/*filepath`
+
+Gin 会在内存中构建一棵类似这样的树：
+
+```
+(ROOT)
+  |
+  +-- "s" --+-- "earch"  (HandleFunc for /search)
+  |         |
+  |         +-- "upport" (HandleFunc for /support)
+  |
+  +-- "users/" --+-- ":id"       (HandleFunc for /users/:id)
+  |              |
+  |              +-- "profile"   (HandleFunc for /users/profile)
+  |
+  +-- "static/" -- "-- "*filepath" (HandleFunc for /static/*filepath)
+```
+【对于URL路径参数】
+**当一个请求进来时，例如 `GET /users/123`：**
+
+1.  **从根节点开始**，匹配第一部分 `"users/"`。成功，移动到 `users/` 节点。
+2.  **查看 `users/` 节点的子节点**，尝试匹配剩余的路径 `"123"`。
+    *   首先，它会寻找静态匹配。有没有一个叫 `"123"` 的子节点？没有。
+    *   然后，它会寻找路径参数节点 (`:`)。有没有一个以 `:` 开头的子节点？有！就是 `:id` 节点。
+3.  **匹配成功**。框架将 `"123"` 这个值捕获，并与参数名 `"id"` 关联起来，存入 `gin.Context` 中。
+4.  **找到最终的处理函数**，调用它。
+
+#### 为什么使用 Radix Tree？
+
+*   **极高的性能**：查找路由的时间复杂度与你注册的路由总数无关，只与 URL 的路径深度有关。这意味着即使你有几千条路由规则，匹配速度也几乎不受影响。
+*   **无歧义的匹配**：它能清晰地处理路由优先级。例如，`/users/profile`（静态路由）的优先级会高于 `/users/:id`（动态路由）。当请求 `/users/profile` 时，会精确匹配到前者，而不是错误地匹配到后者并把 "profile" 当作 id。
+*   **高效的内存使用**：通过共享公共前缀（如 `/users/`），节省了存储空间。
 
 ***
 # 页面尾部
