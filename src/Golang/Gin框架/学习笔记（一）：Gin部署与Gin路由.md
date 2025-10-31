@@ -977,7 +977,28 @@ func main() {
     }  
 }
 ```
+
+
 ![](assets/Pasted%20image%2020251028230134.png)
+### 路由抽离
+```go
+// router/*
+func ExportedRouterInit (r *gin.Engine) {
+	// r := r.Group("/another-group") // 必要的话可以再建一个路由组
+	
+	r.GET("/index")
+	r.GET("/main")
+	...
+}
+
+// main.go
+r := gin.Default()
+ExportedRouterInit(r)
+```
+![](assets/Pasted%20image%2020251031195816.png)
+需要和`main.go`的`r`一个类型
+
+当`main.go`里有成百上千个路由时就必须进行**路由抽离**了
 ### 路由原理 （AI）
 
 Gin 的路由核心（以及很多高性能 Go Web 框架，如 `httprouter`）采用了一种专门为此优化的数据结构——**基数树 (Radix Tree)**，有时也叫**前缀树 (Trie)**。

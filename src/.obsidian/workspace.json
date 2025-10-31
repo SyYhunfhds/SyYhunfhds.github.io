@@ -37,20 +37,6 @@
             }
           },
           {
-            "id": "52b4d6ed8cd73aef",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/语法/学习笔记（三）：结构体.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "学习笔记（三）：结构体"
-            }
-          },
-          {
             "id": "c175b4dccbd40aaf",
             "type": "leaf",
             "state": {
@@ -63,9 +49,23 @@
               "icon": "lucide-file",
               "title": "学习笔记（三）：模板语法"
             }
+          },
+          {
+            "id": "3fe6bcea7e8fcf45",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/Gin框架/学习笔记（四）.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "学习笔记（四）"
+            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       },
       {
         "id": "c9fc60e5ff763220",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/语法/学习笔记（三）：结构体.md",
+                "file": "Golang/Gin框架/学习笔记（四）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "学习笔记（三）：结构体 的大纲"
+              "title": "学习笔记（四） 的大纲"
             }
           }
         ]
@@ -237,29 +237,31 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "52b4d6ed8cd73aef",
+  "active": "3fe6bcea7e8fcf45",
   "lastOpenFiles": [
-    "Golang/标准库/Gin标准库笔记：filepath.md",
+    "Golang/Gin框架/assets/Pasted image 20251031234659.png",
+    "Golang/Gin框架/assets/Pasted image 20251031234631.png",
+    "Golang/Gin框架/assets/Pasted image 20251031234533.png",
+    "Golang/Gin框架/assets/Pasted image 20251031231512.png",
+    "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
+    "Golang/Gin框架/学习笔记（四）.md",
+    "Golang/Gin框架/assets/Pasted image 20251031215944.png",
+    "Golang/Gin框架/学习笔记（二）.md",
     "Golang/Gin框架/学习笔记（三）：模板语法.md",
+    "Golang/Gin框架/assets/Pasted image 20251031195816.png",
+    "Golang/语法/学习笔记（三）：结构体.md",
+    "Golang/Gin框架/assets/PixPin_2025-10-31_17-25-42.gif",
+    "Golang/Gin框架/assets/Pasted image 20251031170522.png",
+    "Golang/标准库/Gin标准库笔记：filepath.md",
     "Golang/Gin框架/assets/Pasted image 20251030225724.png",
     "Golang/Gin框架/assets/Pasted image 20251030224445.png",
     "Golang/Gin框架/assets/Pasted image 20251030220932.png",
-    "Golang/Gin框架/assets/Pasted image 20251030215554.png",
-    "Golang/Gin框架/assets/Pasted image 20251030213625.png",
-    "Golang/Gin框架/学习笔记（二）.md",
-    "Golang/Gin框架/assets/Pasted image 20251030211258.png",
-    "Golang/Gin框架/assets/Pasted image 20251030211205.png",
-    "Golang/Gin框架/assets/Pasted image 20251030211136.png",
-    "Golang/Gin框架/assets/Pasted image 20251030211107.png",
-    "Golang/Gin框架/assets/Pasted image 20251030211012.png",
-    "Golang/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
     "Golang/标准库",
     "Golang/语法/学习笔记（一）：Hello World.md",
     "Golang/语法/学习笔记（七）.md",
     "Golang/语法/学习笔记（四）：package.md",
     "Golang/语法/学习笔记（六）：反射.md",
     "Golang/语法/学习笔记（五）：协程.md",
-    "Golang/语法/学习笔记（三）：结构体.md",
     "Golang/语法/学习笔记（二）：函数.md",
     "Golang/Gin框架/assets",
     "Golang/Gin框架",
@@ -282,7 +284,6 @@
     "light-mind/Observer attack.md",
     "翻译/Medium/白话说Python/Python 加速和优化程序内存的第三方库.md",
     "翻译/Medium/白话说Python/八个让我不再手写轮子的Python库.md",
-    "[程序实现](.md",
-    "[7位可约LSFR测试如下](.md"
+    "[程序实现](.md"
   ]
 }
