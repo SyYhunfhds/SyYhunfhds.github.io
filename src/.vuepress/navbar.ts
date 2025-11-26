@@ -6,6 +6,7 @@ export default navbar([
   // "/blueteam/",
   "/Python/",
   "/Golang/",
+  "/自我充电/",
   "/light-mind/",
   "/CTF/",
   "/渗透靶场/",

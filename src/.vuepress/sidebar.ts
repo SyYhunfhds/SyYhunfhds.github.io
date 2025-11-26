@@ -37,6 +37,12 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "充电",
+      icon: "battery-4",
+      prefix: "自我充电/",
+      children: "structure",
+    },
+    {
       text: "随笔",
       icon: "book-open",
       prefix: "light-mind/",
