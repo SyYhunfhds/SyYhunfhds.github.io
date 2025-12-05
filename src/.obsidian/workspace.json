@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/前端框架/Svelte JS/学习笔记（一）.md",
+                "file": "Golang/语法/学习笔记（六）：反射.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "学习笔记（一）"
+              "title": "学习笔记（六）：反射"
             }
           },
           {
@@ -64,8 +64,7 @@
               "title": "SNMP 技术探索"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       },
       {
         "id": "c9fc60e5ff763220",
@@ -78,13 +77,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/前后端协同开发/计网课设/SNMP 技术探索.md",
+                "file": "Golang/语法/学习笔记（六）：反射.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SNMP 技术探索 的大纲"
+              "title": "学习笔记（六）：反射 的大纲"
             }
           }
         ]
@@ -237,26 +236,27 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "29c8d8a127f8ceea",
+  "active": "cc92b5e2b8e45af5",
   "lastOpenFiles": [
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205122506.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205122451.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205122312.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205122133.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205121447.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205121414.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205115945.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205104940.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205104932.png",
-    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251204164545.png",
-    "Golang/前后端协同开发/计网课设/assets",
+    "Golang/前端框架/Svelte JS/学习笔记（一）.md",
     "Golang/前后端协同开发/计网课设/SNMP 技术探索.md",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205165629.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205164934.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205163336.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205163156.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205162832.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205162435.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205161451.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205161403.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205160838.png",
+    "Golang/前后端协同开发/计网课设/assets/Pasted image 20251205155015.png",
+    "Golang/前后端协同开发/计网课设/assets/PixPin_2025-12-05_15-44-43.mp4",
+    "Golang/前后端协同开发/计网课设/assets/PixPin_2025-12-05_15-40-01.mp4",
+    "Golang/前后端协同开发/计网课设/assets",
     "自我充电/Advent of Code/比赛介绍.md",
     "Golang/前后端协同开发/计网课设",
     "Golang/前后端协同开发/练习/登录页面.md",
     "Golang/前端框架/Svelte JS/学习笔记（二）.md",
-    "Golang/前端框架/Svelte JS/学习笔记（一）.md",
-    "Golang/前后端协同开发/练习/assets/Pasted image 20251201170101.png",
     "Golang/前端框架/Svelte JS/学习笔记（四）.md",
     "Golang/前端框架/Svelte JS/学习笔记（三）.md",
     "自我充电/Advent of Code/私人排行榜自用村规.md",
@@ -267,8 +267,6 @@
     "自我充电/Advent of Code",
     "自我充电",
     "Golang/前后端协同开发/练习/assets",
-    "Golang/前后端协同开发/练习",
-    "Golang/前后端协同开发",
     "草稿/【Gemini】SvelteKit 与 Go后端配合指南.md",
     "草稿/【Gemini】适合前端页面的请求方法.md",
     "Golang/前端框架/README.md",
