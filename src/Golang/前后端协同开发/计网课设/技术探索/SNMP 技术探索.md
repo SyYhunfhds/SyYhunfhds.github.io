@@ -23,7 +23,6 @@ date: 2025-12-04
 	```
 
 #### Linux
-![](assets/Pasted%20image%2020251205104932.png)
 配置文件默认位于`/etc/snmp/snmpd.conf`
 
 snmpd默认监听本地IPV4地址和所有IPV6地址的`161`端口：

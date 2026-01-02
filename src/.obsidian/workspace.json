@@ -119,7 +119,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "20251204",
+                "query": "20251205104932",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -223,7 +223,7 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1df4e3e2723ec42c",
+  "active": "2c669cfdde02bda3",
   "lastOpenFiles": [
     "Golang/前后端协同开发/计网课设/技术探索/SNMP+Go交互 技术验证.md",
     "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
