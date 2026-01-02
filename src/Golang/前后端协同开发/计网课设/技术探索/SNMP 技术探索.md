@@ -2,6 +2,7 @@
 title: 计网课设技术探索：SNMP协议初见
 date: 2025-12-04
 ---
+[[toc]]
 ## 工具
 - [卓豪 SNMP MIB Browser](https://www.manageengine.cn/network-monitoring/help/mib-browser.html)
 	- 功能强大，但是是专为运维开发的，体积较大
@@ -101,7 +102,23 @@ PORT    STATE SERVICE
 MAC Address: 00:0C:29:DA:58:E4 (VMware)
 ```
 确认端口开启
+#### Windows
+##### 安装
+在设置中搜索*可用功能->查看功能->查看可用功能*， 勾选下面两项，等待安装即可
+![](assets/Pasted%20image%2020251212175848.png)
+![](assets/Pasted%20image%2020251212175906.png)
 
+##### 配置SNMP
+###### Windows7
+![](assets/Pasted%20image%2020251212181236.png)
+
+##### 防火墙放行
+```powershell
+netsh advfirewall firewall add rule name="SNMP-161-In"  dir=in  action=allow protocol=UDP localport=161
+netsh advfirewall firewall add rule name="SNMP-161-Out" dir=out action=allow protocol=UDP localport=161
+netsh advfirewall firewall add rule name="SNMP-162-In"  dir=in  action=allow protocol=UDP localport=162
+netsh advfirewall firewall add rule name="SNMP-162-Out" dir=out action=allow protocol=UDP localport=162
+```
 ### 验证Agent是否可以连接
 #### Linux
 验证服务是否正常，首先需要安装客户端工具（其实安装snmpd时会顺便安装客户端工具的）
@@ -225,6 +242,41 @@ SNMPv2-MIB::sysORLastChange.0 = Timeticks: (0) 0:00:00.00
 #### `walk`遍历全部节点信息
 
 ![](assets/Pasted%20image%2020251205154346.png)
+#### `Set`设置结点信息
+`/etc/snmp/snmpd.conf`默认只启用**只读团体**：
+```conf
+# Read-only access to everyone to the systemonly view
+# rocommunity  public default -V systemonly
+# rocommunity6 public default -V systemonly
+rocommunity  SyYhunfhds default
+rocommunity6 SyYhunfhds default
+```
+我们需要手动添加一个`rwcommunity`来允许写动作，比如：
+```
+rwcommunity  bQgAaIbBdCcY default
+rwcommunity6 bQgAaIbBdCcY default
+```
+
+改好之后找几个变量改改：
+```
+# syslocation: The [typically physical] location of the system.
+#   Note that setting this value here means that when trying to
+#   perform an snmp SET operation to the sysLocation.0 variable will make
+#   the agent return the "notWritable" error code.  IE, including
+#   this token in the snmpd.conf file will disable write access to
+#   the variable.
+#   arguments:  location_string
+sysLocation    Sitting on the Dock of the Bay
+sysContact     Me <me@example.org>
+```
+MIB Browser里的可读可写属性不一定对，比如`ipDefaultTTL`在MIB Browser里看起来是`read-write`的，但实际上仅读的……
+
+这里改改`sysContact`就好了，记得把`sysContact`那行注释掉，不然会报错：
+![](assets/Pasted%20image%2020251207121812.png)
+现在就算是改好了
+![](assets/Pasted%20image%2020251207121912.png)
+
+
 ## 像运维一样思考
 现在我们已经知道如何设置轮询，也知道了如何创建一个Agent Connection，现在来看看如何像运维一样观察服务器运行吧
 #### 察看核心负载
@@ -328,5 +380,43 @@ SNMPv2-MIB::sysORLastChange.0 = Timeticks: (0) 0:00:00.00
 |**hrStorageSize**|`...25.2.3.1.5.31`|Integer|`5242880`|**总块数**。真实大小 = `Size * Units` = 20GB。|
 |**hrStorageUsed**|`...25.2.3.1.6.31`|Integer|`1048576`|**已用块数**。真实已用 = `Used * Units`。|
 
+
+
+## 使用snmp v3
+![](assets/Pasted%20image%2020251207122641.png)
+iReasoning MIB Browser不知为何不显示V3……
+
+SNMP v3 不再使用“团体名” (Community)，而是使用 **“用户 (User) + 密码”**。而且为了加密，我们需要配置两个密码：
+1. **验证密码 (Auth):** 证明你是谁。
+2. **加密密码 (Priv):** 给数据加密。
+
+```sh
+# 关闭服务, 否则创建命令不生效
+sudo systemctl stop snmpd
+# 使用脚本创建用户
+# 语法: -ro (只读) -A 验证密码 -a 验证算法 -X 加密密码 -x 加密算法 用户名
+sudo net-snmp-create-v3-user -ro -A auth123456 -a SHA -X priv123456 -x AES v3user
+```
+- **用户名:** `v3user`
+- **验证 (Auth):** 密码 `auth123456`，算法 `SHA`
+- **加密 (Priv):** 密码 `priv123456`，算法 `AES`
+然后重启服务：
+```sh
+sudo systemctl start snmpd
+```
+
+![](assets/Pasted%20image%2020251207123034.png)
+接下来去Tools->Options->Agent设置V3连接
+![](assets/Pasted%20image%2020251207123336.png)
+调好之后再点开主页的`Advanced`就能看到新的配置项
+
+![](assets/Pasted%20image%2020251207123501.png)
+然后就会……
+
+![](assets/Pasted%20image%2020251207124611.png)
+直接上GoSNMP吧……
+
+![](assets/Pasted%20image%2020251207124948.png)
+非常妙
 ***
 # 页面尾部
