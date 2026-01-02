@@ -11,7 +11,7 @@ date: 2025-12-04
 ## SNMP介绍
 
 ## SNMP环境配置
-![](assets/Pasted%20image%2020251204164545.png)
+
 ### 环境搭建
 - Windows下通过**Server Manager**或**增加/移除程序**服务安装SNMP服务
 - Linux下通过`apt`等包管理器安装snmpd：

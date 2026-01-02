@@ -56,16 +56,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP+Go交互 技术验证.md",
+                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SNMP+Go交互 技术验证"
+              "title": "SNMP 技术探索"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       },
       {
         "id": "40625eba946d9101",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
+                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "从零开始的Fyne（二） 的大纲"
+              "title": "SNMP 技术探索 的大纲"
             }
           }
         ]
@@ -119,7 +119,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "类型断言",
+                "query": "20251204",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -140,7 +140,8 @@
               "title": "书签"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -222,11 +223,15 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e07a30f0712518ca",
+  "active": "1df4e3e2723ec42c",
   "lastOpenFiles": [
-    "Golang/桌面端框架/Fyne/从零开始的Fyne.md",
+    "Golang/前后端协同开发/计网课设/技术探索/SNMP+Go交互 技术验证.md",
     "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne.md",
+    "Golang/桌面端框架/Fyne/assets/Pasted image 20260102233517.png",
+    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-02_23-26-31.mp4",
+    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-02_23-19-50.mp4",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260102225745.png",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-02_21-27-43.mp4",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260102200303.png",
@@ -241,19 +246,15 @@
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260102173013.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260102172835.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260102171935.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260102154152.png",
     "Golang/桌面端框架/Fyne/assets",
     "Golang/前端框架/Svelte JS/学习笔记（一）.md",
     "Golang/桌面端框架/Fyne",
     "Golang/桌面端框架",
     "Golang/前端框架/Svelte JS/学习笔记（二）.md",
     "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md",
-    "Golang/第三方库/Ebitengine/assets/PixPin_2025-12-30_16-22-44.mp4",
-    "Golang/第三方库/Ebitengine/assets/PixPin_2025-12-30_15-34-32.mp4",
     "Golang/第三方库/Pongo2模板库学习.md",
     "Golang/后端框架/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
     "Golang/语法/学习笔记（六）：反射.md",
-    "Golang/前后端协同开发/计网课设/技术探索/SNMP+Go交互 技术验证.md",
     "Golang/语法/学习笔记（一）：Hello World.md",
     "Golang/语法/学习笔记（二）：函数.md",
     "Golang/语法/学习笔记（三）：结构体.md",
@@ -268,7 +269,6 @@
     "Golang/前端框架/Svelte JS/学习笔记（三）.md",
     "自我充电/Advent of Code/私人排行榜自用村规.md",
     "自我充电/README.md",
-    "草稿/【Gemini】SvelteKit 与 Go后端配合指南.md",
-    "草稿/【Gemini】适合前端页面的请求方法.md"
+    "草稿/【Gemini】SvelteKit 与 Go后端配合指南.md"
   ]
 }
