@@ -49,23 +49,9 @@
               "icon": "lucide-file",
               "title": "从零开始的Fyne"
             }
-          },
-          {
-            "id": "1df4e3e2723ec42c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "SNMP 技术探索"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       },
       {
         "id": "40625eba946d9101",
@@ -78,13 +64,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
+                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "SNMP 技术探索 的大纲"
+              "title": "从零开始的Fyne（二） 的大纲"
             }
           }
         ]
@@ -140,8 +126,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -223,12 +208,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "2c669cfdde02bda3",
+  "active": "e07a30f0712518ca",
   "lastOpenFiles": [
-    "Golang/前后端协同开发/计网课设/技术探索/SNMP+Go交互 技术验证.md",
-    "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne.md",
+    "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
+    "Golang/前后端协同开发/计网课设/技术探索/SNMP+Go交互 技术验证.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260102233517.png",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-02_23-26-31.mp4",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-02_23-19-50.mp4",
