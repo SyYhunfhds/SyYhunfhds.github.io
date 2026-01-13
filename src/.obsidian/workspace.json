@@ -6,7 +6,7 @@
       {
         "id": "7f9bd784e0c72eeb",
         "type": "tabs",
-        "dimension": 84.49612403100775,
+        "dimension": 79.14728682170544,
         "children": [
           {
             "id": "cc92b5e2b8e45af5",
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
+                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "从零开始的Fyne（四）"
+              "title": "从零开始的Fyne（六）"
             }
           },
           {
@@ -65,26 +65,26 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
-        "id": "faf011b949ee0946",
+        "id": "deeb2e6c90e956e6",
         "type": "tabs",
-        "dimension": 15.503875968992247,
+        "dimension": 20.852713178294575,
         "children": [
           {
-            "id": "df4de4120ad5f732",
+            "id": "1c406124f59fc683",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
+                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "从零开始的Fyne（五） 的大纲"
+              "title": "从零开始的Fyne（六） 的大纲"
             }
           }
         ]
@@ -222,22 +222,23 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "e07a30f0712518ca",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
+    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113214106.png",
+    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113212125.png",
+    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113191404.png",
+    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113190916.png",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）.md",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260112234202.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233902.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233621.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233504.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233445.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233419.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233416.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260112233259.png",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_23-31-13.mp4",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260112230858.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260112225200.png",
     "Golang/桌面端框架/Fyne/从零开始的Fyne.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（三）.md",
     "Golang/语法/学习笔记（七）.md",
@@ -268,7 +269,6 @@
     "Golang/前端框架/Svelte JS/学习笔记（二）.md",
     "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md",
     "Golang/第三方库/Pongo2模板库学习.md",
-    "Golang/前后端协同开发/计网课设/轮询系统自启动流程.md",
-    "Golang/前后端协同开发/计网课设/系统架构.md"
+    "Golang/前后端协同开发/计网课设/轮询系统自启动流程.md"
   ]
 }
