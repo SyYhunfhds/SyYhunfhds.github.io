@@ -65,7 +65,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
+                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "从零开始的Fyne（六） 的大纲"
+              "title": "从零开始的Fyne（五） 的大纲"
             }
           }
         ]
@@ -222,10 +222,10 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b44904467a9ff783",
+  "active": "e07a30f0712518ca",
   "lastOpenFiles": [
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260113214106.png",
     "Golang/桌面端框架/Fyne/assets/Pasted image 20260113212125.png",
