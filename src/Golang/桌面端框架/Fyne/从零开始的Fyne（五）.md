@@ -328,7 +328,7 @@ var translations embed.FS
 
 > This uses the embedded filesystem and specifies the name of the directory that the files are stored in.
 
-> The naming of these translation files should follow the format `[prefix]`{{[language subtag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags)}}.json
+> The naming of these translation files should follow the format `[prefix]{{[language subtag](https://en.wikipedia.org/wiki/IETF_language_tag#List_of_common_primary_language_subtags)}}`.json
 
 :::note
 这里的 `{{language subtag}}` 并不是指 Go 的 `text/template` 运行时渲染，而是在定义**文件命名规范**。
