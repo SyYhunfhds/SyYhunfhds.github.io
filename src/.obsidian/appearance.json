@@ -2,5 +2,6 @@
   "cssTheme": "Blue Topaz",
   "theme": "obsidian",
   "baseFontSize": 16,
-  "baseFontSizeAction": true
+  "baseFontSizeAction": true,
+  "accentColor": "#5ca8f0"
 }

@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/标准库/os exec库学习.md",
+                "file": "Golang/微服务/Protobuf类型（三）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "os exec库学习"
+              "title": "Protobuf类型（三）"
             }
           },
           {
@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
+                "file": "草稿/微服务/gRPC编写练习.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "从零开始的Fyne（二）：组件与容器"
+              "title": "gRPC编写练习"
             }
           },
           {
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
+                "file": "Golang/微服务/Protobuf类型（二）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "从零开始的Fyne（一）"
+              "title": "Protobuf类型（二）"
             }
           },
           {
@@ -64,7 +64,8 @@
               "title": "学习笔记（七）"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -77,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/标准库/os exec库学习.md",
+                "file": "草稿/微服务/gRPC编写练习.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "os exec库学习 的大纲"
+              "title": "gRPC编写练习 的大纲"
             }
           }
         ]
@@ -221,53 +222,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "cc92b5e2b8e45af5",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
-    "Golang/标准库/assets/Pasted image 20260116234112.png",
-    "Golang/标准库/assets/Pasted image 20260116233758.png",
-    "Golang/标准库/assets/Pasted image 20260116152341.png",
+    "草稿/微服务",
+    "草稿/微服务/RPC精进路线.md",
+    "草稿/微服务/gRPC编写练习.md",
+    "Golang/微服务/Protobuf类型（三）.md",
+    "Golang/微服务/Protobuf类型（二）.md",
+    "Golang/微服务/微服务学习笔记（二）.md",
+    "Golang/微服务/Protobuf类型（一）.md",
+    "Golang/微服务/assets/Pasted image 20260201165320.png",
+    "Golang/微服务/assets/Pasted image 20260201165205.png",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
+    "Golang/微服务/assets/Pasted image 20260131205558.png",
+    "Golang/标准库/os exec库学习.md",
+    "Golang/微服务/微服务学习笔记（一）.md",
+    "Golang/微服务/assets/Pasted image 20260130211116.png",
+    "Golang/微服务/assets/Pasted image 20260130211004.png",
+    "Golang/微服务/assets/Pasted image 20260130204914.png",
+    "Golang/微服务/assets/Pasted image 20260130204838.png",
+    "Golang/微服务/assets/Pasted image 20260130204814.png",
+    "Golang/微服务/assets/Pasted image 20260130204750.png",
+    "Golang/微服务/assets/Pasted image 20260130204349.png",
+    "Golang/微服务/assets",
+    "Golang/云原生框架/Prometheus生态/Grafana插件Business Form探索.md",
+    "Golang/微服务",
+    "Golang/云原生框架/Prometheus生态/assets",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
+    "Golang/云原生框架/Prometheus生态",
+    "Golang/云原生框架",
+    "Golang/标准库/sync库学习笔记.md",
     "Golang/标准库/assets",
     "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md",
-    "Golang/标准库/os exec库学习.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（三）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（八）：数据绑定.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113232155.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113231038.png",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（七）：绘制与动画.md",
     "Golang/语法/学习笔记（七）.md",
     "Python/README.md",
     "Golang/桌面端框架/Fyne/README.md",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-13_22-32-03.mp4",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113222547.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113222234.png",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113214106.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113212125.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113191404.png",
-    "Golang/桌面端框架/Fyne/assets/Pasted image 20260113190916.png",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_23-31-13.mp4",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_00-48-38.mp4",
     "Golang/语法/学习笔记（六）：反射.md",
     "Golang/后端框架/Gin框架/学习笔记（四）：框架分层与会话管理.md",
     "Golang/后端框架/Gin框架/学习笔记（六）：ORM与会话认证.md",
-    "Golang/后端框架/Gin框架/学习笔记（五）：配置加载、热部署、验证码.md",
-    "Golang/后端框架/Gin框架/学习笔记（一）：Gin部署与Gin路由.md",
-    "Golang/标准库/ast、parser与types.md",
-    "Golang/语法/学习笔记（五）：协程.md",
-    "Golang/标准库/Gin标准库笔记：filepath.md",
-    "Golang/语法/学习笔记（四）：package.md",
-    "Golang/语法/学习笔记（一）：Hello World.md",
-    "Golang/语法/学习笔记（三）：结构体.md",
-    "Golang/语法/学习笔记（二）：函数.md",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_19-59-15.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_19-40-13.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_19-10-03.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_19-00-56.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_16-17-30.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_15-53-50.mp4"
+    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-03_19-59-15.mp4"
   ]
 }
