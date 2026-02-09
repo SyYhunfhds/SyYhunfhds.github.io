@@ -1,7 +1,8 @@
 {
   "cssTheme": "Blue Topaz",
-  "theme": "moonstone",
+  "theme": "obsidian",
   "baseFontSize": 16,
   "baseFontSizeAction": true,
-  "accentColor": "#5ca8f0"
+  "accentColor": "#5ca8f0",
+  "textFontFamily": ""
 }

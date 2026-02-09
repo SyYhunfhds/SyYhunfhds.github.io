@@ -6,7 +6,7 @@
       {
         "id": "7f9bd784e0c72eeb",
         "type": "tabs",
-        "dimension": 79.14728682170542,
+        "dimension": 79.42905121746432,
         "children": [
           {
             "id": "cc92b5e2b8e45af5",
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/微服务学习笔记（三）.md",
+                "file": "Golang/微服务/微服务学习笔记（四）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "微服务学习笔记（三）"
+              "title": "微服务学习笔记（四）"
             }
           },
           {
@@ -56,21 +56,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/Protobuf类型（二）.md",
+                "file": "Nim/Nim（一）：Hello World.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Protobuf类型（二）"
+              "title": "Nim（一）：Hello World"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       },
       {
         "id": "deeb2e6c90e956e6",
         "type": "tabs",
-        "dimension": 20.85271317829457,
+        "dimension": 20.570948782535684,
         "children": [
           {
             "id": "1c406124f59fc683",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/微服务/微服务学习笔记（三）.md",
+                "file": "Nim/Nim（一）：Hello World.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "微服务学习笔记（三） 的大纲"
+              "title": "Nim（一）：Hello World 的大纲"
             }
           }
         ]
@@ -222,30 +222,36 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "29c8d8a127f8ceea",
+  "active": "c91fc249c19eca2b",
   "lastOpenFiles": [
+    "Nim/README.md",
+    "Nim/Nim（一）：Hello World.md",
+    "Python/README.md",
     "Golang/微服务/微服务学习笔记（二）.md",
+    "Nim",
+    "Golang/微服务/微服务学习笔记（四）.md",
     "Golang/微服务/微服务学习笔记（三）.md",
+    "Golang/微服务/assets/Pasted image 20260207213757.png",
+    "Golang/微服务/assets/Pasted image 20260207213337.png",
+    "Golang/微服务/assets/Pasted image 20260207213238.png",
+    "Golang/微服务/assets/Pasted image 20260207213154.png",
+    "Golang/微服务/assets/Pasted image 20260207211031.png",
+    "Golang/微服务/assets/Pasted image 20260207210522.png",
+    "Golang/微服务/assets/Pasted image 20260207210253.png",
+    "Golang/微服务/assets/Pasted image 20260206223356.png",
+    "Golang/微服务/assets/Pasted image 20260206222934.png",
+    "Golang/微服务/assets/Pasted image 20260206221728.png",
+    "H.md",
+    "Golang/微服务/Protobuf类型（二）.md",
     "草稿/微服务/RPC精进路线.md",
     "草稿/微服务/gRPC编写练习.md",
-    "Golang/微服务/assets/Pasted image 20260206133154.png",
-    "Golang/微服务/assets/Pasted image 20260206001925.png",
-    "Golang/微服务/assets/Pasted image 20260205233559.png",
-    "Golang/微服务/assets/Pasted image 20260204184838.png",
-    "Golang/微服务/Protobuf类型（二）.md",
     "Golang/语法/学习笔记（七）.md",
     "Golang/微服务/Protobuf类型（三）.md",
     "Golang/微服务/Protobuf类型（一）.md",
-    "Golang/微服务/assets/Pasted image 20260203185942.png",
-    "Golang/微服务/assets/Pasted image 20260202225907.png",
     "草稿/微服务",
-    "Golang/微服务/assets/Pasted image 20260201165320.png",
-    "Golang/微服务/assets/Pasted image 20260201165205.png",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
-    "Golang/微服务/assets/Pasted image 20260131205558.png",
     "Golang/标准库/os exec库学习.md",
     "Golang/微服务/微服务学习笔记（一）.md",
-    "Golang/微服务/assets/Pasted image 20260130211116.png",
     "Golang/微服务/assets",
     "Golang/云原生框架/Prometheus生态/Grafana插件Business Form探索.md",
     "Golang/微服务",
@@ -261,14 +267,8 @@
     "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（七）：绘制与动画.md",
-    "Python/README.md",
     "Golang/桌面端框架/Fyne/README.md",
     "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-13_22-32-03.mp4",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_23-31-13.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_00-48-38.mp4",
-    "Golang/语法/学习笔记（六）：反射.md",
-    "Golang/后端框架/Gin框架/学习笔记（四）：框架分层与会话管理.md",
-    "Golang/后端框架/Gin框架/学习笔记（六）：ORM与会话认证.md"
+    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_23-31-13.mp4"
   ]
 }
