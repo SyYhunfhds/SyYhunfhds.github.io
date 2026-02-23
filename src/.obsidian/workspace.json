@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/Protobuf类型（二）.md",
+                "file": "Golang/微服务/微服务学习笔记（二）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Protobuf类型（二）"
+              "title": "微服务学习笔记（二）"
             }
           },
           {
@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/微服务学习笔记（四）.md",
+                "file": "Kotlin/语法/Kotlin 语法（一）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "微服务学习笔记（四）"
+              "title": "Kotlin 语法（一）"
             }
           },
           {
@@ -56,16 +56,16 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Nim/Nim（一）：Hello World.md",
+                "file": "Dont Update/Dragon Aria AI 提示词文档/角色/修奇/修奇 VFX Lookdev.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Nim（一）：Hello World"
+              "title": "修奇 VFX Lookdev"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Nim/Nim（一）：Hello World.md",
+                "file": "Kotlin/语法/Kotlin 语法（一）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Nim（一）：Hello World 的大纲"
+              "title": "Kotlin 语法（一） 的大纲"
             }
           }
         ]
@@ -222,53 +222,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "c91fc249c19eca2b",
+  "active": "29c8d8a127f8ceea",
   "lastOpenFiles": [
-    "Nim/README.md",
-    "Nim/Nim（一）：Hello World.md",
-    "Python/README.md",
+    "Kotlin/语法/assets/Pasted image 20260223123723.png",
+    "Kotlin/语法/assets/Pasted image 20260222233843.png",
+    "Kotlin/语法/assets/Pasted image 20260222232058.png",
     "Golang/微服务/微服务学习笔记（二）.md",
-    "Nim",
-    "Golang/微服务/微服务学习笔记（四）.md",
+    "Golang/微服务/微服务学习笔记（一）.md",
     "Golang/微服务/微服务学习笔记（三）.md",
-    "Golang/微服务/assets/Pasted image 20260207213757.png",
-    "Golang/微服务/assets/Pasted image 20260207213337.png",
-    "Golang/微服务/assets/Pasted image 20260207213238.png",
-    "Golang/微服务/assets/Pasted image 20260207213154.png",
-    "Golang/微服务/assets/Pasted image 20260207211031.png",
-    "Golang/微服务/assets/Pasted image 20260207210522.png",
-    "Golang/微服务/assets/Pasted image 20260207210253.png",
-    "Golang/微服务/assets/Pasted image 20260206223356.png",
-    "Golang/微服务/assets/Pasted image 20260206222934.png",
-    "Golang/微服务/assets/Pasted image 20260206221728.png",
-    "H.md",
-    "Golang/微服务/Protobuf类型（二）.md",
-    "草稿/微服务/RPC精进路线.md",
-    "草稿/微服务/gRPC编写练习.md",
-    "Golang/语法/学习笔记（七）.md",
     "Golang/微服务/Protobuf类型（三）.md",
+    "Golang/微服务/Protobuf类型（二）.md",
+    "Golang/微服务/微服务学习笔记（四）.md",
+    "Kotlin/语法/Kotlin 语法（一）.md",
+    "Kotlin/语法/assets/Pasted image 20260218211406.png",
+    "Kotlin/语法/assets/Pasted image 20260218211209.png",
+    "Kotlin/语法/assets/Pasted image 20260218211045.png",
+    "Kotlin/语法/assets/Pasted image 20260218205223.png",
+    "Kotlin/语法/assets/Pasted image 20260218203351.png",
+    "Dont Update/Dragon Aria AI 提示词文档/角色/修奇/修奇 VFX Lookdev.md",
+    "Dont Update/Dragon Aria AI 提示词文档/角色/修奇",
+    "Dont Update/Dragon Aria AI 提示词文档/角色",
+    "Dont Update/Dragon Aria AI 提示词文档",
+    "Dont Update",
+    "Kotlin/语法/assets/Pasted image 20260217223137.png",
+    "Kotlin/语法/assets/Pasted image 20260217222950.png",
+    "Kotlin/语法/assets/Pasted image 20260217220839.png",
+    "Kotlin/语法/assets",
+    "其他/Victoria Metrics/MetricsQL学习笔记.md",
+    "其他/Victoria Metrics/assets",
+    "其他/Victoria Metrics",
+    "其他",
+    "Kotlin/README.md",
+    "Kotlin/语法",
+    "Golang/语法/学习笔记（七）.md",
+    "Kotlin",
+    "Golang/标准库/sync库学习笔记.md",
+    "草稿/微服务/RPC精进路线.md",
+    "Nim/Nim（一）：Hello World.md",
+    "Nim/README.md",
+    "Python/README.md",
+    "H.md",
+    "草稿/微服务/gRPC编写练习.md",
     "Golang/微服务/Protobuf类型（一）.md",
-    "草稿/微服务",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
     "Golang/标准库/os exec库学习.md",
-    "Golang/微服务/微服务学习笔记（一）.md",
-    "Golang/微服务/assets",
     "Golang/云原生框架/Prometheus生态/Grafana插件Business Form探索.md",
-    "Golang/微服务",
-    "Golang/云原生框架/Prometheus生态/assets",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
-    "Golang/云原生框架/Prometheus生态",
-    "Golang/云原生框架",
-    "Golang/标准库/sync库学习笔记.md",
-    "Golang/标准库/assets",
     "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（三）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（八）：数据绑定.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（七）：绘制与动画.md",
-    "Golang/桌面端框架/Fyne/README.md",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-13_22-32-03.mp4",
-    "Golang/桌面端框架/Fyne/assets/PixPin_2026-01-12_23-31-13.mp4"
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（三）.md"
   ]
 }
