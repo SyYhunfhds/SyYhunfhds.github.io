@@ -37,6 +37,12 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "Kotlin",
+      icon: "laptop-code",
+      prefix: "Kotlin/",
+      children: "structure",
+    },
+    {
       text: "充电",
       icon: "battery-4",
       prefix: "自我充电/",
