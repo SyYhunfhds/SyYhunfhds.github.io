@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/语法/Kotlin 语法（一）.md",
+                "file": "Kotlin/语法/Kotlin 语法（二）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin 语法（一）"
+              "title": "Kotlin 语法（二）"
             }
           },
           {
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kotlin/语法/Kotlin 语法（一）.md",
+                "file": "Kotlin/语法/Kotlin 语法（二）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Kotlin 语法（一） 的大纲"
+              "title": "Kotlin 语法（二） 的大纲"
             }
           }
         ]
@@ -222,8 +222,11 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "29c8d8a127f8ceea",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
+    "Kotlin/语法/Kotlin 语法（一）.md",
+    "Kotlin/语法/Kotlin 语法（二）.md",
+    "Kotlin/语法/assets/Pasted image 20260223191052.png",
     "Kotlin/语法/assets/Pasted image 20260223123723.png",
     "Kotlin/语法/assets/Pasted image 20260222233843.png",
     "Kotlin/语法/assets/Pasted image 20260222232058.png",
@@ -233,7 +236,6 @@
     "Golang/微服务/Protobuf类型（三）.md",
     "Golang/微服务/Protobuf类型（二）.md",
     "Golang/微服务/微服务学习笔记（四）.md",
-    "Kotlin/语法/Kotlin 语法（一）.md",
     "Kotlin/语法/assets/Pasted image 20260218211406.png",
     "Kotlin/语法/assets/Pasted image 20260218211209.png",
     "Kotlin/语法/assets/Pasted image 20260218211045.png",
@@ -245,8 +247,6 @@
     "Dont Update/Dragon Aria AI 提示词文档",
     "Dont Update",
     "Kotlin/语法/assets/Pasted image 20260217223137.png",
-    "Kotlin/语法/assets/Pasted image 20260217222950.png",
-    "Kotlin/语法/assets/Pasted image 20260217220839.png",
     "Kotlin/语法/assets",
     "其他/Victoria Metrics/MetricsQL学习笔记.md",
     "其他/Victoria Metrics/assets",
