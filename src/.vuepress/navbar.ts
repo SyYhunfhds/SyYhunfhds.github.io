@@ -7,10 +7,7 @@ export default navbar([
   "/Python/",
   "/Golang/",
   "/Kotlin/",
-  "/自我充电/",
   "/light-mind/",
-  "/CTF/",
-  "/渗透靶场/",
   "/翻译/",
 
 ]);
