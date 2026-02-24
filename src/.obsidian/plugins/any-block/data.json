@@ -29,5 +29,13 @@
   ],
   "is_debug": false,
   "enhance_refresh_time": 2000,
-  "inline_split": "/\\| |,  |， |\\.  |。 |:  |： /"
+  "reg_header": "/^((\\s|>\\s|-\\s|\\*\\s|\\+\\s)*)(%%)?(\\[((?!toc|TOC|\\!|< )[\\|\\!#:;\\(\\)\\s0-9a-zA-Z\\u4e00-\\u9fa5](?!.*::).*)\\]):?\\3\\s*$/",
+  "reg_header_noprefix": "/^((\\s)*)(%%)?(\\[((?!toc|TOC|\\!|< )[\\|\\!#:;\\(\\)\\s0-9a-zA-Z\\u4e00-\\u9fa5](?!.*::).*)\\]):?\\3\\s*$/",
+  "inline_split": "/\\| |,  |， |\\.  |。 |:  |： /",
+  "pro": {
+    "license_key": "",
+    "disable": false,
+    "enable_callout_selector": true,
+    "editableblock_defaultRender": "readmode"
+  }
 }

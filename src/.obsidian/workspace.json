@@ -51,6 +51,16 @@
             }
           },
           {
+            "id": "c602cc8b5b96c087",
+            "type": "leaf",
+            "state": {
+              "type": "smart-release-notes-view",
+              "state": {},
+              "icon": "file-text",
+              "title": "Release Notes"
+            }
+          },
+          {
             "id": "c91fc249c19eca2b",
             "type": "leaf",
             "state": {
@@ -160,7 +170,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
+                "file": "Kotlin/语法/Kotlin 语法（二）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -170,7 +180,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "SNMP 技术探索 的反向链接列表"
+              "title": "Kotlin 语法（二） 的反向链接列表"
             }
           },
           {
@@ -201,13 +211,23 @@
               "icon": "lucide-tags",
               "title": "标签"
             }
+          },
+          {
+            "id": "0d70796fd3ac8d04",
+            "type": "leaf",
+            "state": {
+              "type": "smart-connections-view",
+              "state": {},
+              "icon": "smart-connections",
+              "title": "Connections"
+            }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -219,11 +239,16 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "smart-connections:Smart Connections: Open connections view": false,
+      "smart-connections:Smart Lookup: Open lookup view": false,
+      "smart-connections:Smart Connections: Open random connection": false,
+      "smart-connections-visualizer:Open smart connections visualizer": false
     }
   },
-  "active": "b44904467a9ff783",
+  "active": "29c8d8a127f8ceea",
   "lastOpenFiles": [
+    "Kotlin/语法/assets/Pasted image 20260223232010.png",
     "Kotlin/语法/Kotlin 语法（一）.md",
     "Kotlin/语法/Kotlin 语法（二）.md",
     "Kotlin/语法/assets/Pasted image 20260223191052.png",
@@ -268,7 +293,6 @@
     "Golang/标准库/os exec库学习.md",
     "Golang/云原生框架/Prometheus生态/Grafana插件Business Form探索.md",
     "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
-    "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（三）.md"
+    "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md"
   ]
 }

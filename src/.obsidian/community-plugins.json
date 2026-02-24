@@ -1,5 +1,8 @@
 [
   "obsidian-enhancing-export",
   "obsidian-excalidraw-plugin",
-  "any-block"
+  "any-block",
+  "smart-connections",
+  "smart-connections-visualizer",
+  "execute-code"
 ]
