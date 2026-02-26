@@ -23,20 +23,6 @@
             }
           },
           {
-            "id": "e07a30f0712518ca",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "草稿/微服务/RPC精进路线.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "RPC精进路线"
-            }
-          },
-          {
             "id": "29c8d8a127f8ceea",
             "type": "leaf",
             "state": {
@@ -48,16 +34,6 @@
               },
               "icon": "lucide-file",
               "title": "Kotlin 语法（二）"
-            }
-          },
-          {
-            "id": "c602cc8b5b96c087",
-            "type": "leaf",
-            "state": {
-              "type": "smart-release-notes-view",
-              "state": {},
-              "icon": "file-text",
-              "title": "Release Notes"
             }
           },
           {
@@ -75,7 +51,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -189,12 +165,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Golang/前后端协同开发/计网课设/技术探索/SNMP 技术探索.md",
+                "file": "Kotlin/语法/Kotlin 语法（二）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "SNMP 技术探索 的出链列表"
+              "title": "Kotlin 语法（二） 的出链列表"
             }
           },
           {
@@ -211,23 +187,14 @@
               "icon": "lucide-tags",
               "title": "标签"
             }
-          },
-          {
-            "id": "0d70796fd3ac8d04",
-            "type": "leaf",
-            "state": {
-              "type": "smart-connections-view",
-              "state": {},
-              "icon": "smart-connections",
-              "title": "Connections"
-            }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -248,9 +215,17 @@
   },
   "active": "29c8d8a127f8ceea",
   "lastOpenFiles": [
-    "Kotlin/语法/assets/Pasted image 20260223232010.png",
-    "Kotlin/语法/Kotlin 语法（一）.md",
+    "Kotlin/语法/assets/Pasted image 20260226234552.png",
+    "toc.md",
     "Kotlin/语法/Kotlin 语法（二）.md",
+    "Kotlin/语法/Kotlin 语法（一）.md",
+    "Kotlin/语法/assets/Pasted image 20260226212701.png",
+    "Kotlin/语法/assets/Pasted image 20260226185139.png",
+    "草稿/微服务/RPC精进路线.md",
+    "Kotlin/语法/assets/Pasted image 20260226180743.png",
+    "Kotlin/语法/assets/Pasted image 20260225201833.png",
+    "Kotlin/语法/assets/Pasted image 20260224231659.png",
+    "Kotlin/语法/assets/Pasted image 20260223232010.png",
     "Kotlin/语法/assets/Pasted image 20260223191052.png",
     "Kotlin/语法/assets/Pasted image 20260223123723.png",
     "Kotlin/语法/assets/Pasted image 20260222233843.png",
@@ -261,17 +236,11 @@
     "Golang/微服务/Protobuf类型（三）.md",
     "Golang/微服务/Protobuf类型（二）.md",
     "Golang/微服务/微服务学习笔记（四）.md",
-    "Kotlin/语法/assets/Pasted image 20260218211406.png",
-    "Kotlin/语法/assets/Pasted image 20260218211209.png",
-    "Kotlin/语法/assets/Pasted image 20260218211045.png",
-    "Kotlin/语法/assets/Pasted image 20260218205223.png",
-    "Kotlin/语法/assets/Pasted image 20260218203351.png",
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇/修奇 VFX Lookdev.md",
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇",
     "Dont Update/Dragon Aria AI 提示词文档/角色",
     "Dont Update/Dragon Aria AI 提示词文档",
     "Dont Update",
-    "Kotlin/语法/assets/Pasted image 20260217223137.png",
     "Kotlin/语法/assets",
     "其他/Victoria Metrics/MetricsQL学习笔记.md",
     "其他/Victoria Metrics/assets",
@@ -282,7 +251,6 @@
     "Golang/语法/学习笔记（七）.md",
     "Kotlin",
     "Golang/标准库/sync库学习笔记.md",
-    "草稿/微服务/RPC精进路线.md",
     "Nim/Nim（一）：Hello World.md",
     "Nim/README.md",
     "Python/README.md",
@@ -292,7 +260,6 @@
     "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
     "Golang/标准库/os exec库学习.md",
     "Golang/云原生框架/Prometheus生态/Grafana插件Business Form探索.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
-    "Golang/第三方库/Ebitengine/从零开始的纪念碑谷引擎复刻：（一）.md"
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md"
   ]
 }
