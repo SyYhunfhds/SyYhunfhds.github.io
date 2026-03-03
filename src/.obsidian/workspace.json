@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/语法/Kotlin（四）：文件操作.md",
+                "file": "Dont Update/Kotlin/Kotlin（四）：文件操作.md",
                 "mode": "source",
                 "source": false
               },
@@ -77,7 +77,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kotlin/语法/Kotlin（四）：文件操作.md",
+                "file": "Dont Update/Kotlin/Kotlin（四）：文件操作.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
@@ -222,10 +222,12 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "cc92b5e2b8e45af5",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
+    "Dont Update/Kotlin",
+    "Kotlin/语法/Kotlin（四）：文件操作 1.md",
+    "Dont Update/Kotlin/Kotlin（四）：文件操作.md",
     "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
-    "Kotlin/语法/Kotlin（四）：文件操作.md",
     "2026-03-02.md",
     "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
     "Golang/微服务/Protobuf类型（二）.md",
@@ -266,9 +268,7 @@
     "未命名.md",
     "toc.md",
     "草稿/微服务/RPC精进路线.md",
-    "Dont Update/Dragon Aria AI 提示词文档/角色/修奇/修奇 VFX Lookdev.md",
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇",
-    "Dont Update/Dragon Aria AI 提示词文档/角色",
-    "其他/Victoria Metrics/MetricsQL学习笔记.md"
+    "Dont Update/Dragon Aria AI 提示词文档/角色"
   ]
 }
