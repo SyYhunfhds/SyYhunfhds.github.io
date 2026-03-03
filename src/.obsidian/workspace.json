@@ -64,8 +64,7 @@
               "title": "修奇 VFX Lookdev"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -78,13 +77,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
+                "file": "Kotlin/语法/Kotlin（四）：文件操作.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "微服务学习笔记（六）：微服务网关 的大纲"
+              "title": "Kotlin（四）：文件操作 的大纲"
             }
           }
         ]
@@ -223,13 +222,14 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "29c8d8a127f8ceea",
+  "active": "cc92b5e2b8e45af5",
   "lastOpenFiles": [
-    "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
     "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
+    "Kotlin/语法/Kotlin（四）：文件操作.md",
+    "2026-03-02.md",
+    "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
     "Golang/微服务/Protobuf类型（二）.md",
     "Golang/微服务/微服务学习笔记（四）：初识Kratos.md",
-    "Kotlin/语法/Kotlin（四）：文件操作.md",
     "Golang/微服务/assets/Pasted image 20260303210505.png",
     "Golang/微服务/assets/Pasted image 20260303210103.png",
     "Golang/微服务/Protobuf类型（三）.md",
@@ -269,7 +269,6 @@
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇/修奇 VFX Lookdev.md",
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇",
     "Dont Update/Dragon Aria AI 提示词文档/角色",
-    "其他/Victoria Metrics/MetricsQL学习笔记.md",
-    "Kotlin/README.md"
+    "其他/Victoria Metrics/MetricsQL学习笔记.md"
   ]
 }

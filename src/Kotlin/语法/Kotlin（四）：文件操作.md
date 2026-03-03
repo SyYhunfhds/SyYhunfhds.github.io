@@ -22,19 +22,19 @@ val file = File("test.txt")
 Kotlin 提供了三种最直接的读取方式，它们都有一个可选参数：`charset`（编码），默认是 `Charsets.UTF_8`。
 
 ##### 1. `readText()`：一把梭读取
-	适合配置文件、小文章。
-	- **用法：** `val content = file.readText()`
-	- **细节：** 它内部其实是开了流，读完后帮你自动关闭了。
-	- **风险：** 如果文件 1GB，你的内存会直接爆掉（`OutOfMemoryError`）。
+适合配置文件、小文章。
+- **用法：** `val content = file.readText()`
+- **细节：** 它内部其实是开了流，读完后帮你自动关闭了。
+- **风险：** 如果文件 1GB，你的内存会直接爆掉（`OutOfMemoryError`）。
 
 ##### 2. `readLines()`：按行切割
-	返回一个 `List<String>`，每一行是一个元素（自动去掉了换行符）。
-	- **用法：** `val lines = file.readLines()`
-	- **场景：** 适合处理那种每行代表一条记录的文件（如 CSV 的简单版）。
+返回一个 `List<String>`，每一行是一个元素（自动去掉了换行符）。
+- **用法：** `val lines = file.readLines()`
+- **场景：** 适合处理那种每行代表一条记录的文件（如 CSV 的简单版）。
 
 ##### 3. `readBytes()`：二进制原始数据
-	- **用法：** `val bytes = file.readBytes()`
-	- **场景：** 读取图片、音频或加密文件。
+- **用法：** `val bytes = file.readBytes()`
+- **场景：** 读取图片、音频或加密文件。
 
 ```kotlin
 import java.io.File  
@@ -79,18 +79,18 @@ class BasicFileOperationTest {
 ```
 #### 文件写入
 ##### 1. `writeText(text)`：**覆盖写入**
-	```kotlin
+```kotlin
 	val file = File("hello.txt")
 	file.writeText("第一次写入")
 	file.writeText("第二次写入") // 此时文件内容只有“第二次写入”，旧内容被清空了
-	```
+```
 ##### 2. `appendText(text)`：**追加写入**
-	```kotlin
+```kotlin
 	file.appendText("\n我是追加的内容") 
 	// \n 是换行符，如果你想另起一行，别忘了加它
-	```
+```
 ##### 3. `writeBytes(byteArray)`：**二进制写入**
-	常用于保存从网络下载的数据包
+> 常用于保存从网络下载的数据包
 
 ```kotlin
 import java.io.File  
@@ -471,12 +471,12 @@ File("output.bin").outputStream().use { stream ->
 	- **关键词**：`CoroutineScope`, `GlobalScope`, `cancel`, `Job`。
 	- **解决痛点**：当 Activity/页面 销毁时，还没跑完的后台任务怎么自动关掉？
 
-**🟠 第三阶段：上下文与调度器 (Context & Dispatchers)**
+- **🟠 第三阶段：上下文与调度器 (Context & Dispatchers)**
 	- **核心目标**：决定协程跑在哪个线程上。
 	- **关键词**：`Dispatchers.Main`, `Dispatchers.IO`, `Dispatchers.Default`, `withContext`。
 	- **解决痛点**：如何在后台读文件（IO），然后回到主线程更新界面（Main）？
 
-**🔴 第四阶段：并发进阶与异常处理**
+- **🔴 第四阶段：并发进阶与异常处理**
 	- **核心目标**：多个任务同时跑，以及其中一个崩了怎么办。
 	- **关键词**：`async`, `await`, `coroutineScope`, `SupervisorJob`。
 	- **解决痛点**：同时下载三个文件，全部下载完后再提示用户，如果一个失败了，其他两个要不要停？
