@@ -862,6 +862,197 @@ func (c *Client) Deregister(ctx context.Context, serviceID string) error {
 
 :::
 
+```kotlin
+package main
 
+import (
+	"context"
+	v1 "helloworld/api/helloworld/v1"
+	"os"
+	"os/signal"
+	"syscall"
+
+	"github.com/go-kratos/kratos/contrib/registry/consul/v2"
+	"github.com/go-kratos/kratos/v2/transport/grpc"
+	"github.com/hashicorp/consul/api"
+)
+
+func main() {
+	// os.Signal Context
+	ctx, cancel := signal.NotifyContext(context.Background(),
+		os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+	defer cancel()
+
+	cli, _ := api.NewClient(api.DefaultConfig())
+	// 使用服务发现的consul库: "github.com/go-kratos/kratos/contrib/registry/consul/v2"
+	discoveryCenter := consul.New(cli)
+
+	conn, err := grpc.DialInsecure(
+		ctx,
+		// /<SERVICE_NAME> 最前面得有一个斜杠
+		grpc.WithEndpoint("discovery:///helloworld-srv"),
+		grpc.WithDiscovery(discoveryCenter),
+	)
+	if err != nil {
+		panic(err)
+	}
+	defer conn.Close()
+
+	// 调用greeter.SayHello方法
+	c := v1.NewGreeterClient(conn)
+	if res, err := c.SayHello(ctx, &v1.HelloRequest{Name: "kratos"}); err != nil {
+		panic(err)
+	} else {
+		println(res.Message)
+	}
+	// INFO msg=[resolver] update instances: [{"id":"DESKTOP-82POIPF","name":"helloworld-srv","version":"","metadata":null,"endpoints":["grpc://192.168.100.1:9000","http://192.168.100.1:8000"]}]
+	// Hello kratos
+}
+```
+## Kratos心得
+### 加一个服务有多费劲
+> 在 Kratos 里加一个服务需要动 6-7 个模块
+
+#### 1. **API 定义层**（1 个模块）
+```sh
+# 生成proto文件
+kratos proto add api/<PROJECT_NAME>/v1/xxx.proto
+
+# 编译生成客户端文件
+make api
+kratos proto client api/<PROJECT_NAME>/v1/xxx.proto
+```
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `api/xxx/v1/xxx.proto` | 新建 | 定义 proto 服务和消息 |
+| `api/xxx/v1/xxx.pb.go` | 自动生成 | proto 消息代码 |
+| `api/xxx/v1/xxx_grpc.pb.go` | 自动生成 | gRPC 服务代码 |
+
+---
+
+#### 2. **服务实现层**（1 个模块）
+```sh
+# 编译生成服务端文件(默认不包括http_rpc)
+kratos proto server api/<PROJECT_NAME>/v1/xxx.proto -t internal/service
+```
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `internal/service/xxx.go` | 新建 | 实现服务逻辑 |
+| `internal/service/service.go` | **显式注册** | 添加到 `service.ProviderSet` |
+
+```go
+// internal/service/service.go
+var ProviderSet = wire.NewSet(
+    NewGreeterService,
+    NewCallItselfService,  // ← 新增
+)
+```
+
+---
+
+#### 3. **数据访问层**（可选，1 个模块）
+
+如果服务依赖其他 gRPC 服务：
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `internal/data/xxxClient.go` | 新建 | 创建 gRPC 客户端 |
+| `internal/data/data.go` | **显式注册** | 添加到 `data.ProviderSet` |
+
+```go
+// internal/data/data.go
+var ProviderSet = wire.NewSet(
+    NewData,
+    NewGreeterRepo,
+    NewGreeterRPCClient,  // ← 新增
+)
+```
+
+---
+
+#### 4. **传输层**（1 个模块）
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `internal/server/grpc.go` | **显式注册** | 注册到 gRPC 服务器 |
+
+```go
+// internal/server/grpc.go
+func NewGRPCServer(..., callItself *service.CallItselfService, ...) *grpc.Server {
+    srv := grpc.NewServer(opts...)
+    v1.RegisterGreeterServer(srv, greeter)
+    v1.RegisterCallItselfServer(srv, callItself)  // ← 新增
+    return srv
+}
+```
+
+---
+
+#### 5. **服务发现层**（可选，1 个模块）
+
+如果需要服务发现：
+
+| 文件 | 操作 | 说明 |
+|------|------|------|
+| `internal/server/registry.go` | 新建/修改 | 创建 Discovery/Registrar |
+| `internal/server/server.go` | **显式注册** | 添加到 `server.ProviderSet` |
+
+```go
+// internal/server/server.go
+var ProviderSet = wire.NewSet(
+    NewGRPCServer,
+    NewHTTPServer,
+    NewConsulRegistrar,
+    NewConsulDiscovery,  // ← 新增
+)
+```
+
+---
+
+#### 6. **依赖注入层**（1 个模块）
+
+| 文件                           | 操作     | 说明           |
+| ---------------------------- | ------ | ------------ |
+| `cmd/helloworld/wire.go`     | 通常不需要改 | Wire 自动解析依赖  |
+| `cmd/helloworld/wire_gen.go` | 自动生成   | 运行 `wire` 命令 |
+
+---
+
+#### 总结
+
+##### 需要显式注册的地方（4-5 处）
+
+1. **`internal/service/service.go`** - 注册到 `service.ProviderSet`
+2. **`internal/server/grpc.go`** - 注册到 gRPC 服务器
+3. **`internal/server/server.go`** - 注册到 `server.ProviderSet`
+4. **`internal/data/data.go`** - 如果有依赖，注册到 `data.ProviderSet`
+5. **`internal/server/registry.go`** - 如果需要服务发现，注册到 `server.ProviderSet`
+
+##### 完整流程
+
+```
+1. 定义 proto
+   ↓
+2. 生成 pb.go 和 _grpc.pb.go
+   ↓
+3. 实现服务逻辑
+   ↓
+4. 注册到 service.ProviderSet
+   ↓
+5. 注册到 gRPC Server
+   ↓
+6. 运行 wire 生成依赖注入代码
+   ↓
+7. 启动服务
+```
+
+##### 最小化场景（无服务发现）
+
+只需动 3 个模块：
+1. `api/` - 定义 proto
+2. `internal/service/` - 实现并注册服务
+3. `internal/server/grpc.go` - 注册到 gRPC 服务器
 ***
 # 页面底部

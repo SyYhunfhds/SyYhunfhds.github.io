@@ -14,12 +14,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/微服务学习笔记（二）.md",
+                "file": "Kotlin/语法/Kotlin（四）：文件操作.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "微服务学习笔记（二）"
+              "title": "Kotlin（四）：文件操作"
             }
           },
           {
@@ -28,12 +28,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/语法/Kotlin 语法（二）.md",
+                "file": "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin 语法（二）"
+              "title": "微服务学习笔记（六）：微服务网关"
+            }
+          },
+          {
+            "id": "b961ac52996ed82c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/微服务/微服务学习笔记（四）：初识Kratos.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "微服务学习笔记（四）：初识Kratos"
             }
           },
           {
@@ -64,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kotlin/语法/Kotlin 语法（二）.md",
+                "file": "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Kotlin 语法（二） 的大纲"
+              "title": "微服务学习笔记（六）：微服务网关 的大纲"
             }
           }
         ]
@@ -105,7 +119,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "数据类",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -206,60 +220,56 @@
       "templates:插入模板": false,
       "command-palette:打开命令面板": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-excalidraw-plugin:新建绘图文件": false,
-      "smart-connections:Smart Connections: Open connections view": false,
-      "smart-connections:Smart Lookup: Open lookup view": false,
-      "smart-connections:Smart Connections: Open random connection": false,
-      "smart-connections-visualizer:Open smart connections visualizer": false
+      "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
   "active": "29c8d8a127f8ceea",
   "lastOpenFiles": [
-    "Kotlin/语法/assets/Pasted image 20260226234552.png",
-    "toc.md",
-    "Kotlin/语法/Kotlin 语法（二）.md",
-    "Kotlin/语法/Kotlin 语法（一）.md",
-    "Kotlin/语法/assets/Pasted image 20260226212701.png",
-    "Kotlin/语法/assets/Pasted image 20260226185139.png",
-    "草稿/微服务/RPC精进路线.md",
-    "Kotlin/语法/assets/Pasted image 20260226180743.png",
-    "Kotlin/语法/assets/Pasted image 20260225201833.png",
-    "Kotlin/语法/assets/Pasted image 20260224231659.png",
-    "Kotlin/语法/assets/Pasted image 20260223232010.png",
-    "Kotlin/语法/assets/Pasted image 20260223191052.png",
-    "Kotlin/语法/assets/Pasted image 20260223123723.png",
-    "Kotlin/语法/assets/Pasted image 20260222233843.png",
-    "Kotlin/语法/assets/Pasted image 20260222232058.png",
+    "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
+    "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
+    "Golang/微服务/Protobuf类型（二）.md",
+    "Golang/微服务/微服务学习笔记（四）：初识Kratos.md",
+    "Kotlin/语法/Kotlin（四）：文件操作.md",
+    "Golang/微服务/assets/Pasted image 20260303210505.png",
+    "Golang/微服务/assets/Pasted image 20260303210103.png",
+    "Golang/微服务/Protobuf类型（三）.md",
+    "Golang/微服务/assets/Pasted image 20260303200616.png",
+    "Golang/微服务/微服务学习笔记（三）.md",
     "Golang/微服务/微服务学习笔记（二）.md",
     "Golang/微服务/微服务学习笔记（一）.md",
-    "Golang/微服务/微服务学习笔记（三）.md",
-    "Golang/微服务/Protobuf类型（三）.md",
-    "Golang/微服务/Protobuf类型（二）.md",
-    "Golang/微服务/微服务学习笔记（四）.md",
+    "Golang/微服务/Protobuf类型（一）.md",
+    "自我充电/Advent of Code/2025/AoC Kotlin （一）.md",
+    "Golang/微服务/assets/Pasted image 20260303193403.png",
+    "Golang/微服务/assets/Pasted image 20260303193033.png",
+    "Golang/微服务/assets/Pasted image 20260303191537.png",
+    "Golang/微服务/assets/Pasted image 20260303191527.png",
+    "自我充电/etc/8086汇编学习随笔.md",
+    "自我充电/etc/Debugger学习/attachments/Pasted image 20250324220536.png",
+    "自我充电/etc/Debugger学习/attachments/Pasted image 20250324220052.png",
+    "自我充电/etc/Debugger学习/attachments/Pasted image 20250324214253.png",
+    "自我充电/etc/Debugger学习/attachments",
+    "自我充电/etc/Debugger学习/初入Debugger.md",
+    "自我充电/etc/Debugger学习",
+    "自我充电/etc/attachments/port.txt.md",
+    "自我充电/etc/attachments",
+    "自我充电/etc",
+    "Kotlin/语法/Kotlin 语法（二）.md",
+    "Kotlin/语法/Kotlin 语法（一）.md",
+    "自我充电/Advent of Code/2025/assets",
+    "自我充电/Advent of Code/比赛介绍.md",
+    "Kotlin/语法/Kotlin 语法（三）.md",
+    "Kotlin/框架/Spring Boot/Spring Boot Kotlin（一）.md",
+    "Kotlin/框架/Spring Boot/assets",
+    "Kotlin/框架/Spring Boot",
+    "Kotlin/框架/未命名.md",
+    "Kotlin/框架",
+    "未命名.md",
+    "toc.md",
+    "草稿/微服务/RPC精进路线.md",
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇/修奇 VFX Lookdev.md",
     "Dont Update/Dragon Aria AI 提示词文档/角色/修奇",
     "Dont Update/Dragon Aria AI 提示词文档/角色",
-    "Dont Update/Dragon Aria AI 提示词文档",
-    "Dont Update",
-    "Kotlin/语法/assets",
     "其他/Victoria Metrics/MetricsQL学习笔记.md",
-    "其他/Victoria Metrics/assets",
-    "其他/Victoria Metrics",
-    "其他",
-    "Kotlin/README.md",
-    "Kotlin/语法",
-    "Golang/语法/学习笔记（七）.md",
-    "Kotlin",
-    "Golang/标准库/sync库学习笔记.md",
-    "Nim/Nim（一）：Hello World.md",
-    "Nim/README.md",
-    "Python/README.md",
-    "H.md",
-    "草稿/微服务/gRPC编写练习.md",
-    "Golang/微服务/Protobuf类型（一）.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（一）.md",
-    "Golang/标准库/os exec库学习.md",
-    "Golang/云原生框架/Prometheus生态/Grafana插件Business Form探索.md",
-    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md"
+    "Kotlin/README.md"
   ]
 }
