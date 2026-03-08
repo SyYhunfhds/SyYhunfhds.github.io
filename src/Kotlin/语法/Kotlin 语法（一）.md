@@ -423,6 +423,7 @@ println(readOnlyJuiceMenu.keys)
 println(readOnlyJuiceMenu.values)
 // [100, 190, 100]
 ```
+
 :::tip
 `.keys`和`.values`被称作对象上的**成员属性**，[详情请见](https://kotlinlang.org/docs/kotlin-tour-classes.html)
 :::
