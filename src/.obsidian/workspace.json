@@ -14,58 +14,58 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
+                "file": "Golang/微服务/微服务学习笔记（八）：统一认证与授权.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "微服务学习笔记（六）：微服务网关"
+              "title": "微服务学习笔记（八）：统一认证与授权"
             }
           },
           {
-            "id": "cc92b5e2b8e45af5",
+            "id": "0ccca6e8d8a486bf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/API文档/Kotlin 列表操作函数.md",
+                "file": "Kotlin/API文档/第三方库/Ktor Client HTTP客户端.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin 列表操作函数"
+              "title": "Ktor Client HTTP客户端"
             }
           },
           {
-            "id": "42ff27de8168e458",
+            "id": "1b5685e4f2544cc9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "自我充电/Advent of Code/2025/AoC Kotlin （一）.md",
+                "file": "Kotlin/第三方库/Kotlin Ktor 网络库学习笔记.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AoC Kotlin （一）"
+              "title": "Kotlin Ktor 网络库学习笔记"
             }
           },
           {
-            "id": "9b289edd6398002b",
+            "id": "6892eb8edca64bb9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/语法/Kotlin 语法（二）.md",
+                "file": "自我充电/Advent of Code/2025/AoC Kotlin（二）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin 语法（二）"
+              "title": "AoC Kotlin（二）"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "自我充电/Advent of Code/2025/AoC Kotlin （一）.md",
+                "file": "Kotlin/API文档/第三方库/Ktor Client HTTP客户端.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "AoC Kotlin （一） 的大纲"
+              "title": "Ktor Client HTTP客户端 的大纲"
             }
           }
         ]
@@ -223,52 +223,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "42ff27de8168e458",
+  "active": "0ccca6e8d8a486bf",
   "lastOpenFiles": [
-    "Kotlin/API文档/Kotlin 列表操作函数.md",
-    "Kotlin/API文档/Kotlin 集合构造函数.md",
-    "Kotlin/API文档/Kotlin 字符串操作函数.md",
-    "自我充电/Advent of Code/2025/AoC Kotlin （一）.md",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308194902.png",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308194707.png",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308194438.png",
-    "Kotlin/语法/Kotlin 语法（二）.md",
     "Kotlin/语法/Kotlin 语法（一）.md",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308193014.png",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308192832.png",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308192447.png",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308192330.png",
-    "自我充电/Advent of Code/2025/assets/Pasted image 20260308191217.png",
-    "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
-    "Kotlin/API文档/README.md",
-    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
+    "Kotlin/第三方库/Kotlin Ktor 网络库学习笔记.md",
+    "Kotlin/API文档/第三方库/Ktor Client HTTP客户端.md",
+    "Kotlin/第三方库/Kotlin Fuel 网络库学习笔记.md",
+    "Kotlin/API文档/第三方库",
+    "Kotlin/API文档/标准库/README.md",
+    "Kotlin/API文档/标准库/Kotlin 字符串操作函数.md",
+    "Kotlin/API文档/标准库/Kotlin 文件操作函数.md",
+    "Kotlin/API文档/标准库/Kotlin 列表操作函数.md",
+    "Kotlin/API文档/标准库/Kotlin 类、接口与继承.md",
+    "Kotlin/API文档/标准库/Kotlin 集合构造函数.md",
+    "Kotlin/API文档/标准库/Kotlin 并发同步与原子操作.md",
+    "Kotlin/API文档/标准库/Kotlin Test.md",
+    "Kotlin/API文档/标准库/Kotlin StringBuilder操作.md",
+    "Kotlin/API文档/标准库/Kotlin Sequence操作.md",
+    "Kotlin/API文档/标准库/Kotlin Range 操作.md",
+    "Kotlin/API文档/标准库/Kotlin Map操作函数.md",
+    "Kotlin/API文档/标准库/Kotlin Array 操作与并发优化.md",
+    "Kotlin/API文档/标准库/Java-Kotlin 栈队列优先队列操作.md",
+    "自我充电/Advent of Code/2025/AoC Kotlin（二）.md",
+    "Kotlin/API文档/Java-Kotlin 栈队列优先队列操作.md",
+    "Kotlin/API文档/标准库",
+    "Kotlin/API文档/Kotlin Range 操作.md",
+    "Kotlin/第三方库",
+    "Kotlin/API文档/Kotlin Sequence操作.md",
+    "Kotlin/API文档/Kotlin 集合构造函数.md",
+    "Kotlin/API文档/Kotlin 列表操作函数.md",
+    "Kotlin/语法/Kotlin 语法（二）.md",
+    "Kotlin/API文档/Kotlin Array 操作与并发优化.md",
+    "自我充电/Advent of Code/2025/assets/Pasted image 20260313210005.png",
+    "自我充电/Advent of Code/2025/assets/Pasted image 20260313204816.png",
+    "Dont Update/其他/assets/Pasted image 20260312192854.png",
+    "Dont Update/其他/assets/Pasted image 20260312192840.png",
+    "Dont Update/其他/assets/Pasted image 20260312191928.png",
+    "Dont Update/其他/assets/Pasted image 20260312191805.png",
+    "Dont Update/其他/assets",
+    "Dont Update/其他",
+    "Golang/微服务/assets/Pasted image 20260311211001.png",
+    "Golang/微服务/assets/Pasted image 20260311210420.png",
+    "Golang/微服务/assets/Pasted image 20260310215112.png",
+    "Golang/微服务/assets/Pasted image 20260310215029.png",
     "Kotlin/API文档",
-    "Dont Update/Kotlin/Kotlin（四）：文件操作.md",
-    "Kotlin/语法/assets/Pasted image 20260307223647.png",
-    "Kotlin/语法/assets/Pasted image 20260307222651.png",
-    "未命名.md",
-    "Golang/微服务/微服务学习笔记（四）：初识Kratos.md",
     "Dont Update/Kotlin",
-    "Kotlin/语法/Kotlin（四）：文件操作 1.md",
-    "2026-03-02.md",
-    "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
-    "Golang/微服务/Protobuf类型（二）.md",
-    "Golang/微服务/Protobuf类型（三）.md",
-    "Golang/微服务/微服务学习笔记（三）.md",
-    "Golang/微服务/微服务学习笔记（二）.md",
-    "Golang/微服务/微服务学习笔记（一）.md",
-    "Golang/微服务/Protobuf类型（一）.md",
-    "自我充电/etc/8086汇编学习随笔.md",
     "自我充电/etc/Debugger学习/attachments",
-    "自我充电/etc/Debugger学习/初入Debugger.md",
     "自我充电/etc/Debugger学习",
-    "自我充电/etc/attachments/port.txt.md",
-    "自我充电/etc/attachments",
-    "自我充电/etc",
-    "自我充电/Advent of Code/2025/assets",
-    "自我充电/Advent of Code/比赛介绍.md",
-    "Kotlin/框架/Spring Boot/assets",
-    "Kotlin/框架/Spring Boot",
-    "Kotlin/框架"
+    "自我充电/etc/attachments"
   ]
 }

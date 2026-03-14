@@ -178,6 +178,347 @@ kratos -h
 kratos new -h
 ```
 ## Kratos 简单配置
+### 定义 HTTP 服务
+
+Kratos 框架支持同时提供 gRPC 和 HTTP 服务，HTTP 服务通过 Protocol Buffers 的 HTTP 注解来定义路由规则。
+
+#### 在 Proto 中定义 HTTP 路由
+
+Kratos 使用 `google/api/annotations.proto` 来定义 HTTP 路由映射。首先需要在 proto 文件中导入 HTTP 注解：
+
+```protobuf
+syntax = "proto3";
+
+package api.helloworld.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "helloworld/api/helloworld/v1;v1";
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/helloworld/{name}"
+    };
+  }
+
+  rpc CreateUser (CreateUserRequest) returns (CreateUserReply) {
+    option (google.api.http) = {
+      post: "/v1/users"
+      body: "*"
+    };
+  }
+
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserReply) {
+    option (google.api.http) = {
+      put: "/v1/users/{id}"
+      body: "*"
+    };
+  }
+
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserReply) {
+    option (google.api.http) = {
+      delete: "/v1/users/{id}"
+    };
+  }
+
+  rpc GetUser (GetUserRequest) returns (GetUserReply) {
+    option (google.api.http) = {
+      get: "/v1/users/{id}"
+    };
+  }
+
+  rpc ListUsers (ListUsersRequest) returns (ListUsersReply) {
+    option (google.api.http) = {
+      get: "/v1/users"
+    };
+  }
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+```
+
+#### HTTP 路由注解说明
+
+| 注解字段            | 说明          | 示例                           |
+| --------------- | ----------- | ---------------------------- |
+| `get`           | GET 请求路由    | `get: "/v1/users/{id}"`      |
+| `post`          | POST 请求路由   | `post: "/v1/users"`          |
+| `put`           | PUT 请求路由    | `put: "/v1/users/{id}"`      |
+| `delete`        | DELETE 请求路由 | `delete: "/v1/users/{id}"`   |
+| `patch`         | PATCH 请求路由  | `patch: "/v1/users/{id}"`    |
+| `body`          | 请求体字段映射     | `body: "*"` 或 `body: "user"` |
+| `response_body` | 响应体字段映射     | `response_body: "data"`      |
+
+
+#### 路径参数绑定
+
+在路由路径中使用 `{field_name}` 可以绑定请求参数：
+
+```protobuf
+rpc GetUser (GetUserRequest) returns (GetUserReply) {
+  option (google.api.http) = {
+    get: "/v1/users/{user_id}/posts/{post_id}"
+  };
+}
+
+message GetUserRequest {
+  string user_id = 1;   // 从路径 /v1/users/{user_id} 绑定
+  string post_id = 2;   // 从路径 /posts/{post_id} 绑定
+}
+```
+
+#### 查询参数绑定
+
+未在路径中定义的字段会自动从查询参数绑定：
+
+```protobuf
+rpc ListUsers (ListUsersRequest) returns (ListUsersReply) {
+  option (google.api.http) = {
+    get: "/v1/users"
+  };
+}
+
+message ListUsersRequest {
+  int32 page = 1;       // 从查询参数 ?page=1 绑定
+  int32 page_size = 2;  // 从查询参数 ?page_size=10 绑定
+  string keyword = 3;   // 从查询参数 ?keyword=xxx 绑定
+}
+```
+
+#### 生成 HTTP 代码
+
+定义好 proto 文件后，使用以下命令生成 HTTP 相关代码：
+
+```sh
+# 使用 make 命令
+make api
+
+# 或使用 kratos cli
+kratos proto client api/helloworld/v1/greeter.proto
+```
+
+生成的文件包括：
+- `greeter.pb.go` - Protocol Buffers 消息定义
+- `greeter_grpc.pb.go` - gRPC 服务定义
+- `greeter_http.pb.go` - HTTP 服务定义（包含路由注册）
+
+#### 创建 HTTP 服务实例
+
+在 `internal/server/http.go` 中创建 HTTP 服务器：
+
+```go
+package server
+
+import (
+    "context"
+
+    v1 "helloworld/api/helloworld/v1"
+    "helloworld/internal/conf"
+    "helloworld/internal/service"
+
+    "github.com/go-kratos/kratos/v2/log"
+    "github.com/go-kratos/kratos/v2/middleware/recovery"
+    "github.com/go-kratos/kratos/v2/transport/http"
+)
+
+// NewHTTPServer 创建 HTTP 服务器
+func NewHTTPServer(c *conf.Server, greeter *service.GreeterService) *http.Server {
+    var opts = []http.ServerOption{
+        http.Middleware(
+            recovery.Recovery(),
+        ),
+    }
+    
+    // 配置网络地址
+    if c.Http.Network != "" {
+        opts = append(opts, http.Network(c.Http.Network))
+    }
+    
+    // 配置监听地址
+    if c.Http.Addr != "" {
+        opts = append(opts, http.Address(c.Http.Addr))
+    }
+    
+    // 配置超时时间
+    if c.Http.Timeout != nil {
+        opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
+    }
+    
+    // 创建 HTTP 服务器
+    srv := http.NewServer(opts...)
+    
+    // 注册 HTTP 路由
+    v1.RegisterGreeterHTTPServer(srv, greeter)
+    
+    return srv
+}
+```
+
+#### HTTP 服务配置
+
+在 `configs/config.yaml` 中配置 HTTP 服务：
+
+```yaml
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 1s
+```
+
+#### 自定义 HTTP 路由
+
+除了使用 proto 注解，也可以手动注册自定义路由：
+
+```go
+func NewHTTPServer(c *conf.Server, greeter *service.GreeterService) *http.Server {
+    srv := http.NewServer(
+        http.Address(":8000"),
+        http.Middleware(
+            recovery.Recovery(),
+        ),
+    )
+    
+    // 注册 proto 定义的 HTTP 路由
+    v1.RegisterGreeterHTTPServer(srv, greeter)
+    
+    // 注册自定义路由
+    srv.Route("/").GET("/health", func(ctx http.Context) error {
+        return ctx.JSON(200, map[string]string{
+            "status": "ok",
+        })
+    })
+    
+    // 注册静态文件服务
+    srv.Route("/").GET("/static/*", http.FileServer(http.Dir("./static")))
+    
+    return srv
+}
+```
+
+#### HTTP 中间件
+
+Kratos 支持多种 HTTP 中间件：
+
+```go
+import (
+    "github.com/go-kratos/kratos/v2/middleware/recovery"
+    "github.com/go-kratos/kratos/v2/middleware/tracing"
+    "github.com/go-kratos/kratos/v2/middleware/logging"
+    "github.com/go-kratos/kratos/v2/middleware/validate"
+)
+
+func NewHTTPServer(c *conf.Server, greeter *service.GreeterService) *http.Server {
+    srv := http.NewServer(
+        http.Address(":8000"),
+        http.Middleware(
+            recovery.Recovery(),           // 异常恢复
+            tracing.Server(),              // 链路追踪
+            logging.Server(logger),        // 日志记录
+            validate.Validator(),          // 参数校验
+        ),
+    )
+    
+    v1.RegisterGreeterHTTPServer(srv, greeter)
+    
+    return srv
+}
+```
+
+#### 完整示例
+
+以下是一个完整的 HTTP 服务定义示例：
+
+**Proto 文件** (`api/helloworld/v1/greeter.proto`)：
+```protobuf
+syntax = "proto3";
+package api.helloworld.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "helloworld/api/helloworld/v1;v1";
+
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/v1/greeter/{name}"
+    };
+  }
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
+}
+```
+
+**Service 实现** (`internal/service/greeter.go`)：
+```go
+package service
+
+import (
+    "context"
+    
+    v1 "helloworld/api/helloworld/v1"
+)
+
+type GreeterService struct {
+    v1.UnimplementedGreeterServer
+}
+
+func NewGreeterService() *GreeterService {
+    return &GreeterService{}
+}
+
+func (s *GreeterService) SayHello(ctx context.Context, req *v1.HelloRequest) (*v1.HelloReply, error) {
+    return &v1.HelloReply{
+        Message: "Hello " + req.Name,
+    }, nil
+}
+```
+
+**HTTP 服务器** (`internal/server/http.go`)：
+```go
+package server
+
+import (
+    v1 "helloworld/api/helloworld/v1"
+    "helloworld/internal/service"
+    
+    "github.com/go-kratos/kratos/v2/transport/http"
+    "github.com/go-kratos/kratos/v2/middleware/recovery"
+)
+
+func NewHTTPServer(greeter *service.GreeterService) *http.Server {
+    srv := http.NewServer(
+        http.Address(":8000"),
+        http.Middleware(recovery.Recovery()),
+    )
+    
+    v1.RegisterGreeterHTTPServer(srv, greeter)
+    
+    return srv
+}
+```
+
+启动服务后，可以通过以下方式访问：
+```sh
+curl http://localhost:8000/v1/greeter/world
+# 响应: {"message":"Hello world"}
+```
+
 ### 配置使用Goland开发
 - [来源](https://go-kratos.dev/zh-cn/docs/intro/faq/#3%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-goland-%E8%BF%9B%E8%A1%8C%E5%BC%80%E5%8F%91)
 在 goland 中，可以添加构建配置如下图
