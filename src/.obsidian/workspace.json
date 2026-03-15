@@ -28,12 +28,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/API文档/第三方库/Playwright for Kotlin.md",
+                "file": "Kotlin/语法/Kotlin 语法（二）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Playwright for Kotlin"
+              "title": "Kotlin 语法（二）"
             }
           },
           {
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kotlin/API文档/第三方库/Playwright for Kotlin.md",
+                "file": "Kotlin/语法/Kotlin 语法（二）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Playwright for Kotlin 的大纲"
+              "title": "Kotlin 语法（二） 的大纲"
             }
           }
         ]
@@ -225,8 +225,8 @@
   },
   "active": "b45e8f991ba0c004",
   "lastOpenFiles": [
-    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
     "Kotlin/API文档/第三方库/Playwright for Kotlin.md",
+    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
     "Kotlin/API文档/第三方库/Ktor Client HTTP客户端.md",
     "Kotlin/第三方库/Kotlin Ktor 网络库学习笔记.md",
     "Kotlin/API文档/标准库/Kotlin Range 操作.md",

@@ -74,6 +74,8 @@ dependencies {
 
 ### 安装浏览器
 
+#### Maven 方式
+
 ```bash
 # 安装 Playwright 浏览器
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
@@ -82,6 +84,44 @@ mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="inst
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install chromium"
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install firefox"
 mvn exec:java -e -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install webkit"
+```
+
+#### Gradle 方式
+
+```bash
+# 安装 Playwright 浏览器
+./gradlew run --args="install"
+
+# 或者只安装特定浏览器
+./gradlew run --args="install chromium"
+./gradlew run --args="install firefox"
+./gradlew run --args="install webkit"
+```
+
+**注意**：Gradle 方式需要在 `build.gradle.kts` 中添加以下配置：
+
+```kotlin
+tasks.register("run", JavaExec::class) {
+    mainClass.set("com.microsoft.playwright.CLI")
+    classpath = sourceSets["main"].runtimeClasspath
+}
+```
+
+**替代方案**：也可以直接通过代码在首次运行时自动安装：
+
+```kotlin
+import com.microsoft.playwright.*
+
+fun main() {
+    // 首次运行时自动安装浏览器
+    Playwright.install()
+    
+    // 然后创建 Playwright 实例
+    Playwright.create().use { playwright ->
+        val browser = playwright.chromium().launch()
+        // ...
+    }
+}
 ```
 
 ## 核心概念
@@ -170,6 +210,58 @@ fun launchWithOptions() {
         
         browser.newPage().use { page ->
             page.navigate("https://example.com")
+        }
+        
+        browser.close()
+    }
+}
+
+// 启动有头浏览器的调试模式
+fun launchWithDebug() {
+    Playwright.create().use { playwright ->
+        val browser = playwright.chromium().launch(
+            BrowserType.LaunchOptions()
+                .setHeadless(false)           // 有头模式
+                .setSlowMo(200)               // 慢动作，便于观察
+                .setDevtools(true)            // 自动打开 DevTools
+                .setArgs(listOf(
+                    "--start-maximized",        // 最大化窗口
+                    "--auto-open-devtools-for-tabs"  // 每个标签页都打开 DevTools
+                ))
+        )
+        
+        browser.newPage().use { page ->
+            page.navigate("https://example.com")
+            // 在此处设置断点或进行手动操作
+            // 程序会暂停，直到手动关闭浏览器
+            println("Press Enter to continue...")
+            readLine()  // 等待用户输入
+        }
+        
+        browser.close()
+    }
+}
+
+// 启动带有远程调试端口的浏览器
+fun launchWithRemoteDebug() {
+    Playwright.create().use { playwright ->
+        val browser = playwright.chromium().launch(
+            BrowserType.LaunchOptions()
+                .setHeadless(false)
+                .setArgs(listOf(
+                    "--remote-debugging-port=9222",  // 远程调试端口
+                    "--user-data-dir=/tmp/playwright-debug"  // 独立的用户数据目录
+                ))
+        )
+        
+        println("Remote debugging port: 9222")
+        println("Open chrome://inspect in Chrome to debug")
+        
+        browser.newPage().use { page ->
+            page.navigate("https://example.com")
+            // 在此处进行调试
+            println("Press Enter to exit...")
+            readLine()
         }
         
         browser.close()
@@ -311,6 +403,82 @@ page.waitForFunction("() => document.title === 'Loaded'")
 
 // 等待超时
 page.waitForTimeout(1000.0)  // 等待 1 秒
+
+// 内置调试器
+page.pause()  // 暂停执行并打开 Playwright Inspector
+
+// 手动断点
+page.evaluate("debugger;")  // 在浏览器中触发断点
+```
+
+### 调试工具
+
+#### Playwright Inspector
+
+Playwright 提供了一个内置的调试工具叫做 Playwright Inspector，可以帮助你：
+- 查看当前页面状态
+- 检查元素选择器
+- 步进执行测试
+- 查看网络请求
+
+**使用方法**：
+
+```kotlin
+// 方法 1：使用 page.pause()
+fun debugWithPause() {
+    Playwright.create().use { playwright ->
+        val browser = playwright.chromium().launch(
+            BrowserType.LaunchOptions().setHeadless(false)
+        )
+        
+        browser.newPage().use { page ->
+            page.navigate("https://example.com")
+            
+            // 暂停并打开 Inspector
+            page.pause()
+            
+            // 在此处，Playwright Inspector 会打开
+            // 你可以在 Inspector 中执行各种操作
+            page.locator("button").click()
+        }
+        
+        browser.close()
+    }
+}
+
+// 方法 2：设置环境变量
+// 运行测试前设置环境变量：
+// set PWDEBUG=1 (Windows)
+// export PWDEBUG=1 (Linux/Mac)
+
+// 方法 3：使用 Playwright CLI
+// npx playwright codegen https://example.com
+```
+
+#### 调试模式的配置选项
+
+```kotlin
+// 启动调试模式
+fun launchWithDebugMode() {
+    Playwright.create().use { playwright ->
+        val browser = playwright.chromium().launch(
+            BrowserType.LaunchOptions()
+                .setHeadless(false)
+                .setSlowMo(100)  // 慢动作执行
+                .setEnv(mapOf(
+                    "PWDEBUG" to "1",  // 启用调试模式
+                    "PWDEBUG_JSON" to "true"  // 启用 JSON 输出
+                ))
+        )
+        
+        browser.newPage().use { page ->
+            page.navigate("https://example.com")
+            // 执行操作...
+        }
+        
+        browser.close()
+    }
+}
 ```
 
 ## 中级 API
@@ -799,7 +967,156 @@ page.onRequestFinished { request ->
 val metrics = page.evaluate("() => JSON.stringify(performance.getEntriesByType('navigation')[0])")
 println(metrics)
 ```
+## 其他
+### 1. 保存页面
+```kotlin
+// 保存页面的N种方式
 
+// 1. 保存为截图
+fun savePageAsScreenshot(page: Page) {
+    // 完整页面截图
+    page.screenshot(Page.ScreenshotOptions()
+        .setPath(Paths.get("full-page.png"))
+        .setFullPage(true)
+        .setType(ScreenshotType.PNG)
+    )
+    
+    // 可视区域截图
+    page.screenshot(Page.ScreenshotOptions()
+        .setPath(Paths.get("viewport.png"))
+        .setFullPage(false)
+    )
+    
+    // 高质量截图
+    page.screenshot(Page.ScreenshotOptions()
+        .setPath(Paths.get("high-quality.png"))
+        .setQuality(100.0)  // 0-100
+    )
+    
+    // 特定元素截图
+    page.locator(".main-content").screenshot(Locator.ScreenshotOptions()
+        .setPath(Paths.get("element.png"))
+    )
+}
+
+// 2. 保存为 PDF
+fun savePageAsPdf(page: Page) {
+    page.pdf(Page.PdfOptions()
+        .setPath(Paths.get("page.pdf"))
+        .setFormat("A4")  // A3, A4, A5, Legal, Letter, Tabloid
+        .setMarginTop("1cm")
+        .setMarginBottom("1cm")
+        .setMarginLeft("1cm")
+        .setMarginRight("1cm")
+        .setPrintBackground(true)  // 包含背景
+        .setLandscape(false)  // 纵向
+    )
+}
+
+// 3. 保存为 HTML
+fun savePageAsHtml(page: Page) {
+    // 获取完整 HTML
+    val html = page.content()
+    
+    // 保存到文件
+    Files.writeString(Paths.get("page.html"), html)
+    
+    // 保存为 MHTML（包含所有资源）
+    val mhtml = page.content(Page.ContentOptions().setType(Page.ContentOptions.Type.MHTML))
+    Files.writeString(Paths.get("page.mhtml"), mhtml)
+}
+
+// 4. 保存为文本
+fun savePageAsText(page: Page) {
+    // 获取纯文本
+    val text = page.textContent("html")
+    text?.let {
+        Files.writeString(Paths.get("page.txt"), it)
+    }
+}
+
+// 5. 保存网络请求和响应
+fun saveNetworkTraffic(page: Page) {
+    val requests = mutableListOf<Map<String, Any>>()
+    
+    // 监听所有请求
+    page.onRequest { request ->
+        val requestInfo = mapOf(
+            "method" to request.method(),
+            "url" to request.url(),
+            "headers" to request.headers(),
+            "postData" to request.postData()
+        )
+        requests.add(requestInfo)
+    }
+    
+    // 监听所有响应
+    page.onResponse { response ->
+        val responseInfo = mapOf(
+            "status" to response.status(),
+            "url" to response.url(),
+            "headers" to response.headers()
+            // 注意：响应体可能很大，需要谨慎保存
+        )
+        requests.add(responseInfo)
+    }
+    
+    // 导航到页面
+    page.navigate("https://example.com")
+    
+    // 等待网络空闲
+    page.waitForLoadState(LoadState.NETWORKIDLE)
+    
+    // 保存网络流量到文件
+    val gson = com.google.gson.GsonBuilder().setPrettyPrinting().create()
+    val json = gson.toJson(requests)
+    Files.writeString(Paths.get("network-traffic.json"), json)
+}
+
+// 6. 保存特定区域
+fun saveRegion(page: Page) {
+    // 定位元素
+    val element = page.locator(".product-grid")
+    
+    // 获取元素边界
+    val box = element.boundingBox()
+    box?.let {
+        // 截取特定区域
+        page.screenshot(Page.ScreenshotOptions()
+            .setPath(Paths.get("region.png"))
+            .setClip(Page.Clip()
+                .setX(it.x)
+                .setY(it.y)
+                .setWidth(it.width)
+                .setHeight(it.height)
+            )
+        )
+    }
+}
+
+// 7. 保存为视频（详细版）
+fun savePageAsVideo() {
+    Playwright.create().use { playwright ->
+        val context = playwright.chromium().newContext(
+            Browser.NewContextOptions()
+                .setRecordVideoDir(Paths.get("videos/"))
+                .setRecordVideoSize(1920, 1080)  // 1080p
+        )
+        
+        val page = context.newPage()
+        
+        try {
+            page.navigate("https://example.com")
+            // 执行操作...
+            page.locator("button").click()
+            page.waitForTimeout(2000)
+        } finally {
+            // 关闭上下文时自动保存视频
+            context.close()
+        }
+    }
+}
+```
 ## Bad Practice
 
 ### 1. 不关闭资源
