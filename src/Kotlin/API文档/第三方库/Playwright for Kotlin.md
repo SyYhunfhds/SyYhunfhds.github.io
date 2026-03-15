@@ -297,6 +297,14 @@ val currentUrl = page.url()
 
 // 获取页面标题
 val title = page.title()
+
+// 相对路径导航
+page.navigate("electronics")           // 相对路径：https://example.com/products/electronics
+page.navigate("../services")            // 上级目录：https://example.com/services
+page.navigate("./details")              // 当前目录：https://example.com/products/details
+page.navigate("?page=2")               // 添加查询参数：https://example.com/products?page=2
+page.navigate("#section")               // 添加锚点：https://example.com/products#section
+page.navigate("settings?tab=general#preferences")  // 组合使用
 ```
 
 ### 3. 元素定位（Locator）
@@ -1654,6 +1662,176 @@ val browser = playwright.chromium().launch(
 )
 ```
 
+### 6. 并发爬虫
+
+```kotlin
+// 并发爬虫示例
+class ConcurrentCrawler {
+    fun crawl(urls: List<String>) {
+        Playwright.create().use { playwright ->
+            val browser = playwright.chromium().launch(
+                BrowserType.LaunchOptions()
+                    .setHeadless(true)
+                    .setArgs(listOf("--disable-gpu"))
+            )
+            
+            try {
+                runBlocking { 
+                    val results = urls.mapIndexed { index, url ->
+                        async(Dispatchers.IO) { 
+                            println("开始爬取: $url")
+                            val result = crawlPage(browser, url)
+                            println("完成爬取: $url")
+                            result
+                        }
+                    }.awaitAll()
+                    
+                    println("爬取完成，共 ${results.size} 个页面")
+                    results.forEachIndexed { index, result ->
+                        println("${index + 1}. ${result.title} - ${result.url}")
+                    }
+                }
+            } finally {
+                browser.close()
+            }
+        }
+    }
+    
+    private fun crawlPage(browser: Browser, url: String): PageResult {
+        browser.newContext().use { context ->
+            val page = context.newPage()
+            
+            try {
+                page.navigate(url, 
+                    Page.NavigateOptions()
+                        .setTimeout(30000.0)
+                )
+                
+                // 等待页面加载
+                page.waitForLoadState(LoadState.NETWORKIDLE)
+                
+                // 提取标题
+                val title = page.title()
+                
+                // 提取链接
+                val links = page.locator("a[href]")
+                val linkCount = links.count()
+                
+                // 提取文本内容
+                val text = page.textContent("body")?.take(500) ?: ""
+                
+                return PageResult(url, title, linkCount, text)
+            } catch (e: Exception) {
+                println("爬取失败: $url - ${e.message}")
+                return PageResult(url, "错误", 0, "")
+            }
+        }
+    }
+    
+    data class PageResult(
+        val url: String,
+        val title: String,
+        val linkCount: Int,
+        val content: String
+    )
+}
+
+// 带并发控制的爬虫
+suspend fun crawlWithConcurrencyControl(urls: List<String>, maxConcurrency: Int = 5) {
+    Playwright.create().use { playwright ->
+        val browser = playwright.chromium().launch()
+        
+        try {
+            val semaphore = kotlinx.coroutines.sync.Semaphore(maxConcurrency)
+            
+            val results = urls.map { url ->
+                async { 
+                    semaphore.acquire()
+                    try {
+                        crawlPageWithSemaphore(browser, url)
+                    } finally {
+                        semaphore.release()
+                    }
+                }
+            }.awaitAll()
+            
+            println("爬取完成，结果: ${results.size} 个页面")
+        } finally {
+            browser.close()
+        }
+    }
+}
+
+suspend fun crawlPageWithSemaphore(browser: Browser, url: String): ConcurrentCrawler.PageResult {
+    return withContext(Dispatchers.IO) {
+        browser.newContext().use { context ->
+            val page = context.newPage()
+            
+            try {
+                // 添加随机延迟，模拟真实用户
+                delay((1000..3000).random().toLong())
+                
+                page.navigate(url)
+                page.waitForLoadState(LoadState.NETWORKIDLE)
+                
+                val title = page.title()
+                val links = page.locator("a[href]").count()
+                val content = page.textContent("body")?.take(500) ?: ""
+                
+                ConcurrentCrawler.PageResult(url, title, links, content)
+            } catch (e: Exception) {
+                println("爬取失败: $url - ${e.message}")
+                ConcurrentCrawler.PageResult(url, "错误", 0, "")
+            }
+        }
+    }
+}
+```
+
+### 7. 并发爬虫注意事项
+
+**1. 浏览器实例管理**
+- 每个协程使用独立的 `BrowserContext`
+- 不要在多个协程间共享 `Page` 实例
+- 适当控制浏览器实例数量，避免资源耗尽
+- 使用 `use` 函数确保资源及时释放
+
+**2. 速率限制**
+- 添加适当的延迟，避免被网站封禁
+- 模拟真实用户行为（随机延迟、鼠标移动等）
+- 遵守 `robots.txt` 规则
+- 考虑使用代理 IP 轮换
+
+**3. 错误处理**
+- 每个爬取任务都要单独处理异常
+- 实现重试机制（针对网络错误等临时问题）
+- 记录失败的 URL 和错误原因
+- 避免因为单个任务失败而影响整个爬取过程
+
+**4. 内存管理**
+- 及时关闭不再使用的 `Page` 和 `BrowserContext`
+- 处理大页面时注意内存消耗
+- 定期清理缓存和 cookie
+- 考虑使用流式处理避免一次性加载过多数据
+
+**5. 并发控制**
+- 使用 `Semaphore` 控制并发数
+- 避免创建过多协程导致系统资源耗尽
+- 根据目标网站的承受能力调整并发数
+- 监控系统资源使用情况
+
+**6. 数据存储**
+- 合理处理爬取的数据
+- 考虑使用数据库或文件存储
+- 避免内存溢出
+- 实现数据去重机制
+
+**7. 法律和道德考量**
+- 遵守网站的使用条款
+- 不要过度请求导致网站服务中断
+- 尊重网站的 robots.txt 规则
+- 仅爬取公开可访问的信息
+
 ## 总结
 
 Playwright for Kotlin 提供了强大而灵活的 Web 自动化测试能力：
@@ -1661,7 +1839,7 @@ Playwright for Kotlin 提供了强大而灵活的 Web 自动化测试能力：
 1. **核心优势**：跨浏览器支持、自动等待机制、丰富的 API
 2. **最佳实践**：使用 Locator 而非 ElementHandle、智能等待、Page Object Model
 3. **避免陷阱**：及时关闭资源、避免固定等待时间、使用语义化选择器
-4. **高级特性**：并行测试、移动端模拟、网络拦截、性能监控
+4. **高级特性**：并行测试、移动端模拟、网络拦截、性能监控、并发爬虫
 
 **核心要点**：
 - 始终使用 `use` 或 `try-finally` 确保资源关闭
@@ -1671,5 +1849,6 @@ Playwright for Kotlin 提供了强大而灵活的 Web 自动化测试能力：
 - 实现适当的错误处理和断言
 - 使用 Page Object Model 组织测试代码
 - 保持测试的独立性和可重复性
+- 并发爬虫时注意速率限制和资源管理
 
-通过掌握 Playwright 的使用技巧，可以构建稳定、可维护的 Web 自动化测试套件。
+通过掌握 Playwright 的使用技巧，可以构建稳定、可维护的 Web 自动化测试套件和高效的网络爬虫。
