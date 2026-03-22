@@ -5,6 +5,52 @@ footer: Trae编辑
 ---
 
 
+::: tip Kotlin Native 支持
+
+**Ktor Client** 完全支持 Kotlin Multiplatform，包括 Kotlin Native。
+
+**支持的平台**：
+- JVM
+- JavaScript (Node.js、浏览器)
+- Native (macOS、Linux、Windows、iOS、Android)
+
+**引擎选择**：
+- **JVM**：CIO、OkHttp、Apache、Java HTTP Client
+- **Native**：CIO（Kotlin Native 原生引擎）
+- **JavaScript**：Js Client
+
+**Gradle 配置示例**：
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation("io.ktor:ktor-client-core:2.3.0")
+            implementation("io.ktor:ktor-client-content-negotiation:2.3.0")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.0")
+        }
+        
+        jvmMain.dependencies {
+            implementation("io.ktor:ktor-client-cio:2.3.0")  // 或 OkHttp
+        }
+        
+        nativeMain.dependencies {
+            implementation("io.ktor:ktor-client-cio:2.3.0")  // Native 引擎
+        }
+        
+        jsMain.dependencies {
+            implementation("io.ktor:ktor-client-js:2.3.0")
+        }
+    }
+}
+```
+
+**注意事项**：
+- Native 平台使用 CIO 引擎
+- 某些高级功能在 Native 上可能有平台限制
+- 建议优先使用 Ktor 提供的跨平台 API
+
+:::
+
 ## 目录
 
 1. [Ktor Client 概述](#ktor-client-概述)

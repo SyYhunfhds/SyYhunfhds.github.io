@@ -5,6 +5,39 @@ footer: Trae编辑
 ---
 
 
+::: tip Kotlin Native 支持
+
+**Clikt** 和 **Mordant** 均完全支持 Kotlin Multiplatform，包括 Kotlin Native。
+
+**支持的平台**：
+- JVM
+- JavaScript (Node.js、浏览器)
+- Native (macOS、Linux、Windows、iOS、Android)
+- WebAssembly (Wasm)
+
+**Gradle 配置示例**：
+```kotlin
+kotlin {
+    jvm()
+    js(IR) {
+        browser()
+        nodejs()
+    }
+    linuxX64()
+    macosX64()
+    mingwX64()
+    
+    sourceSets {
+        commonMain.dependencies {
+            implementation("com.github.ajalt.clikt:clikt:5.1.0")
+            implementation("com.github.ajalt.mordant:mordant:2.7.2")
+        }
+    }
+}
+```
+
+:::
+
 ## 目录
 
 1. [概述](#概述)
@@ -326,6 +359,161 @@ class GroupOptionsCommand : CliktCommand() {
         println("Server: ${server.host}:${server.port}")
     }
 }
+```
+
+**命令间通信**：
+
+Clikt 提供了强大的命令间通信机制，允许主命令和子命令之间共享数据和配置。
+
+**主命令获取子命令对象**：
+
+```kotlin
+import com.github.ajalt.clikt.core.CliktCommand
+
+class Tool : CliktCommand() {
+    override val invokeWithoutSubcommand = true
+    override fun run() {
+        val subcommand = currentContext.invokedSubcommand
+        if (subcommand == null) {
+            echo("invoked without a subcommand")
+        } else {
+            echo("about to run ${subcommand.name}")
+        }
+    }
+}
+
+class Execute : CliktCommand() {
+    override fun run() {
+        echo("running subcommand")
+    }
+}
+
+fun main(args: Array<String>) = Tool().subcommands(Execute()).main(args)
+```
+
+**运行结果**：
+```bash
+$ ./tool
+invoked without a subcommand
+
+$ ./tool execute
+about to run execute
+running subcommand
+```
+
+**子命令访问主命令配置**：
+
+```kotlin
+import com.github.ajalt.clikt.core.CliktCommand
+
+data class MyConfig(var verbose: Boolean = false)
+
+class Tool : CliktCommand() {
+    val verbose by option().flag("--no-verbose")
+    val config by findOrSetObject { MyConfig() }
+    override fun run() {
+        config.verbose = if (verbose) "on" else "off"
+    }
+}
+
+class Execute : CliktCommand() {
+    val config by requireObject<MyConfig>()
+    override fun run() {
+        echo("Verbose mode is ${config.verbose}")
+    }
+}
+
+fun main(args: Array<String>) = Tool().subcommands(Execute()).main(args)
+```
+
+**运行结果**：
+```bash
+$ ./tool --verbose execute
+Verbose mode is on
+```
+
+**Context API 说明**：
+
+| 方法 | 说明 |
+|------|------|
+| `currentContext.invokedSubcommand` | 主命令获取即将被调用的子命令对象 |
+| `findObject<T>()` | 查找指定类型的对象，返回 null |
+| `findOrSetObject<T>()` | 查找或创建指定类型的对象 |
+| `requireObject<T>()` | 必须找到指定类型的对象，否则抛出异常 |
+| `currentContext.obj` | 直接设置当前上下文的对象 |
+| `Context.Builder.obj` | 在构建器中设置对象 |
+
+**底层实现原理**：
+
+Clikt 的 Context API 底层逻辑**不是反射查找**，而是基于类型安全的泛型存储机制：
+
+```kotlin
+class Context {
+    private val objects = mutableMapOf<KClass<*>, Any>()
+    
+    fun <T : Any> findObject(): T? {
+        val key = T::class
+        return objects[key] as? T
+    }
+    
+    fun <T : Any> findOrSetObject(default: () -> T): T {
+        val key = T::class
+        return objects.getOrPut(key) { default() } as T
+    }
+    
+    fun <T : Any> requireObject(): T {
+        return findObject<T>() ?: throw CliktException("No object of type ${T::class}")
+    }
+}
+```
+
+**性能对比**：
+
+| 特性 | 反射查找 | Clikt Context 机制 |
+|------|----------|-------------------|
+| **性能** | 较慢（运行时类型检查） | 快速（编译时类型检查） |
+| **类型安全** | 弱（运行时才能发现错误） | 强（编译时发现错误） |
+| **实现方式** | 使用 `Class.forName()` 等 | 使用泛型和类型映射 |
+| **代码可读性** | 较差（类型转换） | 好（类型推断） |
+
+这种设计既保证了类型安全，又提供了优秀的性能表现，是 Kotlin 泛型系统的典型应用。
+
+**链式命令**：
+
+```kotlin
+import com.github.ajalt.clikt.core.ChainedCliktCommand
+
+class EditText : ChainedCliktCommand<String>() {
+    override val allowMultipleSubcommands: Boolean = true
+    val text by argument()
+    override fun run(value: String): String = text
+}
+
+class RepeatText : ChainedCliktCommand<String>("repeat") {
+    val count by option().int().default(1)
+    override fun run(value: String): String {
+        return value.repeat(count)
+    }
+}
+
+class UppercaseText : ChainedCliktCommand<String>("uppercase") {
+    override fun run(value: String): String {
+        return value.uppercase()
+    }
+}
+
+fun main(args: Array<String>) {
+    val command = EditText()
+        .subcommands(RepeatText(), UppercaseText())
+    val result = command.main(args, "")
+    command.echo(result)
+}
+```
+
+**运行结果**：
+```bash
+$ ./edit-text 'hello ' uppercase repeat --count=3
+HELLO HELLO HELLO
 ```
 
 ## Mordant 库
@@ -865,7 +1053,75 @@ $ ./todo list
 - 调整表格宽度设置
 - 考虑使用不同的边框样式
 
-### 5. 应用打包问题
+### 5. 中文输出乱码
+
+**问题**：在 Windows 终端中，Clikt 和 Mordant 输出的中文字符显示为乱码
+
+**根本原因**：
+- Windows 终端默认使用 GBK 编码
+- Clikt 和 Mordant 使用 UTF-8 编码输出文本
+- 编码不匹配导致中文字符显示异常
+
+**解决方案**：
+
+**临时解决方案**：
+```bash
+# 在运行应用前执行
+chcp 65001
+```
+
+**PowerShell 永久解决方案**：
+```powershell
+# 1. 以管理员身份打开 PowerShell
+New-Item $PROFILE -ItemType File -Force
+
+# 2. 编辑配置文件，添加以下内容
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
+# 3. 允许执行脚本
+Set-ExecutionPolicy Unrestricted
+```
+
+**Command Prompt 永久解决方案**：
+1. 打开注册表编辑器：`regedit`
+2. 导航到：`HKEY_CURRENT_USER\Console`
+3. 创建字符串值 `CodePage`，值设为 `65001`
+4. 重启终端
+
+**字体设置**：
+确保终端使用支持中文的字体（如 Consolas、新宋体、微软雅黑）
+
+**与 Kermit 的对比**：
+
+| 特性 | Clikt/Mordant | Kermit |
+|------|---------------|--------|
+| **编码支持** | UTF-8 | UTF-8 |
+| **中文输出** | 需要配置终端编码 | 需要配置终端编码 |
+| **调教难度** | 较高 | 较低 |
+| **配置灵活性** | 依赖终端环境 | 提供 LogWriter 配置选项 |
+| **跨平台一致性** | 依赖终端编码设置 | 可通过 LogWriter 统一配置 |
+
+**调教难度分析**：
+
+- **Clikt/Mordant**：
+  - 需要手动配置终端编码
+  - 不同终端（PowerShell、CMD、Git Bash）配置方式不同
+  - 需要用户具备终端配置知识
+  - 配置不当会影响所有终端应用
+
+- **Kermit**：
+  - 作为日志库，提供 LogWriter 接口
+  - 可以自定义 LogWriter 来处理编码问题
+  - 可以通过配置文件统一管理日志输出
+  - 更容易在应用层面解决编码问题
+
+**最佳实践**：
+- 在应用启动时检查终端编码
+- 提供编码配置选项
+- 在文档中明确说明编码要求
+- 考虑提供自动配置脚本
+
+### 6. 应用打包问题
 
 **问题**：无法将应用打包为可执行文件
 

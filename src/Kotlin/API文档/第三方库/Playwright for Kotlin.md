@@ -5,6 +5,33 @@ footer: Trae编辑
 ---
 
 
+::: warning Kotlin Native 支持限制
+
+**Playwright for Kotlin** 基于 Playwright Java 实现，**不支持 Kotlin Native**。
+
+**技术原因**：
+- Playwright 依赖 Chromium、Firefox、WebKit 等浏览器的原生二进制文件
+- 这些浏览器引擎需要特定的运行时环境（JVM、Node.js、Python 等）
+- Kotlin Native 无法直接调用这些浏览器原生二进制文件
+
+**支持的平台**：
+- **JVM**（完全支持）
+- **Android**（有限支持，仅用于 WebView 测试）
+- **JavaScript/Node.js**（官方原生支持）
+- **Python**（官方原生支持）
+- **.NET**（官方原生支持）
+
+**替代方案（如需 Native 支持）**：
+- 使用 **Ktor Client** + **JSoup** 进行静态页面抓取
+- 使用 **Selenium WebDriver**（如果目标平台支持）
+- 在 Native 代码中通过 FFI 调用其他语言的 Playwright 绑定
+
+**推荐用法**：
+- 在 JVM 环境中使用 Playwright 进行 Web 自动化测试
+- 在 Native 项目中使用 Ktor Client 进行 HTTP 请求
+
+:::
+
 ## 目录
 
 1. [Playwright 概述](#playwright-概述)

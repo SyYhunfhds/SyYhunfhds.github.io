@@ -28,44 +28,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
+                "file": "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin Kermit 日志库详解"
+              "title": "微服务学习笔记（九）：分布式链路追踪"
             }
           },
           {
-            "id": "fa51c366914c5f9e",
+            "id": "9abbf406ecb6bcc1",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/API文档/标准库/线程安全 vs 协程安全：Go 与 Kotlin 协程深度比较.md",
+                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（二）：Tracing API 详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "线程安全 vs 协程安全：Go 与 Kotlin 协程深度比较"
+              "title": "OpenTelemetry Go 完全指南（二）：Tracing API 详解"
             }
           },
           {
-            "id": "feb89e5eb98c4804",
+            "id": "7f6305352fa5ce9e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/API文档/第三方库/Kotlin Clikt 和 Mordant 库详解.md",
+                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin Clikt 和 Mordant 库详解"
+              "title": "OpenTelemetry Go 完全指南（四）：高级特性与最佳实践"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
         "id": "deeb2e6c90e956e6",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
+                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（二）：Tracing API 详解.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Kotlin Kermit 日志库详解 的大纲"
+              "title": "OpenTelemetry Go 完全指南（二）：Tracing API 详解 的大纲"
             }
           }
         ]
@@ -223,31 +223,36 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "1b5685e4f2544cc9",
+  "active": "1c406124f59fc683",
   "lastOpenFiles": [
+    "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
+    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（二）：Tracing API 详解.md",
+    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
+    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（三）：Metrics API 详解.md",
+    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（一）：核心概念与入门.md",
     "Kotlin/API文档/第三方库/Kotlin Clikt 和 Mordant 库详解.md",
-    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
-    "Kotlin/API文档/标准库/线程安全 vs 协程安全：Go 与 Kotlin 协程深度比较.md",
     "Kotlin/API文档/第三方库/Playwright for Kotlin.md",
+    "Golang/微服务/OpenTelemetry个人自用文档",
+    "Golang/微服务/未命名.md",
+    "Dont Update/其他/网络技术挑战赛/C4NET大赛 项目规划.md",
+    "Kotlin/API文档/标准库/Kotlin 时间库详解.md",
+    "Kotlin/API文档/标准库/Kotlin 编译器详解.md",
+    "Kotlin/API文档/标准库/Kotlin AOT 构建配置详解.md",
+    "Kotlin/语法/Kotlin 语法（二）.md",
+    "Kotlin/API文档/标准库/Kotlin 错误处理详解.md",
+    "Kotlin/语法/Kotlin 语法（一）.md",
+    "Kotlin/API文档/标准库/Kotlin 类、接口与继承.md",
+    "Kotlin/API文档/标准库/线程安全 vs 协程安全：Go 与 Kotlin 协程深度比较.md",
+    "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
+    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
     "Kotlin/API文档/标准库/Kotlin 并发同步与原子操作.md",
     "Kotlin/API文档/标准库/Java URL 相关类 API 详解.md",
     "Kotlin/API文档/标准库/Kotlin 协程安全列表详解.md",
     "Kotlin/API文档/标准库/Kotlin 集合扩展与自定义实现详解.md",
     "Kotlin/API文档/标准库/Java-Kotlin 栈队列优先队列操作.md",
-    "Kotlin/API文档/标准库/Kotlin 错误处理详解.md",
-    "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
-    "Kotlin/API文档/标准库/Kotlin 类、接口与继承.md",
     "Kotlin/第三方库/Kotlin Clikt 和 Mordant 库详解.md",
-    "Kotlin/API文档/标准库/Kotlin 集合构造函数.md",
-    "Kotlin/API文档/标准库/Kotlin Test.md",
-    "Golang/API文档/Go-unsafe-包.md",
-    "Dont Update/其他/网络技术挑战赛/C4NET大赛 项目规划.md",
-    "Dont Update/其他/网络技术挑战赛/架构图.md",
-    "Dont Update/其他/网络技术挑战赛/未命名.md",
     "未命名.base",
     "Dont Update/其他/网络技术挑战赛",
-    "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
-    "Golang/微服务/微服务学习笔记（六）：微服务网关.md",
     "Golang/微服务/assets/Pasted image 20260318201927.png",
     "Golang/微服务/assets/Pasted image 20260318201403.png",
     "Golang/微服务/assets/Pasted image 20260318200516.png",
@@ -255,12 +260,7 @@
     "Golang/微服务/assets/Pasted image 20260318123953.png",
     "Golang/微服务/assets/Pasted image 20260318123841.png",
     "Golang/微服务/assets/Pasted image 20260318123206.png",
-    "Golang/微服务/微服务学习笔记（八）：统一认证与授权.md",
-    "Golang/API文档/Go-正则表达式-regexp包.md",
-    "Golang/API文档/Go-JWT-v5-认证与鉴权.md",
-    "Golang/微服务/Protobuf类型（二）.md",
     "Golang/API文档",
-    "自我充电/Advent of Code/2025/AoC Kotlin（二）.md",
     "Dont Update/Golang",
     "Dont Update/新建文件夹",
     "Kotlin/API文档/第三方库",
@@ -269,7 +269,6 @@
     "自我充电/Advent of Code/2025/assets/Pasted image 20260313210005.png",
     "自我充电/Advent of Code/2025/assets/Pasted image 20260313204816.png",
     "Dont Update/其他/assets/Pasted image 20260312192854.png",
-    "Dont Update/其他/assets",
-    "Dont Update/其他"
+    "Dont Update/其他/assets"
   ]
 }

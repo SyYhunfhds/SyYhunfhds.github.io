@@ -5,6 +5,34 @@ footer: Trae编辑
 ---
 
 
+::: tip Kotlin Native 支持
+
+**Kermit** 是专为 Kotlin Multiplatform 设计的日志库，完全支持 Kotlin Native。
+
+**支持的平台**：
+- JVM
+- JavaScript (Node.js、浏览器)
+- Native (macOS、Linux、Windows、iOS、Android)
+- WebAssembly (Wasm)
+
+**设计目标**：
+- 为 Kotlin Multiplatform 项目提供统一的日志接口
+- 在所有支持的平台（包括 Native）上提供一致的日志行为
+- 特别适合 KMP 项目的跨平台日志需求
+
+**Gradle 配置示例**：
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation("co.touchlab:kermit:2.0.4")
+        }
+    }
+}
+```
+
+:::
+
 ## 目录
 
 1. [概述](#概述)
@@ -122,13 +150,10 @@ val logger = Logger
 val networkLogger = Logger.withTag("Network")
 val databaseLogger = Logger.withTag("Database")
 
-// 创建自定义配置的 Logger
-val customLogger = Logger(
-    config = LoggerConfig.default.copy(
-        minSeverity = Severity.Info
-    ),
-    tag = "Custom"
-)
+// 在类中使用带标签的 Logger（推荐方式）
+class MyViewModel : ViewModel() {
+    private val log = Logger.withTag("MyViewModel")
+}
 ```
 
 ### 基本日志记录
