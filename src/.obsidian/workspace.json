@@ -6,10 +6,38 @@
       {
         "id": "7f9bd784e0c72eeb",
         "type": "tabs",
-        "dimension": 79.42905121746432,
+        "dimension": 77.01342281879194,
         "children": [
           {
             "id": "9508158961b8b010",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机/服务运行时-任务消费-草稿.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "服务运行时-任务消费-草稿"
+            }
+          },
+          {
+            "id": "1b5685e4f2544cc9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/个人自用文档/第三方库/Go Asynq 库使用指南.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Go Asynq 库使用指南"
+            }
+          },
+          {
+            "id": "9d499c44f1d75ed8",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -23,62 +51,32 @@
             }
           },
           {
-            "id": "1b5685e4f2544cc9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/第三方库/Go Asynq 库使用指南.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Go Asynq 库使用指南"
-            }
-          },
-          {
-            "id": "9abbf406ecb6bcc1",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（二）：Tracing API 详解.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "OpenTelemetry Go 完全指南（二）：Tracing API 详解"
-            }
-          },
-          {
             "id": "7f6305352fa5ce9e",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "excalidraw",
               "state": {
-                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
-                "mode": "source",
-                "source": false
+                "file": "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机/服务运行时-任务消费.md"
               },
-              "icon": "lucide-file",
-              "title": "OpenTelemetry Go 完全指南（四）：高级特性与最佳实践"
+              "icon": "excalidraw-icon",
+              "title": "服务运行时-任务消费"
             }
           }
         ],
         "currentTab": 1
       },
       {
-        "id": "deeb2e6c90e956e6",
+        "id": "f8f2662fe63fb9a9",
         "type": "tabs",
-        "dimension": 20.570948782535684,
+        "dimension": 22.986577181208055,
         "children": [
           {
-            "id": "1c406124f59fc683",
+            "id": "c5aabafffe31ea11",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/第三方库/Go Asynq 库使用指南.md",
+                "file": "Golang/个人自用文档/第三方库/Go Asynq 库使用指南.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
@@ -225,9 +223,19 @@
   },
   "active": "1b5685e4f2544cc9",
   "lastOpenFiles": [
-    "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
     "Dont Update/其他/网络技术挑战赛/C4NET大赛 项目规划.md",
-    "Golang/第三方库/Go Asynq 库使用指南.md",
+    "Golang/微服务/微服务学习笔记（五）：分布式配置.md",
+    "Golang/个人自用文档/第三方库/Go Asynq 库使用指南.md",
+    "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机/服务运行时-任务消费-草稿.md",
+    "Golang/个人自用文档/RPC生态",
+    "Golang/个人自用文档/第三方库",
+    "Golang/个人自用文档",
+    "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机/服务运行时-任务消费.md",
+    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
+    "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机/服务运行时-配置变动.md",
+    "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机/服务初始化.md",
+    "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机",
+    "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机.md",
     "Golang/微服务/微服务学习笔记（十）：苍穹外卖.md",
     "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
     "Golang/微服务/assets/Pasted image 20260322225155.png",
@@ -235,7 +243,6 @@
     "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（二）：Tracing API 详解.md",
     "Golang/微服务/assets/Pasted image 20260322193637.png",
     "Golang/微服务/assets/Pasted image 20260322192921.png",
-    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
     "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（三）：Metrics API 详解.md",
     "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（一）：核心概念与入门.md",
     "Kotlin/API文档/第三方库/Kotlin Clikt 和 Mordant 库详解.md",
@@ -251,11 +258,6 @@
     "Kotlin/API文档/标准库/线程安全 vs 协程安全：Go 与 Kotlin 协程深度比较.md",
     "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
     "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
-    "Kotlin/API文档/标准库/Kotlin 并发同步与原子操作.md",
-    "Kotlin/API文档/标准库/Java URL 相关类 API 详解.md",
-    "Kotlin/API文档/标准库/Kotlin 协程安全列表详解.md",
-    "Kotlin/API文档/标准库/Kotlin 集合扩展与自定义实现详解.md",
-    "Kotlin/API文档/标准库/Java-Kotlin 栈队列优先队列操作.md",
     "未命名.base",
     "Dont Update/其他/网络技术挑战赛",
     "Golang/微服务/assets/Pasted image 20260318201927.png",
@@ -266,10 +268,6 @@
     "Golang/微服务/assets/Pasted image 20260318123841.png",
     "Golang/API文档",
     "Dont Update/Golang",
-    "Dont Update/新建文件夹",
-    "Kotlin/API文档/第三方库",
-    "Kotlin/API文档/标准库",
-    "Kotlin/第三方库",
-    "Dont Update/其他/assets"
+    "Dont Update/新建文件夹"
   ]
 }
