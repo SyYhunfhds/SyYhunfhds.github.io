@@ -223,6 +223,87 @@ docker exec consul-server-1 consul members
 - 集群模式下，所有服务器节点都需要挂载数据卷
 - 生产环境中建议使用外部存储卷（如 NFS、EBS 等）
 
+### 2.3 配置模板语法
+
+Consul 支持在配置文件和启动命令中使用模板语法，用于动态获取网络接口信息、环境变量等。
+
+#### 2.3.1 网络接口模板函数
+
+| **模板函数** | **描述** | **示例** | **输出** |
+| ------------ | -------- | -------- | -------- |
+| `{{ GetInterfaceIP "eth0" }}` | 获取指定网络接口的 IP 地址 | `{{ GetInterfaceIP "eth0" }}` | `192.168.1.100` |
+| `{{ GetPrivateIP }}` | 获取私有 IP 地址 | `{{ GetPrivateIP }}` | `10.0.0.5` |
+| `{{ GetPublicIP }}` | 获取公共 IP 地址 | `{{ GetPublicIP }}` | `203.0.113.42` |
+| `{{ GetAllInterfaces }}` | 获取所有网络接口信息 | `{{ GetAllInterfaces }}` | JSON 格式的接口列表 |
+
+#### 2.3.2 环境变量模板函数
+
+| **模板函数** | **描述** | **示例** | **输出** |
+| ------------ | -------- | -------- | -------- |
+| `{{ env "VAR_NAME" }}` | 获取环境变量值 | `{{ env "CONSUL_HTTP_ADDR" }}` | `localhost:8500` |
+| `{{ env "VAR_NAME" "default" }}` | 获取环境变量值，带默认值 | `{{ env "PORT" "8080" }}` | `8080` |
+
+#### 2.3.3 其他模板函数
+
+| **模板函数** | **描述** | **示例** | **输出** |
+| ------------ | -------- | -------- | -------- |
+| `{{ hostname }}` | 获取主机名 | `{{ hostname }}` | `server-01` |
+| `{{ include "file" }}` | 包含其他文件内容 | `{{ include "common.hcl" }}` | 文件内容 |
+| `{{ dirname "path" }}` | 获取目录名 | `{{ dirname "/etc/consul.d" }}` | `/etc` |
+| `{{ basename "path" }}` | 获取文件名 | `{{ basename "/etc/consul.d/config.hcl" }}` | `config.hcl` |
+
+#### 2.3.4 使用示例
+
+**在配置文件中使用**：
+
+```hcl
+# consul.hcl
+
+# 使用网络接口模板
+bind_addr = "{{ GetInterfaceIP \"eth0\" }}"
+advertise_addr = "{{ GetPrivateIP }}"
+
+# 使用环境变量模板
+ports {
+  http = {{ env "CONSUL_HTTP_PORT" "8500" }}
+}
+
+# 使用主机名模板
+node_name = "{{ hostname }}"
+```
+
+**在启动命令中使用**：
+
+```bash
+# 动态绑定到 eth0 接口
+consul agent -bind="{{ GetInterfaceIP \"eth0\" }}" -dev
+
+# 使用环境变量设置端口
+consul agent -bind=192.168.1.100 -http-port={{ env "HTTP_PORT" "8500" }}
+```
+
+**在容器环境中的应用**：
+
+```yaml
+# docker-compose.yml
+version: '3'
+services:
+  consul:
+    image: hashicorp/consul
+    command: >
+      agent -dev 
+      -bind={{ GetInterfaceIP "eth0" }}
+      -client=0.0.0.0
+```
+
+#### 2.3.5 注意事项
+
+- 模板语法使用双花括号 `{{ }}` 包围
+- 在命令行中使用时，需要注意转义引号
+- 模板函数在 Consul 启动时解析，不是运行时动态更新
+- 对于网络接口模板，确保指定的接口存在
+- 在容器环境中，网络接口名称可能与主机环境不同（如 `eth0` 可能变为 `eth0@if123`）
+
 ## 3. 核心配置参数
 
 ### 3.1 基本配置
@@ -410,6 +491,147 @@ Consul KV 数据会持久化存储在配置的 `data_dir` 目录中。具体来�
 - **持久化机制**：Consul 使用 Raft 共识协议，所有写操作都会先写入 Raft 日志，然后持久化到磁盘
 - **数据安全**：即使 Consul 服务重启，KV 数据也会从 `data_dir` 中恢复，不会丢失
 - **备份恢复**：可以使用 `consul snapshot save` 和 `consul snapshot restore` 命令备份和恢复包括 KV 数据在内的所有 Consul 数据
+
+#### 4.6.2 递归 GET 操作
+
+Consul Go SDK 支持递归获取某个路径下的所有键值对：
+
+```go
+func ListKV(client *api.Client, prefix string) (map[string]string, error) {
+    // 递归获取指定前缀的所有键值对
+    pairs, _, err := client.KV().List(prefix, nil)
+    if err != nil {
+        return nil, err
+    }
+    
+    // 构建结果映射
+    result := make(map[string]string)
+    for _, pair := range pairs {
+        result[pair.Key] = string(pair.Value)
+    }
+    
+    return result, nil
+}
+```
+
+**使用示例**：
+
+```go
+// 获取所有配置
+configs, err := ListKV(client, "config/")
+if err != nil {
+    log.Fatalf("Failed to list KV: %v", err)
+}
+for key, value := range configs {
+    log.Printf("%s: %s", key, value)
+}
+```
+
+#### 4.6.3 KV 事务操作
+
+Consul Go SDK 支持批量 KV 操作的事务功能：
+
+```go
+func KVTransaction(client *api.Client) error {
+    // 创建事务操作
+    ops := api.KVTxnOps{
+        // 设置键值对
+        &api.KVTxnOp{
+            Verb:  api.KVSet,
+            Key:   "user/1/name",
+            Value: []byte("John Doe"),
+        },
+        // 获取键值对
+        &api.KVTxnOp{
+            Verb: api.KVGet,
+            Key:  "user/1/name",
+        },
+        // 删除键
+        &api.KVTxnOp{
+            Verb: api.KVDelete,
+            Key:  "user/old/name",
+        },
+        // 递归删除
+        &api.KVTxnOp{
+            Verb:  api.KVDeleteTree,
+            Key:   "user/old/",
+        },
+    }
+    
+    // 执行事务
+    txn, _, err := client.KV().Txn(ops, nil)
+    if err != nil {
+        return err
+    }
+    
+    // 检查事务是否成功
+    if !txn.Success {
+        return fmt.Errorf("transaction failed: %v", txn.Errors)
+    }
+    
+    // 处理事务结果
+    for i, result := range txn.Results {
+        if result.KV != nil {
+            log.Printf("Operation %d result: %s = %s", i, result.KV.Key, string(result.KV.Value))
+        }
+    }
+    
+    return nil
+}
+```
+
+**支持的事务操作类型**：
+
+| **操作类型** | **描述** |
+| ------------ | -------- |
+| `api.KVSet` | 设置键值对 |
+| `api.KVGet` | 获取键值对 |
+| `api.KVDelete` | 删除单个键 |
+| `api.KVDeleteTree` | 递归删除 |
+| `api.KVCheck` | 检查键值对是否存在或等于特定值 |
+
+#### 4.6.4 高级 KV 操作
+
+**带元数据的 KV 操作**：
+
+```go
+func GetKVWithMetadata(client *api.Client, key string) (*api.KVPair, error) {
+    pair, _, err := client.KV().Get(key, &api.QueryOptions{
+        IncludeMeta: true,
+    })
+    return pair, err
+}
+```
+
+**CAS (Compare-And-Swap) 操作**：
+
+```go
+func CASUpdate(client *api.Client, key string, oldValue string, newValue string) (bool, error) {
+    // 获取当前版本
+    pair, _, err := client.KV().Get(key, nil)
+    if err != nil {
+        return false, err
+    }
+    
+    // 执行 CAS 操作
+    success, _, err := client.KV().CAS(&api.KVPair{
+        Key:         key,
+        Value:       []byte(newValue),
+        ModifyIndex: pair.ModifyIndex,
+    }, nil)
+    
+    return success, err
+}
+```
+
+**原子操作**：
+
+```go
+func AtomicDelete(client *api.Client, key string, index uint64) (bool, error) {
+    success, _, err := client.KV().DeleteCAS(key, index, nil)
+    return success, err
+}
+```
 
 ### 4.7 服务注销
 
