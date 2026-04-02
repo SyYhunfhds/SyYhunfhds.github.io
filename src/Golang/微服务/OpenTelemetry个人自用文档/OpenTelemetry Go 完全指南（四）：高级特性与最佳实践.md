@@ -19,7 +19,25 @@ Context Propagation 是分布式追踪的核心机制，用于在服务间传递
 
 ### TraceContext 传播
 
-TraceContext 是 W3C 标准的追踪上下文传播格式：
+TraceContext 是 W3C 标准的追踪上下文传播格式，用于在服务间传递追踪信息。它通过两个 HTTP 头部来实现：
+
+- `traceparent`：携带核心追踪信息，包括 TraceID、SpanID、父 SpanID 和采样标志
+- `tracestate`：可选的扩展字段，用于传递厂商特定的信息
+
+#### TraceContext 格式详解
+
+`traceparent` 头部格式：
+```
+00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
+```
+
+各部分含义：
+- `00`：版本号
+- `4bf92f3577b34da6a3ce929d0e0e4736`：TraceID（16字节，32个十六进制字符）
+- `00f067aa0ba902b7`：SpanID（8字节，16个十六进制字符）
+- `01`：Trace Flags（最低位表示采样状态）
+
+#### 全局 Propagator 配置
 
 ```go
 import (
@@ -35,6 +53,256 @@ func init() {
     ))
 }
 ```
+
+#### 服务间上下文传递方法
+
+##### 1. HTTP 服务间传递
+
+```go
+// 服务端提取上下文
+func httpHandler(w http.ResponseWriter, r *http.Request) {
+    ctx := r.Context()
+    
+    tracer := otel.Tracer("http-server")
+    ctx, span := tracer.Start(ctx, "handleRequest")
+    defer span.End()
+    
+    // 处理请求...
+}
+
+// 客户端注入上下文
+func callService(ctx context.Context, url string) error {
+    tracer := otel.Tracer("http-client")
+    ctx, span := tracer.Start(ctx, "callService")
+    defer span.End()
+    
+    req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+    if err != nil {
+        return err
+    }
+    
+    // 自动注入 TraceContext
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    if err != nil {
+        return err
+    }
+    defer resp.Body.Close()
+    
+    return nil
+}
+```
+
+##### 2. Redis 服务间传递
+
+对于 Redis 等缓存服务，需要手动传递上下文：
+
+```go
+import (
+    "context"
+    "fmt"
+    "github.com/redis/go-redis/v9"
+    "go.opentelemetry.io/otel"
+    "go.opentelemetry.io/otel/propagation"
+    "net/http"
+)
+
+// Redis 客户端包装
+func withTraceContext(ctx context.Context, cmd string, keys ...string) context.Context {
+    tracer := otel.Tracer("redis-client")
+    ctx, span := tracer.Start(ctx, fmt.Sprintf("redis.%s", cmd))
+    
+    // 注入 TraceContext 到 Redis 命令中（通过 key 前缀或自定义字段）
+    carrier := make(http.Header)
+    otel.GetTextMapPropagator().Inject(ctx, propagation.HeaderCarrier(carrier))
+    
+    // 可以将 TraceContext 存储在 Redis 键或值中
+    // 例如：使用 key 前缀或在哈希字段中存储
+    
+    return ctx
+}
+
+func redisGet(ctx context.Context, client *redis.Client, key string) (string, error) {
+    ctx = withTraceContext(ctx, "GET", key)
+    
+    val, err := client.Get(ctx, key).Result()
+    if err != nil {
+        return "", err
+    }
+    
+    return val, nil
+}
+
+func redisSet(ctx context.Context, client *redis.Client, key, value string) error {
+    ctx = withTraceContext(ctx, "SET", key)
+    
+    err := client.Set(ctx, key, value, 0).Err()
+    if err != nil {
+        return err
+    }
+    
+    return nil
+}
+```
+
+##### 3. gRPC 服务间传递
+
+```go
+import (
+    "context"
+    "google.golang.org/grpc"
+    "google.golang.org/grpc/stats/opentelemetry"
+)
+
+// 服务端配置
+func setupGRPCServer() *grpc.Server {
+    opts := []grpc.ServerOption{
+        grpc.StatsHandler(opentelemetry.NewServerHandler()),
+    }
+    
+    server := grpc.NewServer(opts...)
+    return server
+}
+
+// 客户端配置
+func setupGRPCClient() *grpc.ClientConn {
+    opts := []grpc.DialOption{
+        grpc.WithStatsHandler(opentelemetry.NewClientHandler()),
+    }
+    
+    conn, err := grpc.Dial("localhost:50051", opts...)
+    if err != nil {
+        panic(err)
+    }
+    return conn
+}
+
+// 调用 gRPC 服务
+func callGRPCService(ctx context.Context, client pb.UserServiceClient) error {
+    tracer := otel.Tracer("grpc-client")
+    ctx, span := tracer.Start(ctx, "callUserService")
+    defer span.End()
+    
+    _, err := client.GetUser(ctx, &pb.GetUserRequest{UserId: "123"})
+    return err
+}
+```
+
+##### 4. 消息队列传递
+
+对于 Kafka、RabbitMQ 等消息队列，需要在消息头中传递 TraceContext：
+
+```go
+import (
+    "context"
+    "github.com/segmentio/kafka-go"
+    "go.opentelemetry.io/otel"
+    "go.opentelemetry.io/otel/propagation"
+    "net/http"
+)
+
+// 发送消息时注入 TraceContext
+func sendMessage(ctx context.Context, writer *kafka.Writer, topic string, message []byte) error {
+    tracer := otel.Tracer("kafka-producer")
+    ctx, span := tracer.Start(ctx, "sendMessage")
+    defer span.End()
+    
+    // 注入 TraceContext 到消息头
+    headers := make(http.Header)
+    otel.GetTextMapPropagator().Inject(ctx, propagation.HeaderCarrier(headers))
+    
+    kafkaHeaders := make([]kafka.Header, 0, len(headers))
+    for k, v := range headers {
+        kafkaHeaders = append(kafkaHeaders, kafka.Header{
+            Key:   k,
+            Value: []byte(v[0]),
+        })
+    }
+    
+    err := writer.WriteMessages(ctx, kafka.Message{
+        Topic:   topic,
+        Value:   message,
+        Headers: kafkaHeaders,
+    })
+    return err
+}
+
+// 消费消息时提取 TraceContext
+func consumeMessage(ctx context.Context, msg kafka.Message) (context.Context, error) {
+    // 从消息头提取 TraceContext
+    headers := make(http.Header)
+    for _, h := range msg.Headers {
+        headers.Add(h.Key, string(h.Value))
+    }
+    
+    ctx = otel.GetTextMapPropagator().Extract(ctx, propagation.HeaderCarrier(headers))
+    
+    tracer := otel.Tracer("kafka-consumer")
+    ctx, span := tracer.Start(ctx, "consumeMessage")
+    defer span.End()
+    
+    // 处理消息...
+    
+    return ctx, nil
+}
+```
+
+#### 手动上下文传递
+
+在没有自动 instrumentation 的情况下，需要手动处理上下文传递：
+
+```go
+import (
+    "context"
+    "go.opentelemetry.io/otel"
+    "go.opentelemetry.io/otel/propagation"
+    "net/http"
+)
+
+// 手动注入上下文
+func injectContext(ctx context.Context, headers map[string]string) {
+    carrier := make(http.Header)
+    for k, v := range headers {
+        carrier.Add(k, v)
+    }
+    
+    otel.GetTextMapPropagator().Inject(ctx, propagation.HeaderCarrier(carrier))
+    
+    for k, v := range carrier {
+        headers[k] = v[0]
+    }
+}
+
+// 手动提取上下文
+func extractContext(ctx context.Context, headers map[string]string) context.Context {
+    carrier := make(http.Header)
+    for k, v := range headers {
+        carrier.Add(k, v)
+    }
+    
+    return otel.GetTextMapPropagator().Extract(ctx, propagation.HeaderCarrier(carrier))
+}
+```
+
+#### 最佳实践
+
+1. **统一配置**：在应用启动时设置全局 Propagator
+2. **优先使用自动 instrumentation**：对于 HTTP、gRPC 等常见协议，使用官方提供的中间件
+3. **手动传递**：对于 Redis、消息队列等需要手动处理的场景，实现专门的上下文传递逻辑
+4. **错误处理**：在传递上下文时处理可能的错误
+5. **性能考虑**：避免在高频操作中过度创建 Span
+6. **安全考虑**：在处理来自外部的上下文时进行适当验证
+
+#### 常见问题与解决方案
+
+| 问题 | 解决方案 |
+|------|----------|
+| 上下文传递中断 | 确保所有服务都正确配置了 Propagator |
+| 性能开销 | 使用采样策略减少追踪数据量 |
+| 跨语言传递 | 确保所有语言都使用 W3C TraceContext 标准 |
+| 消息队列传递 | 在消息头中正确存储和提取上下文 |
+
+通过正确实现 TraceContext 传播，可以确保分布式系统中的追踪链路完整，从而更好地理解系统行为和排查问题。
 
 ### HTTP 服务端传播
 
