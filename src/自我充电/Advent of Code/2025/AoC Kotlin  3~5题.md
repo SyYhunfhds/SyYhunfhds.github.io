@@ -910,4 +910,561 @@ val width = value.maxOfOrNull { it.length } ?: 0
 4. **充分发挥协程优势**：避免阻塞、使用合适的协程API、调整协程粒度
 
 这些优化不仅能解决当前代码中的问题，还能为未来的代码维护和扩展打下良好的基础。
+
+## Day 5
+### Part 1：区间合并+二分查找
+#### 题目描述
+As the forklifts break through the wall, the Elves are delighted to discover that there was a cafeteria on the other side after all.
+
+You can hear a commotion coming from the kitchen. "At this rate, we won't have any time left to put the wreaths up in the dining hall!" Resolute in your quest, you investigate.
+
+"If only we hadn't switched to the new inventory management system right before Christmas!" another Elf exclaims. You ask what's going on.
+
+The Elves in the kitchen explain the situation: because of their complicated new inventory management system, they can't figure out which of their ingredients are _fresh_ and which are _spoiled_. When you ask how it works, they give you a copy of their database (your puzzle input).
+
+The database operates on _ingredient IDs_. It consists of a list of _fresh ingredient ID ranges_, a blank line, and a list of _available ingredient IDs_. For example:
+
+```
+3-5
+10-14
+16-20
+12-18
+
+1
+5
+8
+11
+17
+32
+```
+
+The fresh ID ranges are _inclusive_: the range `3-5` means that ingredient IDs `3`, `4`, and `5` are all _fresh_. The ranges can also _overlap_; an ingredient ID is fresh if it is in _any_ range.
+
+The Elves are trying to determine which of the _available ingredient IDs_ are _fresh_. In this example, this is done as follows:
+
+- Ingredient ID `1` is spoiled because it does not fall into any range.
+- Ingredient ID `5` is _fresh_ because it falls into range `3-5`.
+- Ingredient ID `8` is spoiled.
+- Ingredient ID `11` is _fresh_ because it falls into range `10-14`.
+- Ingredient ID `17` is _fresh_ because it falls into range `16-20` as well as range `12-18`.
+- Ingredient ID `32` is spoiled.
+
+So, in this example, _`3`_ of the available ingredient IDs are fresh.
+
+Process the database file from the new inventory management system. _How many of the available ingredient IDs are fresh?_
+#### 解题代码
+```kotlin
+typealias sRange = Array<Long> // [start, end]
+// 会发生索引溢出
+// 如果是 num1 .. num2这种写法, num1或num2大于int.MAX_VALUE时会抛出index overflow
+infix fun Number.inBetween(arr: sRange?) = arr?.let {
+    this.toLong() >= arr[0] && this.toLong() <= arr[1]
+}?: false
+infix fun Number.greaterThanBoth(arr: sRange) = this.toLong() > arr[1]
+infix fun Number.lessThanBoth(arr: sRange) = this.toLong() < arr[0]
+
+typealias sRangeList = MutableList<sRange>
+
+fun sRangeList.sortByStart(): sRangeList {
+    this.sortBy { it[0] }
+    return this
+}
+fun sRangeList.sortByEnd(): sRangeList {
+    this.sortBy { it[1] }
+    return this
+}
+
+/*
+超压缩情况时的代码
+var maxStartIdx = 0 // 临时最大上界的索引
+            var maxEnd = this[maxStartIdx][1] // 临时最大上界
+            for (startIdx in 1 .. this.lastIndex) {
+
+               when {
+                    maxEnd < this[startIdx][0] -> {
+                        merged.add(this[maxStartIdx])
+                        // maxStartIdx = startIdx
+                        // maxEnd = this[maxStartIdx][1]
+                    }
+                    maxEnd >= this[startIdx][0] && maxEnd <= this[startIdx][1] -> {
+                        // maxEnd = this[startIdx][1]
+                        merged.add(arrayOf(this[maxStartIdx][0], this[startIdx][1]))
+                        // maxStartIdx = startIdx
+                    }
+                    else -> continue
+                }
+                maxEnd = this[startIdx][1]
+                maxStartIdx = startIdx
+            }
+* */
+// 区间合并
+fun sRangeList.merge(): sRangeList {
+    Log.i("开始合并区间列表，区间数量: ${this.size}")
+    Log.i("输入区间列表: ${this.map { it.contentToString() }}")
+    
+    return when (this.size) {
+        0 -> {
+            Log.i("区间列表为空，返回空列表")
+            mutableListOf()
+        }
+        2 -> {
+            val result = mutableListOf(this[0].copyOf(), this[1].copyOf())
+            Log.i("区间列表有2个元素，直接返回拷贝: ${result.map { it.contentToString() }}")
+            result
+        }
+        else -> {
+            val merged = mutableListOf<sRange>()
+            Log.i("开始合并多个区间")
+            
+            var current = this[0].copyOf()
+            Log.i("初始当前区间: ${current.contentToString()}")
+            
+            for (startIdx in 1 .. this.lastIndex) {
+                val next = this[startIdx]
+                Log.i("处理第 $startIdx 个区间: ${next.contentToString()}")
+                
+                when {
+                    // 当前上界大于下一个区间的下界, 就更新临时最大上界
+                    current[1] >= next[0] -> {
+                        Log.i("当前区间 ${current.contentToString()} 与下一个区间 ${next.contentToString()} 有重叠，合并为 [${current[0]}, ${maxOf(current[1], next[1])}]")
+                        current[1] = maxOf(current[1], next[1])
+                        Log.i("更新后的当前区间: ${current.contentToString()}")
+                    }
+                    // 没有交集, 就将临时区间添加到结果集中
+                    else -> {
+                        Log.i("当前区间 ${current.contentToString()} 与下一个区间 ${next.contentToString()} 无重叠，将当前区间添加到结果集")
+                        merged.add(current)
+                        Log.i("结果集现在包含: ${merged.map { it.contentToString() }}")
+                        current = next.copyOf()
+                        Log.i("更新当前区间为: ${current.contentToString()}")
+                    }
+                }
+            }
+            
+            Log.i("循环结束，将当前区间 ${current.contentToString()} 添加到结果集")
+            merged.add(current)
+            Log.i("添加后的结果集: ${merged.map { it.contentToString() }}")
+            
+            val sortedResult = merged.toMutableList().sortByStart()
+            Log.i("排序后的结果集: ${sortedResult.map { it.contentToString() }}")
+            
+            sortedResult
+        }
+    }
+}
+
+fun sRangeList.mergeUntilNoChange(maxCycleTimes: Int = 1000): sRangeList {
+    val lastSize = this.size
+    var merged = mutableListOf<Array<Long>>()
+
+    var remainingCycleTimes = maxCycleTimes
+    do {
+        merged = merged.merge()
+        remainingCycleTimes--
+    }
+    while (merged.size != lastSize && remainingCycleTimes > 0)
+    return merged
+}
+// 二分查找不适用于区间重叠的情况, 所以必须先合并区间
+infix fun Number.inRanges(ranges: sRangeList): Boolean {
+    Log.i("[inRanges]  开始检查值 $this 是否在区间列表中，区间数量: ${ranges.size}")
+    
+    return when(ranges.size) {
+        0 -> {
+            Log.i("[inRanges]  区间列表为空，返回 false")
+            false
+        }
+        1 -> {
+            val result = this inBetween ranges[0]
+            Log.i("[inRanges]  只有一个区间 ${ranges[0].contentToString()}，检查结果: $result")
+            result
+        }
+        2 -> {
+            val result = this inBetween ranges[0] || this inBetween ranges[1]
+            Log.i("[inRanges]  有两个区间 ${ranges[0].contentToString()} 和 ${ranges[1].contentToString()}，检查结果: $result")
+            result
+        }
+        else -> {
+            val num = this.toLong()
+            // 二分查找最近的下界
+            Log.i("[inRanges]  使用二分查找检查，区间列表: ${ranges.map { it.contentToString() }}")
+            
+            var low = 0
+            var high = ranges.lastIndex
+            var mid: Int // 进入循环后会更新值
+
+            var flag = false
+            var iteration = 0
+            
+            Log.i("[inRanges]  初始 low: $low, high: $high")
+            
+            while (!flag && low <= high) {
+                iteration++
+                mid = (low + high) / 2
+                
+                Log.i("[inRanges]  迭代 $iteration: 计算 mid = floor(($low + $high) / 2) = $mid")
+                
+                when {
+                    mid < 0 || mid > ranges.lastIndex -> {
+                        Log.i("[inRanges]  mid $mid 超出边界 [0, ${ranges.lastIndex}]，退出循环")
+                        break
+                    }
+                    num > ranges[mid][1] -> {
+                        Log.i("[inRanges]  值 $this 大于区间 ${ranges[mid].contentToString()} 的上界，设置 low = $mid + 1 = ${mid + 1}")
+                        low = mid + 1
+                    }
+                    num < ranges[mid][0] -> {
+                        Log.i("[inRanges]  值 $this 小于区间 ${ranges[mid].contentToString()} 的下界，设置 high = $mid - 1 = ${mid - 1}")
+                        high = mid - 1
+                    }
+                    else -> {
+                        val result = this inBetween ranges[mid]
+                        Log.i("[inRanges]  值 $this 在区间 ${ranges[mid].contentToString()} 中，设置 flag = $result")
+                        flag = result
+                    }
+                }
+                
+                Log.i("[inRanges]  迭代 $iteration 结束: low = $low, high = $high, flag = $flag")
+            }
+            
+            Log.i("[inRanges]  二分查找结束，最终结果: $flag")
+            flag
+        }
+    }
+}
+
+class puzzle(
+    val ranges: MutableList<Array<Long>>? = null,
+    val ids: Array<Long>? = null
+)
+
+// 请确保在项目根目录下运行
+class Solver(private val crawler: ICrawler): ICrawler by crawler {
+    var password: Long = 0
+    private val puzzle: String by lazy {
+        runBlocking {
+            crawler.getPuzzle(day = 5).also {
+                Log.i("已获取题目文件内容")
+            }
+        }
+    }
+    val parsedPuzzle by lazy {
+        Log.i("正在解析题目内容")
+        parseFromString().also {
+            Log.i("已解析题目内容")
+        }
+    }
+
+    fun parseFromString(input: String =  puzzle): puzzle {
+        val lines = input.lines().map { it.trim() }
+        val rangesStr = lines.filter { it.contains("-") && it.isNotEmpty() }
+        val idsStr = lines.reversed().filter { !it.contains("-") && it.isNotEmpty() }
+
+        val ranges = rangesStr.map {
+            it.split("-").map { it -> it.toLongOrNull()?: 0L }.toTypedArray()
+        }.toMutableList().sortByStart().merge()
+        val ids = idsStr.map { it.toLongOrNull()?: 0L }.sorted().toTypedArray()
+
+        return puzzle(ranges = ranges, ids = ids)
+    }
+
+    fun solve(puzzle: puzzle = parsedPuzzle): Long {
+        val ids = parseFromString().ids
+        val ranges: MutableList<sRange> = puzzle.ranges?.toMutableList() ?: mutableListOf()
+
+        var passwd: Long = 0
+
+        Log.i ("共有${ids?.size?: 0}个数字等待验证")
+        ids?.forEach {
+            Log.i ("开始判断${it}是否位于区间中")
+            var num = it
+            measureTimeMillis {
+
+                if (it inRanges ranges) passwd++
+            }.also { Log.i ("判断${num}是否位于区间中耗时: $it ms") }
+        }
+        return passwd
+    }
+
+    companion object {
+        fun buildSolver(sess: String = "Just ensure this is not empty"): Solver {
+            val crawler = CrawlerV2(sess=sess)
+            return Solver(crawler)
+        }
+        // 解题用的函数
+        fun solveThePuzzle() {
+            val solver = buildSolver()
+            measureTimeMillis {
+                val password = solver.solve()
+
+                println ("The password is $password")
+            }.also { println("cost $it ms") }
+        }
+    }
+}
+```
+
+
+### 解题思路
+
+| 计算思路                                                                                                                                                                 | 输出      | 备注             |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------------- |
+| 【区间合并】<br>1. 先对区间列表按下界大小进行升序排序<br>2. 遍历区间，若当前上界不大于下一个上界，则<br>立刻将当前区间添加到`merged`列表中；若当前<br>上界大于或等于下一个上界，则直接进入下一次循环<br>3. 由于只遍历到倒数第二个区间，所以结束循环后<br>需要手动把末尾区间添加到列表里<br> | 224/476 | 会有过度合并的情况，原因未知 |
+| 【区间合并】<br>1. 先对区间列表按下界大小进行升序排序<br>2. 遍历区间，若当前上界不大于下一个上界，则<br>立刻将当前区间添加到`merged`列表中；若当前<br>上界大于或等于下一个上界，则更新当前上界                                                       | 511     | 由Gemini指导修改    |
+
+
+### Part 2：区间合并
+#### 题目描述
+The Elves start bringing their spoiled inventory to the trash chute at the back of the kitchen.
+
+So that they can stop bugging you when they get new inventory, the Elves would like to know _all_ of the IDs that the _fresh ingredient ID ranges_ consider to be _fresh_. An ingredient ID is still considered fresh if it is in any range.
+
+Now, the second section of the database (the available ingredient IDs) is irrelevant. Here are the fresh ingredient ID ranges from the above example:
+
+```
+3-5
+10-14
+16-20
+12-18
+```
+
+The ingredient IDs that these ranges consider to be fresh are `3`, `4`, `5`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19`, and `20`. So, in this example, the fresh ingredient ID ranges consider a total of _`14`_ ingredient IDs to be fresh.
+
+Process the database file again. _How many ingredient IDs are considered to be fresh according to the fresh ingredient ID ranges?_
+#### 解题代码
+```kotlin
+class SolverPart2(private val crawler: ICrawler): ICrawler by crawler {  
+    var password: Long = 0  
+    private val puzzle: String by lazy {  
+        runBlocking {  
+            crawler.getPuzzle(day = 5).also {  
+                Log.i("已获取题目文件内容")  
+            }  
+        }    }    val parsedPuzzle by lazy {  
+        Log.i("正在解析题目内容")  
+        parseFromString().also {  
+            Log.i("已解析题目内容")  
+        }  
+    }  
+    fun parseFromString(input: String =  puzzle): puzzle {  
+        val lines = input.lines().map { it.trim() }  
+        val rangesStr = lines.filter { it.contains("-") && it.isNotEmpty() }  
+        val idsStr = lines.reversed().filter { !it.contains("-") && it.isNotEmpty() }  
+  
+        val ranges = rangesStr.map {  
+            it.split("-").map { it -> it.toLongOrNull()?: 0L }.toTypedArray()  
+        }.toMutableList().sortByStart().merge()  
+        val ids = idsStr.map { it.toLongOrNull()?: 0L }.sorted().toTypedArray()  
+  
+        // 总计1187行输入(不带空字符串)  
+        // 187行原始区间, 合并后得到68行区间  
+        // 1000行ID  
+  
+        return puzzle(ranges = ranges, ids = ids)  
+    }  
+  
+    fun solve(puzzle: puzzle = parsedPuzzle): Long {  
+        val ids = parsedPuzzle.ids  
+        val ranges = puzzle.ranges?.toMutableList() ?: mutableListOf()  
+  
+        password = 0 // 先置零  
+        for (arr in ranges) {  
+            password += arr[1] - arr[0] + 1  
+        }  
+  
+        return password  
+    }  
+  
+    companion object {  
+        fun buildSolver(sess: String = "Just ensure this is not empty"): SolverPart2 {  
+            val crawler = CrawlerV2(sess=sess)  
+            return SolverPart2(crawler)  
+        }  
+        // 解题用的函数  
+        fun solveThePuzzle() {  
+            val solver = buildSolver()  
+            measureTimeMillis {  
+                val password = solver.solve()  
+  
+                println ("The password is $password")  
+            }.also { println("cost $it ms") }  
+        }  
+    }  
+}
+```
+
+| 计算思路 | 输出  | 备注  |
+| ---- | --- | --- |
+
+| 计算思路 | 关键计算代码 |
+| ---- | ------ |
+
+### 思路总结草稿
+```kotlin
+/*
+ * 思路演进分析：
+ * 
+ * 1. 问题理解：
+ *    - AoC 2025 Day 5 题目是 "Cafeteria"，主要考察排序、区间合并等知识点
+ *    - Part 1：统计现有库存中有多少个 ID 是新鲜的（落在任何一个新鲜区间内）
+ *    - Part 2：计算所有给定的新鲜区间的并集包含了多少个整数
+ * 
+ * 2. 初始思路：
+ *    - 直接遍历每个 ID，再遍历每个区间检查是否在其中（O(N×M) 复杂度）
+ *    - 对于 Part 2，直接将所有区间内的数塞进一个 set 里去重，最后求 size
+ * 
+ * 3. 优化思路：
+ *    - 对区间进行排序，然后合并重叠的区间，减少后续操作的复杂度
+ *    - 对合并后的区间使用二分查找，将 Part 1 的时间复杂度从 O(N×M) 降到 O(N log M)
+ *    - 对于 Part 2，直接计算合并后每个区间的长度之和，避免使用 set 导致的内存问题
+ * 
+ * 4. 代码演进：
+ *    - 首先定义了 sRange（区间）和 sRangeList（区间列表）的类型别名
+ *    - 实现了 sortByStart 和 sortByEnd 函数用于排序区间
+ *    - 实现了 merge 函数用于合并重叠的区间
+ *    - 实现了 inRanges 函数用于检查一个数字是否在任何一个区间内
+ *    - 实现了 Solver 类用于解决 Part 1，SolverPart2 类用于解决 Part 2
+ * 
+ * 5. 关键问题与解决方案：
+ *    - 区间合并逻辑：初始版本可能存在错误，比如直接添加最后一个原始区间而不是当前合并后的区间
+ *    - 二分查找逻辑：初始版本可能存在死循环问题，比如缺少 low <= high 的条件
+ *    - 日志添加：为了调试和理解代码执行流程，添加了详细的日志输出
+ * 
+ * 6. 成功原因：
+ *    - 正确实现了区间合并算法，确保了区间的无重叠性
+ *    - 正确实现了二分查找算法，确保了查找的高效性
+ *    - 合理使用了 Kotlin 的语言特性，如扩展函数、类型别名等
+ *    - 代码结构清晰，逻辑明确，易于理解和维护
+ */
+```
+
+### 使用到的API和语法以及优化建议
+#### 失败代码分析与优化
+
+**失败代码问题**：
+1. **区间合并逻辑错误**：
+   - `merge()` 函数中，当区间数量为 2 时，直接返回两个区间的拷贝，没有检查是否需要合并
+   - `mergeUntilNoChange()` 函数存在逻辑错误，初始化 `merged` 为空列表后调用 `merged.merge()`，始终返回空列表
+   - **超压缩代码逻辑问题**：
+     - 注释掉了关键的状态更新代码（`maxStartIdx` 和 `maxEnd` 的更新）
+     - 每次遇到重叠区间都直接添加到结果集，而不是累积合并
+     - 循环结束后没有添加最后一个合并区间
+     - 没有处理区间完全包含的情况
+
+2. **性能问题**：
+   - 初始实现直接遍历每个 ID 和每个区间，时间复杂度 O(N×M)，数据量大时慢到爆炸
+   - Part 2 用 Set 存所有新鲜 ID，大区间直接内存溢出，根本跑不动
+
+**优化原因**：
+1. **区间合并**：通过合并重叠区间，减少后续操作的区间数量
+2. **二分查找**：将 Part 1 的时间复杂度从 O(N×M) 降到 O(N log M)
+3. **直接计算**：Part 2 直接计算合并后区间的长度之和，避免内存问题
+
+#### 算法优化建议
+
+**区间合并算法优化**：
+
+1. **正确的区间合并步骤**：
+   - **排序**：首先按区间起始值排序
+   - **初始化**：创建结果列表，设置当前合并区间为第一个区间
+   - **遍历**：
+     - 如果当前区间与下一个区间重叠，更新当前合并区间的结束值
+     - 如果不重叠，将当前合并区间添加到结果集，设置下一个区间为新的当前区间
+   - **收尾**：将最后一个合并区间添加到结果集
+
+2. **优化后的合并函数**：
+   ```kotlin
+   fun sRangeList.merge(): sRangeList {
+       if (size <= 1) return this.toMutableList()
+       
+       // 1. 按起始值排序
+       val sorted = this.sortedBy { it[0] }.toMutableList()
+       
+       // 2. 初始化
+       val merged = mutableListOf<sRange>()
+       var current = sorted[0].copyOf()
+       
+       // 3. 遍历
+       for (i in 1 until sorted.size) {
+           val next = sorted[i]
+           if (current[1] >= next[0]) {
+               // 有重叠，合并区间
+               current[1] = maxOf(current[1], next[1])
+           } else {
+               // 无重叠，添加当前区间并更新
+               merged.add(current)
+               current = next.copyOf()
+           }
+       }
+       
+       // 4. 收尾
+       merged.add(current)
+       return merged
+   }
+   ```
+
+3. **性能优化建议**：
+   - **提前排序**：确保区间按起始值排序，这是合并算法的前提
+   - **单次遍历**：使用单次遍历完成合并，避免多次循环
+   - **内存优化**：直接在原列表基础上操作，减少内存开销
+   - **边界处理**：正确处理空列表、单元素列表等边界情况
+
+4. **二分查找优化**：
+   - 确保合并后的区间列表已排序
+   - 使用标准二分查找算法，避免死循环
+   - 利用短路求值，找到匹配区间后立即返回
+
+**时间复杂度分析**：
+- **合并操作**：O(n log n)（主要来自排序）
+- **查找操作**：O(log n) 每查询（使用二分查找）
+- **整体复杂度**：Part 1 为 O(m log n)，其中 m 是 ID 数量，n 是区间数量
+
+#### 代码 API 与技巧
+
+**核心 API 与技巧**：
+
+1. **类型别名（Type Alias）**：
+   - `typealias sRange = Array<Long>`：简化区间表示
+   - `typealias sRangeList = MutableList<sRange>`：简化区间列表表示
+
+2. **扩展函数（Extension Functions）**：
+   - `fun sRangeList.sortByStart()`：按区间起始值排序
+   - `fun sRangeList.sortByEnd()`：按区间结束值排序
+   - `fun sRangeList.merge()`：合并重叠区间
+
+3. **中缀函数（Infix Functions）**：
+   - `infix fun Number.inBetween(arr: sRange?)`：检查值是否在区间内
+   - `infix fun Number.greaterThanBoth(arr: sRange)`：检查值是否大于区间上限
+   - `infix fun Number.lessThanBoth(arr: sRange)`：检查值是否小于区间下限
+   - `infix fun Number.inRanges(ranges: sRangeList)`：检查值是否在任何区间内
+
+4. **属性委托（Property Delegation）**：
+   - `private val puzzle: String by lazy`：延迟加载题目内容
+   - `val parsedPuzzle by lazy`：延迟解析题目内容
+
+5. **类委托（Class Delegation）**：
+   - `class Solver(private val crawler: ICrawler): ICrawler by crawler`：委托实现 ICrawler 接口
+
+6. **协程（Coroutines）**：
+   - `runBlocking { ... }`：在同步环境中运行协程
+
+7. **高阶函数（Higher-Order Functions）**：
+   - `lines.map { it.trim() }`：处理输入行
+   - `rangesStr.filter { it.contains("-") && it.isNotEmpty() }`：过滤区间行
+   - `ids?.forEach { ... }`：遍历 ID 列表
+
+8. **伴生对象（Companion Object）**：
+   - `companion object { ... }`：提供静态方法和工厂方法
+
+9. **性能优化**：
+   - **短路求值**：二分查找一旦找到匹配区间立即返回
+   - **内联函数**：可能的内联优化（代码中未明确标注）
+   - **时间测量**：`measureTimeMillis { ... }`：测量执行时间
+
+10. **日志系统**：
+    - `Log.i(...)`：详细的日志输出，便于调试和理解执行流程
+
+这些 API 和技巧的组合使用，使得代码既高效又易于理解和维护。
+
+
 # 页面底部
