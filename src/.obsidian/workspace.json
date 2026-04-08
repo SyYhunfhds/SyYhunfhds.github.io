@@ -4,87 +4,87 @@
     "type": "split",
     "children": [
       {
-        "id": "7f9bd784e0c72eeb",
+        "id": "f8f2662fe63fb9a9",
         "type": "tabs",
-        "dimension": 77.01342281879194,
+        "dimension": 81.29194630872483,
         "children": [
           {
-            "id": "9508158961b8b010",
+            "id": "d5d87c7c9a02ce9d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
+                "file": "Golang/微服务/微服务学习笔记（一）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Kotlin Kermit 日志库详解"
+              "title": "微服务学习笔记（一）"
             }
           },
           {
-            "id": "7f6305352fa5ce9e",
+            "id": "521fb3af4b9e5d45",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dont Update/其他/网络技术挑战赛/C4NET大赛 项目规划.md",
+                "file": "Golang/MIT 6.824课程学习/学习笔记 （一）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C4NET大赛 项目规划"
+              "title": "学习笔记 （一）"
             }
           },
           {
-            "id": "8acf2bbd861b2e26",
+            "id": "48437a733c667cb0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/技术探讨/Go工业框架OpenTelemetry管理指南.md",
+                "file": "Golang/第三方库/Go 快速哈希算法详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go工业框架OpenTelemetry管理指南"
+              "title": "Go 快速哈希算法详解"
             }
           },
           {
-            "id": "827459b338e355c0",
+            "id": "bdb32b3e67cc959e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
+                "file": "Golang/标准库/Go文件操作标准库API详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "OpenTelemetry Go 完全指南（四）：高级特性与最佳实践"
+              "title": "Go文件操作标准库API详解"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
-        "id": "f8f2662fe63fb9a9",
+        "id": "93ba6037dfa9a48b",
         "type": "tabs",
-        "dimension": 22.986577181208055,
+        "dimension": 18.70805369127517,
         "children": [
           {
-            "id": "c5aabafffe31ea11",
+            "id": "f85829eebdd15013",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
+                "file": "Golang/第三方库/Go 快速哈希算法详解.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "OpenTelemetry Go 完全指南（四）：高级特性与最佳实践 的大纲"
+              "title": "Go 快速哈希算法详解 的大纲"
             }
           }
         ]
@@ -223,11 +223,37 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "827459b338e355c0",
+  "active": "48437a733c667cb0",
   "lastOpenFiles": [
+    "Golang/标准库/Go Hash 库 API 详解.md",
+    "Golang/第三方库/Go 快速哈希算法详解.md",
+    "Golang/标准库/Go Container 库详解.md",
+    "Golang/MIT 6.824课程学习/学习笔记 （一）.md",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260407214954.png",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260407213206.png",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260407203250.png",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260407203237.png",
+    "Golang/API文档/Go-unsafe-包.md",
+    "Golang/标准库/Go文件操作标准库API详解.md",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260406173257.png",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260406173045.png",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260406172744.png",
+    "Golang/标准库/sync库学习笔记.md",
+    "Golang/标准库/Go编译构建运行时配置与选项详解.md",
+    "Golang/标准库/os exec库学习.md",
+    "Golang/标准库/Gin标准库笔记：filepath.md",
+    "Golang/微服务/微服务学习笔记（一）.md",
+    "Golang/微服务/微服务学习笔记（二）.md",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260405180203.png",
+    "Golang/MIT 6.824课程学习/assets/Pasted image 20260405171347.png",
+    "Golang/MIT 6.824课程学习/assets",
+    "Golang/MIT 6.824课程学习",
+    "Golang/技术探讨/Span插桩杂谈：如何避免代码膨胀的工业级思路.md",
+    "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
+    "Golang/技术探讨/Go工业框架OpenTelemetry管理指南.md",
+    "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（四）：高级特性与最佳实践.md",
     "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（一）：核心概念与入门.md",
     "Golang/微服务/OpenTelemetry个人自用文档/OpenTelemetry Go 完全指南（三）：Metrics API 详解.md",
-    "Golang/技术探讨/Go工业框架OpenTelemetry管理指南.md",
     "Kotlin/API文档/标准库/Kotlin 列表操作函数.md",
     "自我充电/Advent of Code/2025/AoC Kotlin  （三）.md",
     "Kotlin/API文档/标准库/Kotlin 字符串操作函数.md",
@@ -236,40 +262,14 @@
     "自我充电/Advent of Code/2025/AoC Kotlin  3~5题.md",
     "2026-03-08.md",
     "Kotlin/API文档/标准库/Kotlin Test.md",
-    "Kotlin/API文档/标准库/Kotlin 时间库详解.md",
-    "Kotlin/API文档/标准库/Kotlin Map操作函数.md",
-    "Kotlin/API文档/第三方库/Kotlin Kermit 日志库详解.md",
-    "Kotlin/语法/Kotlin 语法（二）.md",
-    "Kotlin/API文档/标准库/Kotlin 类、接口与继承.md",
-    "Kotlin/语法/Kotlin 语法（一）.md",
-    "Golang/个人自用文档/第三方库/jackc puddle 库使用指南.md",
-    "Kotlin/API文档/标准库/Kotlin 集合扩展与自定义实现详解.md",
-    "Golang/个人自用文档/RPC生态/Consul 完全指南：配置参数与 Go SDK 使用.md",
-    "Dont Update/其他/网络技术挑战赛/C4NET大赛 项目规划.md",
-    "Golang/技术探讨/Go语言泛型用法与最佳实践.md",
-    "Golang/标准库/sync库学习笔记.md",
-    "Golang/技术探讨/Go语言DSL链式接口设计杂谈.md",
     "Dont Update/其他/网络技术挑战赛/assets/Pasted image 20260328002356.png",
-    "Golang/技术探讨/Go语言DSL表现形式扩展杂谈.md",
-    "Golang/个人自用文档/第三方库/Go Asynq 库使用指南.md",
     "Golang/技术探讨",
-    "Dont Update/其他/网络技术挑战赛/assets/Pasted image 20260324110306.png",
     "Dont Update/其他/网络技术挑战赛/assets",
     "Golang/个人自用文档/RPC生态",
     "Golang/个人自用文档/第三方库",
     "Golang/个人自用文档",
     "Dont Update/其他/网络技术挑战赛/SNMP采集节点状态机",
-    "Golang/微服务/assets/Pasted image 20260322225155.png",
-    "Golang/微服务/assets/Pasted image 20260322224055.png",
-    "Golang/微服务/assets/Pasted image 20260322193637.png",
-    "Golang/微服务/assets/Pasted image 20260322192921.png",
     "Golang/微服务/OpenTelemetry个人自用文档",
-    "未命名.base",
-    "Dont Update/其他/网络技术挑战赛",
-    "Golang/微服务/assets/Pasted image 20260318201927.png",
-    "Golang/微服务/assets/Pasted image 20260318201403.png",
-    "Golang/微服务/assets/Pasted image 20260318200516.png",
-    "Golang/微服务/assets/Pasted image 20260318124606.png",
-    "Golang/API文档"
+    "未命名.base"
   ]
 }
