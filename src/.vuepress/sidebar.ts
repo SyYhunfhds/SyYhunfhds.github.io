@@ -37,9 +37,9 @@ export default sidebar({
       children: "structure",
     },
     {
-      text: "Kotlin",
+      text: "Dart",
       icon: "laptop-code",
-      prefix: "Kotlin/",
+      prefix: "Dart/",
       children: "structure",
     },
     {

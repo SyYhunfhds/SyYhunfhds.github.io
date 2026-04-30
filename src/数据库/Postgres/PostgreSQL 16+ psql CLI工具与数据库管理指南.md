@@ -27,11 +27,19 @@ psql是PostgreSQL的官方命令行客户端工具，是数据库管理员和开
 
 ### 2.2 启动与连接
 
+#### 2.2.1 命令行参数方式
+
 基本连接语法：
 
 ```bash
 psql -h <主机名> -p <端口> -U <用户名> -d <数据库名>
 ```
+
+参数说明：
+- `-h <主机名>`：指定数据库服务器的主机名或IP地址，默认为localhost
+- `-p <端口>`：指定数据库服务器的端口号，默认为5432
+- `-U <用户名>`：指定连接数据库的用户名，默认为当前操作系统用户名
+- `-d <数据库名>`：指定要连接的数据库名称，默认为与用户名相同的数据库
 
 示例：
 
@@ -41,6 +49,64 @@ psql -h localhost -p 5432 -U postgres -d mydatabase
 
 # 连接到远程数据库
 psql -h db.example.com -p 5432 -U user -d production
+```
+
+#### 2.2.2 URL方式
+
+PostgreSQL 16支持使用URL格式连接数据库，语法如下：
+
+```bash
+psql postgresql://<用户名>:<密码>@<主机名>:<端口>/<数据库名>?<参数1>=<值1>&<参数2>=<值2>
+```
+
+URL各部分说明：
+- `postgresql://`：协议标识符
+- `<用户名>`：连接数据库的用户名
+- `<密码>`：连接数据库的密码（可选，若省略则会提示输入）
+- `<主机名>`：数据库服务器的主机名或IP地址
+- `<端口>`：数据库服务器的端口号，默认为5432
+- `<数据库名>`：要连接的数据库名称
+- `<参数>`：可选的连接参数，如sslmode、application_name等
+
+示例：
+
+```bash
+# 基本URL连接
+psql postgresql://postgres:password@localhost:5432/mydatabase
+
+# 带SSL参数的连接
+psql postgresql://user:pass@db.example.com:5432/production?sslmode=require
+
+# 带服务名的连接
+psql "postgresql:///mydatabase?host=/var/run/postgresql"
+
+# 使用环境变量中的密码
+PGPASSWORD=password psql postgresql://postgres@localhost:5432/mydatabase
+```
+
+#### 2.2.3 环境变量方式
+
+可以通过设置环境变量来简化连接命令：
+
+| 环境变量 | 说明 | 默认值 |
+|----------|------|--------|
+| `PGDATABASE` | 默认数据库名 | 当前用户名 |
+| `PGHOST` | 默认主机名 | localhost |
+| `PGPORT` | 默认端口 | 5432 |
+| `PGUSER` | 默认用户名 | 当前操作系统用户名 |
+| `PGPASSWORD` | 默认密码 | 无 |
+
+示例：
+
+```bash
+# 设置环境变量后连接
+export PGDATABASE=mydatabase
+export PGUSER=postgres
+export PGPASSWORD=password
+psql
+
+# 临时设置环境变量
+PGDATABASE=mydatabase PGUSER=postgres psql
 ```
 
 ## 3. 基础操作

@@ -7,7 +7,7 @@ export default navbar([
   "自我充电/",
   "/Python/",
   "/Golang/",
-  "/Kotlin/",
+  "/Dart/",
   "/light-mind/",
   "/翻译/",
 
