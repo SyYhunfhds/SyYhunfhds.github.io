@@ -6,7 +6,7 @@
       {
         "id": "f8f2662fe63fb9a9",
         "type": "tabs",
-        "dimension": 81.29194630872483,
+        "dimension": 80.95637583892618,
         "children": [
           {
             "id": "521fb3af4b9e5d45",
@@ -42,35 +42,49 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dart/框架/Flutter/Dart 特性一览.md",
+                "file": "Dart/框架/Flutter/Dart 从零开始编写应用程序 （上）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dart 特性一览"
+              "title": "Dart 从零开始编写应用程序 （上）"
+            }
+          },
+          {
+            "id": "0a4e5f2ace66b93c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dart/框架/Flutter/Dart 从零开始编写应用程序 （下）.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Dart 从零开始编写应用程序 （下）"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       },
       {
-        "id": "93ba6037dfa9a48b",
+        "id": "1c9416e6b84fe7b4",
         "type": "tabs",
-        "dimension": 18.70805369127517,
+        "dimension": 19.043624161073826,
         "children": [
           {
-            "id": "f85829eebdd15013",
+            "id": "c37290edaccaff52",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dart/框架/Flutter/Dart 特性一览.md",
+                "file": "Dart/框架/Flutter/Dart 从零开始编写应用程序 （下）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Dart 特性一览 的大纲"
+              "title": "Dart 从零开始编写应用程序 （下） 的大纲"
             }
           }
         ]
@@ -209,23 +223,25 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "86027a73623d2085",
+  "active": "0a4e5f2ace66b93c",
   "lastOpenFiles": [
-    "Dart/框架/Flutter/Dart Flutter框架速成.md",
+    "Dart/框架/Flutter/Dart 从零开始编写应用程序 （上）.md",
+    "Dart/框架/Flutter/Dart 从零开始编写应用程序 （下）.md",
+    "Dart/框架/Flutter/assets/Pasted image 20260501190035.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501185927.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501142616.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501141805.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501134310.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501133445.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501132959.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501130645.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501130315.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260501124622.png",
     "Dart/框架/Flutter/Dart 特性一览.md",
-    "Dart/框架/Flutter/assets/Pasted image 20260429194151.png",
+    "Dart/框架/Flutter/Dart Flutter框架速成.md",
     "数据库/Postgres/PostgreSQL 16 SQL语句操作指南.md",
     "数据库/Postgres/PostgreSQL 16+ psql CLI工具与数据库管理指南.md",
     "Golang/MIT 6.824课程学习/学习笔记 （二）.md",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428222704.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428215917.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428213842.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428203943.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428203233.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428201210.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428183251.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428183154.png",
-    "Golang/MIT 6.824课程学习/assets/Pasted image 20260428183053.png",
     "Dart/框架/Flutter/assets",
     "Dart/框架/Flutter",
     "Dart/框架",
@@ -254,7 +270,6 @@
     "Golang/标准库/sync库学习笔记.md",
     "Golang/标准库/Go编译构建运行时配置与选项详解.md",
     "Golang/标准库/os exec库学习.md",
-    "Golang/标准库/Gin标准库笔记：filepath.md",
-    "Golang/微服务/微服务学习笔记（二）.md"
+    "Golang/标准库/Gin标准库笔记：filepath.md"
   ]
 }
