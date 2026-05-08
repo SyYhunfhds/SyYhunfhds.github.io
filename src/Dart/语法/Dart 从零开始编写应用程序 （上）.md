@@ -996,6 +996,16 @@ class ArgResults {
 
 > Now you have defined the basic structure for handling commands, arguments, and options in your command-line application.
 
+:::tip 函数多返回值
+> To return multiple values in a function, aggregate the values in a [record](https://dart.dev/language/records#multiple-returns).
+
+```dart
+(String, int) foo() {
+  return ('something', 42);
+}
+```
+:::
+
 :::note 更安全的类型断言方法
 - **模式匹配** Dart 3.0+
 ```dart
