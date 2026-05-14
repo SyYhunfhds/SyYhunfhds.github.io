@@ -4,59 +4,73 @@
     "type": "split",
     "children": [
       {
-        "id": "f8f2662fe63fb9a9",
+        "id": "1c9416e6b84fe7b4",
         "type": "tabs",
-        "dimension": 80.95637583892618,
+        "dimension": 82.80201342281879,
         "children": [
           {
-            "id": "1cc6c59d2da73446",
+            "id": "876b495090e109ac",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dont Update/Golang/自建测试框架.md",
+                "file": "Dart/框架/Flutter/Flutter UI导引 （中）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "自建测试框架"
+              "title": "Flutter UI导引 （中）"
             }
           },
           {
-            "id": "49b86e862b0e7b78",
+            "id": "8bf3613e0f23c66d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/个人自用文档/第三方库/Go Zap 日志库使用指南.md",
+                "file": "Dart/框架/Flutter/Flutter UI导引 （上）.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go Zap 日志库使用指南"
+              "title": "Flutter UI导引 （上）"
+            }
+          },
+          {
+            "id": "24150526be95e2f6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dart/框架/Flutter/Flutter UI导引 （下）.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Flutter UI导引 （下）"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       },
       {
-        "id": "1c9416e6b84fe7b4",
+        "id": "8f25ac20309dd67b",
         "type": "tabs",
-        "dimension": 19.043624161073826,
+        "dimension": 17.197986577181208,
         "children": [
           {
-            "id": "c37290edaccaff52",
+            "id": "4ece67d95481936b",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/个人自用文档/第三方库/Go Zap 日志库使用指南.md",
+                "file": "Dart/框架/Flutter/Flutter UI导引 （下）.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Go Zap 日志库使用指南 的大纲"
+              "title": "Flutter UI导引 （下） 的大纲"
             }
           }
         ]
@@ -195,26 +209,36 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "49b86e862b0e7b78",
+  "active": "24150526be95e2f6",
   "lastOpenFiles": [
-    "Dont Update/其他/网络安全管理与评估 第二次作业.md",
-    "Golang/个人自用文档/第三方库/Go Zap 日志库使用指南.md",
+    "Dart/框架/Flutter/assets/Pasted image 20260513212304.png",
+    "Dart/框架/Flutter/Flutter UI导引 （上）.md",
+    "Dart/框架/Flutter/Flutter UI导引 （下）.md",
+    "Dart/框架/Flutter/Flutter UI导引 （中）.md",
+    "Dart/框架/Flutter/assets/Pasted image 20260513092212.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260512221643.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260512143152.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260512141548.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260512140840.png",
+    "Golang/个人自用文档/第三方库/jackc puddle 库使用指南.md",
+    "Golang/个人自用文档/第三方库/cockroachdb errors 库使用指南.md",
+    "Golang/技术探讨/Go-Docstring编写指南.md",
+    "Golang/技术探讨/Go进阶调试技巧.md",
+    "Golang/技术探讨/Go进阶调试实战：协程、堆栈与内存的深度剖析.md",
+    "Golang/标准库/Go testing.T API 详解.md",
+    "Dont Update/其他/未命名.md",
     "Golang/个人自用文档/第三方库/Go ants 协程池库详解.md",
+    "Golang/个人自用文档/第三方库/Go Zap 日志库使用指南.md",
     "Dont Update/Golang/自建测试框架.md",
+    "Dont Update/其他/网络安全管理与评估 第二次作业.md",
     "Golang/微服务/微服务学习笔记（二）.md",
     "Golang/MIT 6.824课程学习/学习笔记 （二）.md",
-    "Dart/框架/Flutter/Flutter UI导引.md",
     "Dart/框架/Flutter/assets/Pasted image 20260507221816.png",
     "Dart/框架/Flutter/assets/Pasted image 20260507211610.png",
     "Dart/框架/Flutter/assets/PixPin_2026-05-07_21-14-49.mp4",
     "Dart/框架/Flutter/assets/Pasted image 20260507211418.png",
     "Dart/框架/Flutter/assets/Pasted image 20260507211231.png",
     "Dart/框架/Flutter/assets/Pasted image 20260507205131.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507204329.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507202815.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507173137.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507163606.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260506225401.png",
     "Dart/语法/Dart Flutter框架速成.md",
     "Dart/框架/Flutter/assets/PixPin_2026-05-05_23-37-28.mp4",
     "Dart/框架/Flutter/assets",
@@ -231,17 +255,7 @@
     "Dart/框架/Flutter/Dart 从零开始编写应用程序 （中）.md",
     "Dart/框架/Flutter/Dart 从零开始编写应用程序 （上）.md",
     "Dart/框架/Flutter/Dart 特性一览.md",
-    "未命名.md",
-    "Dart/框架/Flutter/Dart Flutter框架速成.md",
-    "数据库/Postgres/PostgreSQL 16 SQL语句操作指南.md",
-    "数据库/Postgres/PostgreSQL 16+ psql CLI工具与数据库管理指南.md",
     "Dart/框架/Flutter",
-    "Dart/框架",
-    "Moonbit/标准库、语法/mbt 语法学习笔记（一）.md",
-    "Moonbit/前端速成/mbt 前端速成笔记（一）.md",
-    "light-mind/应用密码学课程设计/课设开发花絮.md",
-    "Moonbit/标准库、语法/mbt 包管理.md",
-    "Golang/微服务/微服务学习笔记（一）.md",
-    "Golang/标准库/Go testing.T API 详解.md"
+    "Dart/框架"
   ]
 }

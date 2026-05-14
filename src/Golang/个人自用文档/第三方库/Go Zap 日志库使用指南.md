@@ -406,37 +406,265 @@ func main() {
 }
 ```
 
-## 最佳实践
+## 配置参数详解
 
-### 1. 全局 Logger
+Zap 的 `Config` 结构体提供了完整的配置能力,以下是所有配置参数的详细说明:
+
+### Config 结构体完整字段
+
+| 参数 | 类型 | 说明 | 默认值 |
+|------|------|------|--------|
+| `Level` | `AtomicLevel` | 最小启用日志级别,支持运行时动态修改 | `InfoLevel` |
+| `Development` | `bool` | 开发模式,影响 DPanic 级别行为和栈追踪 | `false` |
+| `DisableCaller` | `bool` | 禁用调用者信息(文件名和行号) | `false` |
+| `DisableStacktrace` | `bool` | 完全禁用自动栈追踪捕获 | `false` |
+| `Sampling` | `*SamplingConfig` | 采样策略配置,nil 表示禁用采样 | `nil` |
+| `Encoding` | `string` | 编码格式,"json" 或 "console" | `"json"` |
+| `EncoderConfig` | `EncoderConfig` | 编码器详细配置 | 见下文 |
+| `OutputPaths` | `[]string` | 日志输出路径列表(文件路径或 URL) | `["stderr"]` |
+| `ErrorOutputPaths` | `[]string` | 内部错误输出路径列表 | `["stderr"]` |
+| `InitialFields` | `map[string]interface{}` | 初始字段,会添加到所有日志中 | `nil` |
+
+### EncoderConfig 配置
+
+`EncoderConfig` 是编码器的核心配置:
+
+| 参数 | 类型 | 说明 | 默认值(生产环境) |
+|------|------|------|-----------------|
+| `MessageKey` | `string` | 消息字段的 key 名称 | `"msg"` |
+| `LevelKey` | `string` | 日志级别字段的 key 名称 | `"level"` |
+| `TimeKey` | `string` | 时间戳字段的 key 名称 | `"ts"` |
+| `NameKey` | `string` | Logger 名称字段的 key 名称 | `"logger"` |
+| `CallerKey` | `string` | 调用者信息字段的 key 名称 | `"caller"` |
+| `FunctionKey` | `string` | 函数名字段 key(已废弃) | 空 |
+| `StacktraceKey` | `string` | 栈追踪字段的 key 名称 | `"stacktrace"` |
+| `LineEnding` | `string` | 行结束符 | `"\n"` |
+| `EncodeLevel` | `LevelEncoder` | 级别编码器函数 | `LowercaseLevelEncoder` |
+| `EncodeTime` | `TimeEncoder` | 时间编码器函数 | `EpochTimeEncoder` |
+| `EncodeDuration` | `DurationEncoder` | 时长编码器函数 | `SecondsDurationEncoder` |
+| `EncodeCaller` | `CallerEncoder` | 调用者编码器函数 | `ShortCallerEncoder` |
+
+### SamplingConfig 采样配置
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| `Initial` | `int` | 每秒初始采样数量,之后进入节流 |
+| `Thereafter` | `int` | 采样间隔,每 N 条日志采样 1 条 |
+| `Hook` | `func(Entry, SamplingDecision)` | 采样决策回调函数 |
+
+### 编码器函数详解
+
+#### LevelEncoder 级别编码器
 
 ```go
-package logger
+zapcore.LowercaseLevelEncoder    // 小写: "info", "debug", "error"
+zapcore.LowercaseColorLevelEncoder // 小写带颜色(开发环境)
+zapcore.CapitalLevelEncoder      // 大写: "INFO", "DEBUG", "ERROR"
+zapcore.CapitalColorLevelEncoder // 大写带颜色
+```
+
+#### TimeEncoder 时间编码器
+
+```go
+zapcore.EpochTimeEncoder        // Unix 时间戳(秒)
+zapcore.EpochMillisTimeEncoder  // Unix 时间戳(毫秒)
+zapcore.EpochNanosTimeEncoder  // Unix 时间戳(纳秒)
+zapcore.ISO8601TimeEncoder     // ISO8601 格式
+zapcore.RFC3339TimeEncoder      // RFC3339 格式
+zapcore.RFC3339NanoTimeEncoder  // RFC3339 纳秒格式
+```
+
+#### DurationEncoder 时长编码器
+
+```go
+zapcore.SecondsDurationEncoder  // 秒为单位:"1.5s"
+zapcore.NanosDurationEncoder    // 纳秒为单位
+zapcore.MillisDurationEncoder   // 毫秒为单位
+zapcore.StringDurationEncoder   // 字符串格式:"1.5s"
+```
+
+#### CallerEncoder 调用者编码器
+
+```go
+zapcore.ShortCallerEncoder  // 简短格式:"main.go:12"
+zapcore.FullCallerEncoder   // 完整格式:"/path/to/file/main.go:12"
+```
+
+### 配置示例:完整生产环境配置
+
+```go
+package main
 
 import (
     "go.uber.org/zap"
     "go.uber.org/zap/zapcore"
 )
 
+func main() {
+    config := zap.Config{
+        Level:       zap.NewAtomicLevelAt(zapcore.InfoLevel),
+        Development: false,
+        DisableCaller: false,
+        DisableStacktrace: false,
+        Sampling: &zap.SamplingConfig{
+            Initial:    100,
+            Thereafter: 100,
+        },
+        Encoding: "json",
+        EncoderConfig: zapcore.EncoderConfig{
+            MessageKey:     "msg",
+            LevelKey:       "level",
+            TimeKey:        "ts",
+            NameKey:        "logger",
+            CallerKey:      "caller",
+            StacktraceKey:  "stacktrace",
+            LineEnding:     zapcore.DefaultLineEnding,
+            EncodeLevel:    zapcore.LowercaseLevelEncoder,
+            EncodeTime:     zapcore.ISO8601TimeEncoder,
+            EncodeDuration: zapcore.StringDurationEncoder,
+            EncodeCaller:   zapcore.ShortCallerEncoder,
+        },
+        OutputPaths:      []string{"stdout", "/var/log/app.log"},
+        ErrorOutputPaths: []string{"stderr"},
+        InitialFields: map[string]interface{}{
+            "service": "my-app",
+            "version":  "1.0.0",
+            "env":      "production",
+        },
+    }
+
+    logger, err := config.Build()
+    if err != nil {
+        panic(err)
+    }
+    defer logger.Sync()
+
+    logger.Info("logger configured successfully")
+}
+```
+
+### 配置示例:完整开发环境配置
+
+```go
+package main
+
+import (
+    "go.uber.org/zap"
+    "go.uber.org/zap/zapcore"
+)
+
+func main() {
+    config := zap.Config{
+        Level:       zap.NewAtomicLevelAt(zapcore.DebugLevel),
+        Development: true,
+        DisableCaller: false,
+        DisableStacktrace: false,
+        Sampling: nil,
+        Encoding: "console",
+        EncoderConfig: zapcore.EncoderConfig{
+            MessageKey:     "msg",
+            LevelKey:       "level",
+            TimeKey:        "T",
+            NameKey:        "name",
+            CallerKey:      "C",
+            StacktraceKey:  "S",
+            LineEnding:     zapcore.DefaultLineEnding,
+            EncodeLevel:    zapcore.CapitalColorLevelEncoder,
+            EncodeTime:     zapcore.ISO8601TimeEncoder,
+            EncodeDuration: zapcore.StringDurationEncoder,
+            EncodeCaller:   zapcore.ShortCallerEncoder,
+        },
+        OutputPaths:      []string{"stdout"},
+        ErrorOutputPaths: []string{"stderr"},
+        InitialFields:   nil,
+    }
+
+    logger, err := config.Build()
+    if err != nil {
+        panic(err)
+    }
+    defer logger.Sync()
+
+    logger.Debug("debug message")
+    logger.Info("info message")
+}
+```
+
+### 选项式配置(Options)
+
+除了 Config 结构体,zap 还支持通过 Options 进行配置:
+
+```go
+logger := zap.New(core,
+    zap.AddCaller(),                    // 添加调用者信息
+    zap.AddStacktrace(ErrorLevel),     // Error 及以上级别添加栈追踪
+    zap.WrapCore(wrapCoreFunc),        // 包装 Core
+    zap.WithCaller(false),             // 禁用调用者
+    zap.WithOptions(opts...),          // 嵌套选项
+)
+```
+
+### AtomicLevel 运行时级别控制
+
+`AtomicLevel` 支持运行时动态调整日志级别:
+
+```go
+atomicLevel := zap.NewAtomicLevel()
+
+config := zap.Config{
+    Level: atomicLevel,
+    // ...
+}
+
+logger, _ := config.Build()
+
+// 运行时修改级别
+atomicLevel.SetLevel(zapcore.DebugLevel)
+logger.Debug("now visible")
+
+atomicLevel.SetLevel(zapcore.ErrorLevel)
+logger.Info("now hidden")
+```
+
+::: info 配置建议
+
+- 生产环境使用 `NewProductionConfig()`,基于 `zap.NewProduction()`
+- 开发环境使用 `NewDevelopmentConfig()`,基于 `zap.NewDevelopment()`
+- 需要完全自定义时使用 `Config{}` 结构体
+
+:::
+
+## Good Practice
+
+### 1. 环境感知的 Logger 初始化
+
+```go
+package logger
+
+import (
+    "os"
+    "go.uber.org/zap"
+    "go.uber.org/zap/zapcore"
+)
+
 var Log *zap.Logger
 
-func Init(level string) error {
-    var config zap.Config
-    if level == "debug" {
-        config = zap.NewDevelopmentConfig()
-        config.Level = zap.NewAtomicLevelAt(zapcore.DebugLevel)
+func Init() error {
+    env := os.Getenv("APP_ENV")
+
+    var cfg zap.Config
+    if env == "development" {
+        cfg = zap.NewDevelopmentConfig()
+        cfg.Level = zap.NewAtomicLevelAt(zapcore.DebugLevel)
+        cfg.EncoderConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
     } else {
-        config = zap.NewProductionConfig()
-        config.Level = zap.NewAtomicLevelAt(zapcore.InfoLevel)
+        cfg = zap.NewProductionConfig()
+        cfg.Level = zap.NewAtomicLevelAt(zapcore.InfoLevel)
     }
 
     var err error
-    Log, err = config.Build()
-    if err != nil {
-        return err
-    }
-
-    return nil
+    Log, err = cfg.Build()
+    return err
 }
 
 func Sync() {
@@ -446,103 +674,229 @@ func Sync() {
 }
 ```
 
-使用示例:
+### 2. 分层 Logger 设计
 
 ```go
-package main
+type Logger struct {
+    *zap.Logger
+}
 
-import "your-app/logger"
+func NewLogger(serviceName string) *Logger {
+    baseLogger, _ := zap.NewProduction()
 
-func main() {
-    if err := logger.Init("debug"); err != nil {
-        panic(err)
+    return &Logger{
+        Logger: baseLogger.With(
+            zap.String("service", serviceName),
+        ),
     }
-    defer logger.Sync()
+}
 
-    logger.Log.Info("application started")
+func (l *Logger) WithRequestID(requestID string) *zap.Logger {
+    return l.Logger.With(zap.String("request_id", requestID))
+}
+
+func (l *Logger) WithUser(userID string) *zap.Logger {
+    return l.Logger.With(zap.String("user_id", userID))
 }
 ```
 
-### 2. 结构化错误日志
+### 3. 错误处理的最佳实践
 
 ```go
-func ProcessOrder(orderID string) error {
-    logger.Info("processing order",
-        zap.String("order_id", orderID),
-        zap.String("stage", "validation"),
-    )
-
-    if err := validateOrder(orderID); err != nil {
-        logger.Error("order validation failed",
-            zap.String("order_id", orderID),
-            zap.Error(err),
-            zap.String("stage", "validation"),
-        )
-        return err
+func safeSync(logger *zap.Logger) {
+    if logger != nil {
+        if err := logger.Sync(); err != nil {
+            fmt.Fprintf(os.Stderr, "failed to sync logger: %v\n", err)
+        }
     }
+}
 
-    logger.Info("order processed successfully",
-        zap.String("order_id", orderID),
+func main() {
+    logger, err := zap.NewProduction()
+    if err != nil {
+        panic(err)
+    }
+    defer safeSync(logger)
+
+    logger.Info("application started")
+}
+```
+
+### 4. 结构化日志字段规范
+
+```go
+// 遵循统一的字段命名规范
+logger.Info("user action",
+    zap.String("event_type", "user_login"),
+    zap.String("user_id", "12345"),
+    zap.String("ip_address", "192.168.1.1"),
+    zap.String("user_agent", "Mozilla/5.0..."),
+    zap.Time("timestamp", time.Now()),
+)
+
+// 避免混合风格
+logger.Info("order created",
+    zap.String("order_id", "ORD-12345"),  // 统一使用下划线
+    zap.Int("amount", 1000),                 // 统一使用基本类型
+    zap.Strings("items", []string{"item1", "item2"}),
+)
+```
+
+### 5. HTTP 请求日志中间件
+
+```go
+func LoggingMiddleware(logger *zap.Logger) func(http.Handler) http.Handler {
+    return func(next http.Handler) http.Handler {
+        return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+            start := time.Now()
+
+            wrapped := &responseWriter{ResponseWriter: w, statusCode: http.StatusOK}
+            next.ServeHTTP(wrapped, r)
+
+            logger.Info("http request",
+                zap.String("method", r.Method),
+                zap.String("path", r.URL.Path),
+                zap.Int("status", wrapped.statusCode),
+                zap.Duration("latency", time.Since(start)),
+                zap.String("client_ip", r.RemoteAddr),
+            )
+        })
+    }
+}
+
+type responseWriter struct {
+    http.ResponseWriter
+    statusCode int
+}
+
+func (rw *responseWriter) WriteHeader(code int) {
+    rw.statusCode = code
+    rw.ResponseWriter.WriteHeader(code)
+}
+```
+
+### 6. 日志级别使用规范
+
+::: caution 日志级别规范
+
+- **Debug**: 仅在开发/调试时使用,生产环境禁用
+- **Info**: 记录正常的业务操作流程
+- **Warn**: 记录潜在问题,如超时、重试
+- **Error**: 记录错误,但不影响服务继续运行
+- **DPanic**: 仅开发环境使用,帮助发现严重 bug
+- **Panic**: 记录后 panic,用于不可恢复错误
+- **Fatal**: 记录后 os.Exit(1),仅用于程序必须终止的情况
+
+:::
+
+### 7. 性能关键路径优化
+
+```go
+// 热点路径:使用 Logger 而非 SugaredLogger
+func ProcessHotPath(data []byte) error {
+    logger.Info("processing hot path",
+        zap.Int("data_size", len(data)),
+        zap.String("operation", "process"),
     )
+    // 处理逻辑...
+    return nil
+}
+
+// 非热点路径:可使用 SugaredLogger
+func ProcessNonHotPath(data []byte) error {
+    sugar := logger.Sugar()
+    sugar.Infow("processing non-hot path",
+        "data_size", len(data),
+        "operation", "process",
+    )
+    // 处理逻辑...
     return nil
 }
 ```
 
-### 3. 上下文日志传递
-
-```go
-func HandleRequest(ctx context.Context, req *Request) {
-    logger := logger.Log.With(
-        zap.String("request_id", req.ID),
-        zap.String("user_id", req.UserID),
-    )
-
-    logger.Info("request received")
-
-    if err := processRequest(ctx, req); err != nil {
-        logger.Error("request processing failed",
-            zap.Error(err),
-            zap.String("method", req.Method),
-        )
-        return
-    }
-
-    logger.Info("request processed successfully")
-}
-```
-
-### 4. 性能优化建议
-
-::: caution 性能优化
-
-1. **热点路径使用 Logger**: 在性能关键代码中使用 `zap.Logger` 而非 `SugaredLogger`
-2. **避免 zap.Any**: 尽量使用具体类型的字段构造方法
-3. **合理设置日志级别**: 生产环境避免使用 Debug 级别
-4. **使用采样**: 高并发场景启用日志采样,避免日志泛滥
-5. **及时 Sync**: 程序退出前调用 `logger.Sync()` 刷新缓冲区
-
-:::
-
-### 5. 日志采样配置
+### 8. 集成日志采样
 
 ```go
 config := zap.Config{
-    Level:       zap.NewAtomicLevelAt(zapcore.InfoLevel),
-    Development: false,
+    Level: zap.NewAtomicLevelAt(zapcore.InfoLevel),
     Sampling: &zap.SamplingConfig{
-        Initial:    100,
-        Thereafter: 100,
+        Initial:    100,    // 第一秒内最多 100 条
+        Thereafter: 100,    // 之后每 100 条采样 1 条
     },
-    Encoding:         "json",
-    EncoderConfig:    zap.NewProductionEncoderConfig(),
-    OutputPaths:      []string{"stdout"},
-    ErrorOutputPaths: []string{"stderr"},
+    // ...
 }
 ```
 
-采样规则说明:
-- 前 100 条日志全部记录
-- 之后每 100 条日志记录 1 条
+### 9. 多环境输出配置
+
+```go
+func buildLoggerConfig(env string) zap.Config {
+    switch env {
+    case "production":
+        return zap.Config{
+            Level:       zap.NewAtomicLevelAt(zapcore.InfoLevel),
+            Development: false,
+            Encoding:   "json",
+            Sampling: &zap.SamplingConfig{
+                Initial:    100,
+                Thereafter: 100,
+            },
+            OutputPaths:      []string{"stdout"},
+            ErrorOutputPaths: []string{"stderr"},
+            EncoderConfig:    zap.NewProductionEncoderConfig(),
+        }
+    case "staging":
+        return zap.Config{
+            Level:       zap.NewAtomicLevelAt(zapcore.DebugLevel),
+            Development: false,
+            Encoding:   "json",
+            OutputPaths:      []string{"stdout", "/var/log/app-staging.log"},
+            ErrorOutputPaths: []string{"stderr"},
+            EncoderConfig:    zap.NewProductionEncoderConfig(),
+        }
+    default: // development
+        return zap.Config{
+            Level:       zap.NewAtomicLevelAt(zapcore.DebugLevel),
+            Development: true,
+            Encoding:   "console",
+            OutputPaths:      []string{"stdout"},
+            ErrorOutputPaths: []string{"stderr"},
+            EncoderConfig:    zap.NewDevelopmentEncoderConfig(),
+        }
+    }
+}
+```
+
+### 10. 与标准库 log 集成
+
+```go
+func redirectStdLog() {
+    logger, _ := zap.NewDevelopment()
+
+    zap.RedirectStdLog(logger)
+
+    log.Println("this will be logged via zap")
+}
+
+func newStdLog() {
+    logger, _ := zap.NewProduction()
+    stdLog := zap.NewStdLog(logger)
+
+    stdLog.Println("standard library log via zap")
+}
+```
+
+:::tip Good Practice 总结
+
+1. **始终调用 Sync()**: 确保缓冲区数据写入
+2. **使用结构化字段**: 避免字符串拼接
+3. **合理选择日志级别**: 生产环境禁用 Debug
+4. **性能关键路径用 Logger**: 其他路径可用 SugaredLogger
+5. **统一字段命名**: 保持日志可分析性
+6. **使用采样**: 高并发场景防止日志泛滥
+7. **分离错误输出**: 内部错误可单独处理
+
+:::
 
 ## 常见问题
 
