@@ -29,14 +29,14 @@ export default hopeTheme({
 
   // 博客相关
   blog: {
-    description: "一位红队小白",
+    description: "Go后端开发者",
     intro: "/intro.html",
     medias: {
       BiliBili: "https://example.com",
       Discord: "https://example.com",
-      Email: "mailto:info@example.com",
+      Email: "SY1438439330@163.com",
       GitHub: "https://example.com",
-      Gmail: "mailto:info@example.com",
+      Gmail: "syyhunfhdsmemoryseer@gmail.com",
       Linkedin: "https://example.com",
       Zhihu: "https://example.com",
     },

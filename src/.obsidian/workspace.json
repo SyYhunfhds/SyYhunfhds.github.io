@@ -6,7 +6,7 @@
       {
         "id": "1c9416e6b84fe7b4",
         "type": "tabs",
-        "dimension": 82.80201342281879,
+        "dimension": 82.83642224012893,
         "children": [
           {
             "id": "876b495090e109ac",
@@ -23,40 +23,54 @@
             }
           },
           {
-            "id": "8bf3613e0f23c66d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Dart/框架/Flutter/Flutter UI导引 （上）.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Flutter UI导引 （上）"
-            }
-          },
-          {
             "id": "24150526be95e2f6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Dart/框架/Flutter/Flutter UI导引 （下）.md",
+                "file": "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp Componnets 完全指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Flutter UI导引 （下）"
+              "title": "Flutter MaterialApp Componnets 完全指南"
+            }
+          },
+          {
+            "id": "b9aa1bd2a6e49f4f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Dont Update/Golang/自建测试框架.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "自建测试框架"
+            }
+          },
+          {
+            "id": "d27ae07d4e880941",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Golang/求职/面试题合集.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "面试题合集"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 3
       },
       {
         "id": "8f25ac20309dd67b",
         "type": "tabs",
-        "dimension": 17.197986577181208,
+        "dimension": 17.16357775987107,
         "children": [
           {
             "id": "4ece67d95481936b",
@@ -64,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Dart/框架/Flutter/Flutter UI导引 （下）.md",
+                "file": "Golang/求职/面试题合集.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Flutter UI导引 （下） 的大纲"
+              "title": "面试题合集 的大纲"
             }
           }
         ]
@@ -130,7 +144,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300.5
+    "width": 281.5
   },
   "right": {
     "id": "78bfbbd18c50805d",
@@ -209,53 +223,53 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "24150526be95e2f6",
+  "active": "b44904467a9ff783",
   "lastOpenFiles": [
-    "Dart/框架/Flutter/assets/Pasted image 20260513212304.png",
-    "Dart/框架/Flutter/Flutter UI导引 （上）.md",
+    "Golang/求职",
+    "Golang/求职/面试题合集.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp Componnets 完全指南.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp 完全指南 二 主题与样式.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp 完全指南.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp 完全指南 四 本地化与调试.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp 完全指南 三 导航与路由.md",
     "Dart/框架/Flutter/Flutter UI导引 （下）.md",
-    "Dart/框架/Flutter/Flutter UI导引 （中）.md",
+    "Dart/框架/Flutter/assets/PixPin_2026-05-18_18-27-40.mp4",
+    "Dart/框架/Flutter/assets/PixPin_2026-05-18_18-08-48.mp4",
+    "Dart/框架/Flutter/assets/Pasted image 20260518132056.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260518125644.png",
+    "Dart/框架/Flutter/assets/Pasted image 20260518125044.png",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（二）：组件与容器.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（八）：数据绑定.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（五）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（四）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（三）.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（七）：绘制与动画.md",
+    "Golang/桌面端框架/Fyne/从零开始的Fyne（六）.md",
+    "Dont Update/Golang/自建测试框架.md",
+    "Dont Update/Golang/assets/Pasted image 20260516213730.png",
+    "Dont Update/Golang/assets",
+    "Dart/框架/Flutter/assets/Pasted image 20260515235659.png",
+    "Dont Update/其他/网络安全管理与评估 第二次作业.md",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter状态管理框架完全指南（一）总览.md",
+    "Dart/框架/Flutter/assets/PixPin_2026-05-14_22-47-13.mp4",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter状态管理框架完全指南（六）最佳实践与选型指南.md",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter状态管理框架完全指南（三）Bloc与Cubit详解.md",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter状态管理框架完全指南（二）Provider与Riverpod详解.md",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter状态管理框架完全指南（四）GetX与MobX详解.md",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter状态管理框架完全指南（五）Redux与ChangeNotifier详解.md",
+    "Dart/框架/Flutter/Flutter UI导引 （上）.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp 完全指南 一 核心配置.md",
+    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp",
+    "Dart/框架/Flutter/自用AI秘制文档/Flutter MaterialApp 完全指南 二 主题与样式.md",
+    "Dart/框架/Flutter/自用AI秘制文档",
+    "Dart/框架/Flutter/assets/Pasted image 20260513212304.png",
     "Dart/框架/Flutter/assets/Pasted image 20260513092212.png",
     "Dart/框架/Flutter/assets/Pasted image 20260512221643.png",
     "Dart/框架/Flutter/assets/Pasted image 20260512143152.png",
     "Dart/框架/Flutter/assets/Pasted image 20260512141548.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260512140840.png",
-    "Golang/个人自用文档/第三方库/jackc puddle 库使用指南.md",
-    "Golang/个人自用文档/第三方库/cockroachdb errors 库使用指南.md",
-    "Golang/技术探讨/Go-Docstring编写指南.md",
-    "Golang/技术探讨/Go进阶调试技巧.md",
-    "Golang/技术探讨/Go进阶调试实战：协程、堆栈与内存的深度剖析.md",
-    "Golang/标准库/Go testing.T API 详解.md",
-    "Dont Update/其他/未命名.md",
-    "Golang/个人自用文档/第三方库/Go ants 协程池库详解.md",
-    "Golang/个人自用文档/第三方库/Go Zap 日志库使用指南.md",
-    "Dont Update/Golang/自建测试框架.md",
-    "Dont Update/其他/网络安全管理与评估 第二次作业.md",
-    "Golang/微服务/微服务学习笔记（二）.md",
-    "Golang/MIT 6.824课程学习/学习笔记 （二）.md",
-    "Dart/框架/Flutter/assets/Pasted image 20260507221816.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507211610.png",
     "Dart/框架/Flutter/assets/PixPin_2026-05-07_21-14-49.mp4",
-    "Dart/框架/Flutter/assets/Pasted image 20260507211418.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507211231.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260507205131.png",
-    "Dart/语法/Dart Flutter框架速成.md",
     "Dart/框架/Flutter/assets/PixPin_2026-05-05_23-37-28.mp4",
     "Dart/框架/Flutter/assets",
-    "Dart/框架/Flutter/未命名",
-    "Dart/框架/Flutter/Dart 从零开始编写应用程序 （下）.md",
-    "Dart/语法/Dart 特性一览.md",
-    "Dart/语法/Dart 从零开始编写应用程序 （中）.md",
-    "Dart/语法/Dart 从零开始编写应用程序 （下）.md",
-    "Dart/语法/Dart 从零开始编写应用程序 （上）.md",
-    "Dart/语法/assets",
-    "Dart/语法",
-    "Dart/新建文件夹",
-    "Dart/框架/未命名",
-    "Dart/框架/Flutter/Dart 从零开始编写应用程序 （中）.md",
-    "Dart/框架/Flutter/Dart 从零开始编写应用程序 （上）.md",
-    "Dart/框架/Flutter/Dart 特性一览.md",
-    "Dart/框架/Flutter",
-    "Dart/框架"
+    "Dart/框架/Flutter/未命名"
   ]
 }
