@@ -102,7 +102,7 @@ package ratelimit
 
 ::: tip 提示
 
-包注释的第一句话应该以"Package <name>"开头，这是一条惯例
+包注释的第一句话应该以"`Package <name>`"开头，这是一条惯例
 
 :::
 
