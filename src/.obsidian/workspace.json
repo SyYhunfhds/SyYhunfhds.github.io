@@ -37,31 +37,31 @@
             }
           },
           {
-            "id": "b9aa1bd2a6e49f4f",
+            "id": "00107db090aa34cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/求职/面试题 （进阶部分）.md",
+                "file": "Golang/个人自用文档/第三方库/Go uint32-位宽加密算法库速查.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "面试题 （进阶部分）"
+              "title": "Go uint32-位宽加密算法库速查"
             }
           },
           {
-            "id": "a0bbd94e8ae120ff",
+            "id": "8c67c80a218a9da2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/后端框架/GoFrame框架/GoFrame文件库gfile使用指南.md",
+                "file": "Golang/标准库/ast、parser与types.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GoFrame文件库gfile使用指南"
+              "title": "ast、parser与types"
             }
           }
         ],
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/后端框架/GoFrame框架/GoFrame文件库gfile使用指南.md",
+                "file": "Golang/标准库/ast、parser与types.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "GoFrame文件库gfile使用指南 的大纲"
+              "title": "ast、parser与types 的大纲"
             }
           }
         ]
@@ -119,7 +119,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "数据类",
+                "query": "CORS",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -223,36 +223,41 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "a0bbd94e8ae120ff",
+  "active": "8c67c80a218a9da2",
   "lastOpenFiles": [
-    "Golang/个人自用文档/第三方库/Go主流快速哈希库性能对比.md",
-    "Golang/标准库/Go Hash 库 API 详解.md",
+    "Golang/个人自用文档/第三方库/Go uint32-位宽加密算法库速查.md",
+    "Golang/标准库/ast、parser与types.md",
+    "Golang/MIT 6.824课程学习/学习笔记 （二）.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier1/Responder NTLM哈希捕获.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier1/Appointment.md",
+    "Dont Update/毕业论文.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/Redeemer.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/Explosion.md",
+    "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md",
+    "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
+    "Dont Update/Golang/自建测试框架.md",
+    "Dont Update/assets/课设架构图.drawio 1.png",
+    "Dont Update/assets/课设架构图.drawio.png",
+    "Dont Update/assets",
+    "Dont Update/毕业论文 - 副本.md",
+    "Golang/个人自用文档/第三方库/Google Tink 库使用指南.md",
+    "Golang/个人自用文档/第三方库/Golang 对称加密库完整指南.md",
     "Golang/后端框架/GoFrame框架/GoFrame文件库gfile使用指南.md",
-    "Golang/后端框架/GoFrame框架/GoFrame错误处理库gerror使用指南.md",
-    "Golang/求职/面试题合集 （目录）.md",
-    "Golang/求职/面试题 （进阶部分）.md",
-    "Golang/标准库/sync库学习笔记.md",
-    "Golang/个人自用文档/第三方库/Go Argon2 密码哈希库使用指南.md",
-    "Golang/技术探讨/Go-Docstring编写指南.md",
-    "Golang/求职/面试题 （基础部分）.md",
-    "Golang/标准库/Go文件操作标准库API详解.md",
-    "Golang/标准库/os exec库学习.md",
+    "Golang/技术探讨/PostgreSQL行级安全(RLS)与列级安全(CLS)详解.md",
+    "Golang/后端框架/GoFrame框架/assets/docs.md",
+    "Golang/后端框架/GoFrame框架/assets",
     "数据库/Postgres/PostgreSQL 16 SQL语句操作指南.md",
-    "Golang/后端框架/GoFrame框架/GoFrame文件监控组件gfsnotify指南.md",
-    "Golang/后端框架/GoFrame框架/GoFrame配置管理指南.md",
-    "Golang/后端框架/GoFrame框架/GoFrame文件上传接口开发指南.md",
+    "数据库/Postgres/PostgreSQL 16+ psql CLI工具与数据库管理指南.md",
+    "Dont Update/草稿.md",
+    "Golang/个人自用文档/第三方库/Go主流快速哈希库性能对比.md",
     "Golang/标准库/Go crypto库详解.md",
+    "Golang/标准库/Go testing.T API 详解.md",
+    "Golang/标准库/Go testing 库完整指南.md",
+    "Golang/标准库/Go gomock 库使用指南.md",
+    "未命名.base",
     "Golang/后端框架/GoFrame框架",
-    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp/Flutter MaterialApp 完全指南 二 主题与样式.md",
-    "Dart/语法/Dart 特性一览.md",
-    "Dart/语法/Dart 从零开始编写应用程序 （中）.md",
-    "Dart/实用库/Dart Fakedata库完全指南.md",
-    "Dart/语法/Dart JSON序列化完全指南.md",
-    "Dart/语法/Dart 从零开始编写应用程序 （上）.md",
-    "Dart/语法/Dart 从零开始编写应用程序 （下）.md",
     "Dart/实用库",
-    "Dart/框架/Flutter/Flutter UI导引 （上）.md",
-    "Dart/框架/Flutter/Flutter UI导引 （中）.md",
     "Golang/求职",
     "Dart/框架/Flutter/assets/PixPin_2026-05-18_18-27-40.mp4",
     "Dart/框架/Flutter/assets/PixPin_2026-05-18_18-08-48.mp4",
@@ -263,13 +268,8 @@
     "Dont Update/Golang/assets",
     "Dart/框架/Flutter/assets/Pasted image 20260515235659.png",
     "Dart/框架/Flutter/assets/PixPin_2026-05-14_22-47-13.mp4",
-    "Dart/框架/Flutter/自用AI秘制文档/MaterialApp",
-    "Dart/框架/Flutter/自用AI秘制文档",
     "Dart/框架/Flutter/assets/Pasted image 20260513212304.png",
     "Dart/框架/Flutter/assets/Pasted image 20260513092212.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260512221643.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260512143152.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260512141548.png",
-    "Dart/框架/Flutter/assets/PixPin_2026-05-07_21-14-49.mp4"
+    "Dart/框架/Flutter/assets/Pasted image 20260512221643.png"
   ]
 }
