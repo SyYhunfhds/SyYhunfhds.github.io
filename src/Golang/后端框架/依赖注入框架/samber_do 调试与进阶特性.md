@@ -1,6 +1,6 @@
 ---
 title: samber/do 调试与进阶特性
-date: 2026-06-23
+date: 2026-03-09
 author: Deepseek V4 Flash (Trae SOLO Mode)
 footer: Trae编辑
 ---
@@ -287,9 +287,86 @@ svc := do.MustInvoke[*MySpecificService](injector)
 
 | 限制 | 说明 |
 |------|------|
+| `do.Eager` 与 `do.Lazy` 参数类型不同 | `do.Lazy` 接受构造函数（Provider），`do.Eager` 接受已创建的值。在 Package 中混用时极易将构造函数误传入 Eager，导致容器注册 func 类型而非目标类型，Invoke 时收到 `(*T)(nil)` 或报错找不到服务 |
 | `InvokeStruct` 不支持嵌套结构体 | struct tag 只作用于直接字段，不会递归处理嵌套字段 |
 | Override 不能处理已实例化的服务 | 如果一个懒加载服务已经被调用过，Override 不会替换其已创建的实例 |
 | 全局容器禁止生产使用 | `do.Provide(nil, ...)` 违背依赖反转原则 |
+| `Shutdown` 不等于释放 GC 引用 | `Shutdown()` 调用的是服务上的清理方法（关闭连接、刷盘），但 injector 内部的 map 引用不会被清除。要真正让服务被 GC，必须让 injector 本身离开作用域。 |
+
+---
+
+### 4.5 GC 与容器生命周期
+
+#### 为什么 Shutdown 后内存不释放？
+
+samber/do 容器内部使用 `map[string]any` 存储所有已实例化的服务。`Shutdown()` 只调用每个服务上的 `Shutdown()` 方法做**资源清理**（关闭连接、刷盘等），不会从 map 中删除条目。
+
+```go
+injector := do.New()
+do.Provide(injector, NewBigService)       // 注册 100MB 的服务
+big := do.MustInvoke[*BigService](injector) // 实例化
+
+injector.Shutdown()                        // 调用 BigService.Shutdown()
+                                           // 但 injector 仍然持有 *BigService 的引用
+
+// GC 无法回收 *BigService
+// 只有在 injector 离开作用域时，整个 map 才会被回收
+injector = nil // ← 此时 *BigService 不再被任何根引用持有，可被 GC
+```
+
+#### 三种注册方式的 GC 行为对比
+
+| 注册方式 | 容器持有对象 | 实例是否被容器引用 | GC 可达性 |
+|----------|-------------|-------------------|-----------|
+| `Provide`（Lazy 懒加载） | Provider + **首次创建的实例**（单例） | **是** — 实例存入 `map[string]any` | 只要 injector 存活，实例永不被 GC |
+| `ProvideValue`（Eager 预加载） | **直接存值** — 值本身就是实例 | **是** — 值存入 `map[string]any` | 只要 injector 存活，值永不被 GC |
+| `ProvideTransient`（Transient 瞬态） | **仅 Provider（构造函数）** | **否** — 每次 Invoke 新建实例直接返回给调用方 | 调用方变量离开作用域后即可被 GC |
+
+```go
+// Transient：容器不做缓存，每次新建
+func runBatch() {
+    for i := 0; i < 100; i++ {
+        svc := do.MustInvoke[*MyService](injector)
+        svc.DoWork()
+        // svc 在循环迭代结束后无引用 → 可被 GC
+    }
+}
+
+// Lazy：容器缓存实例，函数返回后仍不可 GC
+func runBatch() {
+    svc := do.MustInvoke[*MyService](injector)
+    svc.DoWork()
+} // svc 变量消失，但 injector 内部仍持有引用 → 不可 GC
+```
+
+#### Shutdown 真正做了什么
+
+| 操作 | 效果 |
+|------|------|
+| `do.Shutdown[T](i)` | 调用该服务的 Shutdown 方法，清理资源；懒加载服务可被重新 Invoke |
+| `injector.Shutdown()` | 遍历所有 Shutdowner，按逆初始化顺序调用清理方法；容器标记为关闭，后续无法 Invoke |
+| `injector.Clone()` | 创建新容器，共享注册表但服务实例独立。**原容器丢弃后，其内的服务可被 GC** |
+
+#### 精准控制服务生命周期的推荐模式
+
+```go
+func ProcessBatch() {
+    // 为每个批次创建独立 Scope
+    batchScope := globalInjector.Scope("batch-xxx")
+    defer batchScope.Shutdown() // 批次结束，清理 scope 内的资源
+
+    // 在此 Scope 中注册一次性服务
+    do.Provide(batchScope, NewTempConnection)
+    conn := do.MustInvoke[*TempConnection](batchScope)
+    // ...
+    // defer batchScope.Shutdown() 触发时，TempConnection 被 Shutdown
+    // 函数返回后，batchScope 离开作用域，GC 可回收
+}
+```
+
+::: tip
+使用 Scope 隔离生命周期，在 Scope 销毁时连带释放其管理的所有服务引用，是实现精细化 GC 控制的最佳模式。
+:::
 
 ---
 

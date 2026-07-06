@@ -37,31 +37,31 @@
             }
           },
           {
-            "id": "00107db090aa34cb",
+            "id": "b6e5873933d8d77f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/个人自用文档/第三方库/Go uint32-位宽加密算法库速查.md",
+                "file": "翻译/Medium/puneetpm/GC之外：揭开并修复Go最常见的四个内存泄露噩梦.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Go uint32-位宽加密算法库速查"
+              "title": "GC之外：揭开并修复Go最常见的四个内存泄露噩梦"
             }
           },
           {
-            "id": "8c67c80a218a9da2",
+            "id": "b29741bcfdf340a3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
+                "file": "light-mind/解谜游戏/巴别塔圣歌/巴别塔圣歌.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "samber_do 依赖注入框架核心指南"
+              "title": "巴别塔圣歌"
             }
           }
         ],
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
+                "file": "light-mind/解谜游戏/巴别塔圣歌/巴别塔圣歌.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "samber_do 依赖注入框架核心指南 的大纲"
+              "title": "巴别塔圣歌 的大纲"
             }
           }
         ]
@@ -119,7 +119,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "CORS",
+                "query": "path:\"Kotlin/\" 反射",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -144,7 +144,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 310.5
+    "width": 310.5,
+    "collapsed": true
   },
   "right": {
     "id": "78bfbbd18c50805d",
@@ -223,13 +224,39 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "8c67c80a218a9da2",
+  "active": "b29741bcfdf340a3",
   "lastOpenFiles": [
-    "Golang/后端框架/依赖注入框架/samber_do 调试与进阶特性.md",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230956.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230938.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230844.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230611.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706225204.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706225035.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224456.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224412.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224217.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224159.png",
+    "light-mind/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706222443.png",
+    "翻译/Medium/puneetpm/GC之外：揭开并修复Go最常见的四个内存泄露噩梦.md",
+    "light-mind/解谜游戏/巴别塔圣歌/巴别塔圣歌.md",
+    "light-mind/解谜游戏/巴别塔圣歌/assets",
     "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
-    "Golang/标准库/ast、parser与types.md",
-    "Golang/后端框架/依赖注入框架",
+    "light-mind/解谜游戏/巴别塔圣歌",
+    "light-mind/解谜游戏",
+    "翻译/Medium/OSINT Team/网安每日任务指南 - 用Python赶走无聊的工作.md",
+    "翻译/授权申请模板.md",
+    "翻译/README.md",
+    "翻译/Medium/puneetpm",
+    "Kotlin/框架/Spring Boot/Spring Boot Kotlin（一）.md",
+    "Kotlin/API文档/第三方库/Kotlin Clikt 和 Mordant 库详解.md",
+    "Kotlin/API文档/标准库/Kotlin 委托功能详解.md",
+    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
+    "Golang/后端框架/依赖注入框架/samber_do 调试与进阶特性.md",
+    "Golang/标准库/Go testing 库完整指南.md",
+    "Golang/标准库/Go testing.T API 详解.md",
+    "Golang/标准库/ast、parser、与reflect 库详解.md",
     "Golang/个人自用文档/第三方库/Go uint32-位宽加密算法库速查.md",
+    "Golang/后端框架/依赖注入框架",
     "Golang/MIT 6.824课程学习/学习笔记 （二）.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Responder NTLM哈希捕获.md",
     "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
@@ -240,36 +267,10 @@
     "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md",
     "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
     "Dont Update/Golang/自建测试框架.md",
-    "Dont Update/assets/课设架构图.drawio 1.png",
-    "Dont Update/assets/课设架构图.drawio.png",
     "Dont Update/assets",
-    "Dont Update/毕业论文 - 副本.md",
-    "Golang/个人自用文档/第三方库/Google Tink 库使用指南.md",
-    "Golang/个人自用文档/第三方库/Golang 对称加密库完整指南.md",
-    "Golang/后端框架/GoFrame框架/GoFrame文件库gfile使用指南.md",
-    "Golang/技术探讨/PostgreSQL行级安全(RLS)与列级安全(CLS)详解.md",
-    "Golang/后端框架/GoFrame框架/assets/docs.md",
     "Golang/后端框架/GoFrame框架/assets",
-    "数据库/Postgres/PostgreSQL 16 SQL语句操作指南.md",
-    "数据库/Postgres/PostgreSQL 16+ psql CLI工具与数据库管理指南.md",
-    "Dont Update/草稿.md",
-    "Golang/个人自用文档/第三方库/Go主流快速哈希库性能对比.md",
-    "Golang/标准库/Go crypto库详解.md",
-    "Golang/标准库/Go testing.T API 详解.md",
     "未命名.base",
     "Golang/后端框架/GoFrame框架",
-    "Dart/实用库",
-    "Golang/求职",
-    "Dart/框架/Flutter/assets/PixPin_2026-05-18_18-27-40.mp4",
-    "Dart/框架/Flutter/assets/PixPin_2026-05-18_18-08-48.mp4",
-    "Dart/框架/Flutter/assets/Pasted image 20260518132056.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260518125644.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260518125044.png",
-    "Dont Update/Golang/assets/Pasted image 20260516213730.png",
-    "Dont Update/Golang/assets",
-    "Dart/框架/Flutter/assets/Pasted image 20260515235659.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260513212304.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260513092212.png",
-    "Dart/框架/Flutter/assets/Pasted image 20260512221643.png"
+    "Dart/实用库"
   ]
 }

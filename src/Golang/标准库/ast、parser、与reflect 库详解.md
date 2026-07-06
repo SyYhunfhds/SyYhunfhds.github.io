@@ -392,7 +392,7 @@ func add(a, b int) int { return a + b }`
 }
 ```
 
-### 使用 golang.org/x/tools/go/packages 加载包
+### 使用 `golang.org/x/tools/go/packages` 加载包
 
 手动调用 `parser.ParseFile` + `types.Config.Check` 繁琐。推荐使用 `go/packages` 一次加载整个包及其依赖：
 

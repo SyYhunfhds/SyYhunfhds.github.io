@@ -1,6 +1,6 @@
 ---
 title: samber/do 依赖注入框架核心指南
-date: 2026-06-23
+date: 2026-03-09
 author: Deepseek V4 Flash (Trae SOLO Mode)
 footer: Trae编辑
 ---
@@ -97,21 +97,85 @@ do.Provide(injector, NewMyService)
 
 ### 2.2 预加载（Eager）
 
-容器创建后立即实例化，适合需要在启动阶段完成初始化的服务（如数据库连接池预热）。
+预加载（Eager）服务在注册时就已经是一个创建好的实例，而非由容器调用构造函数去创建。你需要自己初始化好实例，再交给容器。适合需要在启动阶段就确定的配置对象等。
+
+::: tip 与 Lazy 的关键区别
+`do.Lazy()` 接受的是 **Provider 构造函数** `func(Injector) (T, error)`，由容器负责在首次 Invoke 时调用构造函数。
+
+`do.Eager()` 接受的是 **已创建好的值** `T`，不涉及构造函数调用。
+:::
+
+**标准用法 — ProvideValue：**
 
 ```go
-do.Provide(injector, do.Eager[*MyService](NewMyService))
+config := &Config{
+    Port: 8080,
+    Env:  "production",
+}
+do.ProvideValue(injector, config)
 ```
+
+**在 Package 中批量注册：**
+
+```go
+var Package = do.Package(
+    do.Eager[*Config](&Config{Port: 8080}),         // ✅ 传已创建的值
+    do.EagerNamed("app.name", "my-app"),             // ✅ 传字符串值
+    do.Lazy(NewDatabaseConnection),                  // Lazy 才传构造函数
+)
+```
+
+::: danger 错误示范
+将构造函数传给 `do.Eager` 是常见陷阱：
+
+```go
+// ❌ 错误：把构造函数当成值传给 Eager
+do.Eager[*MyService](NewMyService)
+
+// 结果：NewMyService（func 类型）被直接注册为值
+// 容器内部类型变为 func(do.Injector) (*MyService, error)
+// Invoke 时找不到 *MyService，报错：
+// "DI: could not find service `*MyService`, available services:
+//  `func(do.Injector) (*MyService, error)`"
+```
+:::
+
+::: tip 正确示范
+```go
+// ✅ 正确：传已创建的值
+do.ProvideValue(injector, &MyService{Hello: "world"})
+
+// ✅ 或在 Package 中
+do.Eager[*MyService](&MyService{Hello: "world"})
+```
+:::
 
 ### 2.3 瞬态加载（Transient）
 
-每次调用都创建新实例。
+每次调用都创建新实例，容器仅持有 Provider（构造函数），**不持有返回的实例**。
 
 ```go
 do.ProvideTransient(injector, func(i do.Injector) (*Logger, error) {
     return &Logger{RequestID: uuid.New()}, nil
 })
 ```
+
+::: tip GC 行为
+与 Lazy 不同，Transient 服务的实例**不被容器持有**。每次 `Invoke` 返回一个新实例，调用方变量离开作用域后即可被 GC 回收：
+
+```go
+for i := 0; i < 100; i++ {
+    logger := do.MustInvoke[*Logger](injector) // 每次新建
+    logger.Info("hello")
+    // logger 在此次迭代结束后即可被 GC
+}
+```
+
+容器仅保存构造函数（Provider），因此 Transient 适合：
+- 需要独立上下文的轻量对象（如每个请求的 Logger）
+- 无状态工具类服务
+- **不推荐** 用于持有数据库连接、大内存缓存等重量级资源（每次新建开销大）
+:::
 
 ### 2.4 值注册（Value）
 
@@ -346,7 +410,7 @@ func (pg *MyPostgreSQLConnection) Shutdown(ctx context.Context) error {
     return pg.DB.Close()
 }
 
-// 手动触发关闭
+// 全局关闭（按逆初始化顺序关闭所有 Shutdowner）
 report := injector.ShutdownWithContext(ctx)
 
 // 监听信号自动关闭
@@ -355,12 +419,67 @@ signal, report := injector.ShutdownOnSignals(syscall.SIGTERM, os.Interrupt)
 
 支持接口：
 
-| 接口 | 方法签名 |
-|------|----------|
-| `Shutdowner` | `Shutdown()` |
-| `ShutdownerWithError` | `Shutdown() error` |
-| `ShutdownerWithContext` | `Shutdown(context.Context)` |
+| 接口                              | 方法签名                              |
+| ------------------------------- | --------------------------------- |
+| `Shutdowner`                    | `Shutdown()`                      |
+| `ShutdownerWithError`           | `Shutdown() error`                |
+| `ShutdownerWithContext`         | `Shutdown(context.Context)`       |
 | `ShutdownerWithContextAndError` | `Shutdown(context.Context) error` |
+
+#### 精准关闭指定服务
+
+除了全局关闭，samber/do 支持只关闭某一个（或某几个）服务，而保持其他服务继续运行：
+
+**按类型关闭：**
+
+```go
+// 返回 error
+err := do.Shutdown[*DatabaseConnection](injector)
+
+// panic on failure
+do.MustShutdown[*DatabaseConnection](injector)
+```
+
+**按类型关闭（带 context 超时）：**
+
+```go
+ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+defer cancel()
+
+err := do.ShutdownWithContext[*DatabaseConnection](ctx, injector)
+do.MustShutdownWithContext[*DatabaseConnection](ctx, injector)
+```
+
+**按名称关闭：**
+
+```go
+err := do.ShutdownNamed(injector, "my.connection.pool")
+do.MustShutdownNamed(injector, "my.connection.pool")
+
+err := do.ShutdownNamedWithContext(ctx, injector, "my.connection.pool")
+do.MustShutdownNamedWithContext(ctx, injector, "my.connection.pool")
+```
+
+**按依赖链顺序精准关闭示例：**
+
+```go
+// 场景：Controller → Service → Repository → DB
+// 先关上游，再关下游
+
+// 1️⃣ 先关闭 Controller（不再接收请求）
+do.MustShutdown[*UserController](injector)
+
+// 2️⃣ 关闭 Service（正在处理的请求完成后释放）
+do.MustShutdown[*userServiceImpl](injector)
+
+// 3️⃣ 关闭底层资源
+do.MustShutdown[*PostgreSQLConnection](injector)
+```
+
+::: tip 精准关闭 vs 全局关闭的核心区别
+- `injector.Shutdown()` 执行后，容器**整体标记为关闭状态**，后续无法再 Invoke 任何服务
+- `do.Shutdown[T](i)` 只关闭指定服务，不影响容器状态。**懒加载服务被精准关闭后，再次 Invoke 会重新触发构造函数**
+:::
 
 ### 6.3 生命周期钩子
 
