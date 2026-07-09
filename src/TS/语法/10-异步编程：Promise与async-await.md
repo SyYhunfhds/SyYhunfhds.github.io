@@ -71,7 +71,7 @@ Go 异步特点：
 
 ## TypeScript 怎么做
 
-### Promise<T> 基础
+### `Promise<T>` 基础
 
 ```ts
 // Promise —— 表示异步操作的结果
