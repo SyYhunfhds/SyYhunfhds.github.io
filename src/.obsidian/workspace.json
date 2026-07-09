@@ -42,12 +42,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "翻译/Medium/puneetpm/GC之外：揭开并修复Go最常见的四个内存泄露噩梦.md",
+                "file": "Golang/技术探讨/游戏后端技术栈与Pomelo协议详解.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "GC之外：揭开并修复Go最常见的四个内存泄露噩梦"
+              "title": "游戏后端技术栈与Pomelo协议详解"
             }
           },
           {
@@ -56,12 +56,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "自我充电/解谜游戏/巴别塔圣歌/巴别塔圣歌.md",
+                "file": "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "巴别塔圣歌"
+              "title": "samber_do 依赖注入框架核心指南"
             }
           }
         ],
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "自我充电/解谜游戏/巴别塔圣歌/巴别塔圣歌.md",
+                "file": "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "巴别塔圣歌 的大纲"
+              "title": "samber_do 依赖注入框架核心指南 的大纲"
             }
           }
         ]
@@ -223,8 +223,39 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b44904467a9ff783",
+  "active": "b29741bcfdf340a3",
   "lastOpenFiles": [
+    "TS/标准库/10-Dayjs与日期处理.md",
+    "TS/标准库/09-Axios与HTTP请求.md",
+    "TS/语法/11-装饰器与元数据反射.md",
+    "TS/标准库/08-Zod与运行时数据校验.md",
+    "TS/语法/10-异步编程：Promise与async-await.md",
+    "TS/标准库/07-Lodash与实用工具库.md",
+    "TS/其他/07-包管理器与构建工具入门.md",
+    "TS/语法/09-模块系统与命名空间.md",
+    "TS/其他/06-ESLint-Prettier代码规范.md",
+    "TS/标准库/06-DOM操作与浏览器API.md",
+    "TS/语法/08-高级类型：联合-交叉-映射类型.md",
+    "TS/语法/07-类型守卫与类型断言.md",
+    "TS/标准库/05-正则表达式与字符串处理.md",
+    "TS/其他/05-tsconfig配置详解.md",
+    "TS/语法/06-枚举与字面量类型.md",
+    "TS/标准库/04-Promise与异步工具.md",
+    "TS/其他/04-TS推荐项目结构规范.md",
+    "TS/语法/05-泛型编程.md",
+    "TS/标准库/03-Map-Set-WeakMap与数据结构.md",
+    "TS/语法/04-类与面向对象编程.md",
+    "TS/其他/03-JavaScript核心语法速通.md",
+    "TS/语法/03-函数签名与重载.md",
+    "TS/标准库/02-Array与集合操作.md",
+    "TS/其他/02-CSS3核心基础与布局.md",
+    "TS/语法/02-接口与类型别名.md",
+    "TS/标准库/01-内置数据类型与工具类型.md",
+    "TS/其他",
+    "TS/标准库",
+    "TS/语法",
+    "TS",
+    "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260708190946.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230956.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230938.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230844.png",
@@ -234,42 +265,11 @@
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224456.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224412.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224217.png",
-    "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224159.png",
-    "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706222443.png",
-    "翻译/Medium/puneetpm/GC之外：揭开并修复Go最常见的四个内存泄露噩梦.md",
-    "自我充电/解谜游戏/巴别塔圣歌/巴别塔圣歌.md",
     "自我充电/解谜游戏/巴别塔圣歌/assets",
-    "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
     "自我充电/解谜游戏/巴别塔圣歌",
     "自我充电/解谜游戏",
-    "翻译/Medium/OSINT Team/网安每日任务指南 - 用Python赶走无聊的工作.md",
-    "翻译/授权申请模板.md",
-    "翻译/README.md",
     "翻译/Medium/puneetpm",
-    "Kotlin/框架/Spring Boot/Spring Boot Kotlin（一）.md",
-    "Kotlin/API文档/第三方库/Kotlin Clikt 和 Mordant 库详解.md",
-    "Kotlin/API文档/标准库/Kotlin 委托功能详解.md",
-    "Kotlin/语法/Kotlin 语法（五）：协程【未完成】.md",
-    "Golang/后端框架/依赖注入框架/samber_do 调试与进阶特性.md",
-    "Golang/标准库/Go testing 库完整指南.md",
-    "Golang/标准库/Go testing.T API 详解.md",
-    "Golang/标准库/ast、parser、与reflect 库详解.md",
-    "Golang/个人自用文档/第三方库/Go uint32-位宽加密算法库速查.md",
     "Golang/后端框架/依赖注入框架",
-    "Golang/MIT 6.824课程学习/学习笔记 （二）.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Responder NTLM哈希捕获.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Crocodile.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier1/Appointment.md",
-    "Dont Update/毕业论文.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier0/Redeemer.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier0/Explosion.md",
-    "渗透靶场/HackTheBox/Starting Point/Tier0/Dancing.md",
-    "Golang/微服务/微服务学习笔记（九）：分布式链路追踪.md",
-    "Dont Update/Golang/自建测试框架.md",
-    "Dont Update/assets",
-    "Golang/后端框架/GoFrame框架/assets",
-    "未命名.base",
-    "Golang/后端框架/GoFrame框架",
-    "Dart/实用库"
+    "Dont Update/assets"
   ]
 }

@@ -285,13 +285,65 @@ svc := do.MustInvoke[*MySpecificService](injector)
 
 ### 4.4 其他注意事项
 
-| 限制 | 说明 |
-|------|------|
-| `do.Eager` 与 `do.Lazy` 参数类型不同 | `do.Lazy` 接受构造函数（Provider），`do.Eager` 接受已创建的值。在 Package 中混用时极易将构造函数误传入 Eager，导致容器注册 func 类型而非目标类型，Invoke 时收到 `(*T)(nil)` 或报错找不到服务 |
-| `InvokeStruct` 不支持嵌套结构体 | struct tag 只作用于直接字段，不会递归处理嵌套字段 |
-| Override 不能处理已实例化的服务 | 如果一个懒加载服务已经被调用过，Override 不会替换其已创建的实例 |
-| 全局容器禁止生产使用 | `do.Provide(nil, ...)` 违背依赖反转原则 |
-| `Shutdown` 不等于释放 GC 引用 | `Shutdown()` 调用的是服务上的清理方法（关闭连接、刷盘），但 injector 内部的 map 引用不会被清除。要真正让服务被 GC，必须让 injector 本身离开作用域。 |
+| 限制                                      | 说明                                                                                                                                          |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `do.Eager` 与 `do.Lazy` 参数类型不同           | `do.Lazy` 接受构造函数（Provider），`do.Eager` 接受已创建的值。在 Package 中混用时极易将构造函数误传入 Eager，导致容器注册 func 类型而非目标类型，Invoke 时收到 `(*T)(nil)` 或报错找不到服务           |
+| `InvokeStruct` 不支持嵌套结构体                 | struct tag 只作用于直接字段，不会递归处理嵌套字段                                                                                                              |
+| Override 不能处理已实例化的服务                    | 如果一个懒加载服务已经被调用过，Override 不会替换其已创建的实例                                                                                                        |
+| 全局容器禁止生产使用                              | `do.Provide(nil, ...)` 违背依赖反转原则                                                                                                             |
+| `Shutdown` 不等于释放 GC 引用                  | `Shutdown()` 调用的是服务上的清理方法（关闭连接、刷盘），但 injector 内部的 map 引用不会被清除。要真正让服务被 GC，必须让 injector 本身离开作用域。                                              |
+| Transient Provider 内禁止调用 `i.Scope(...)` | Transient 内部使用 `virtualScope` 包裹真实 scope，`i.Scope(name)` 透传到底层真实 scope。第二次 Invoke 时同名子作用域已存在 → `DI: scope "name" has already been declared` |
+
+::: danger Transient + Scope 组合陷阱
+
+**根因分析**
+
+samber/do 的 Transient 服务在每次 Invoke 时会创建一个 `virtualScope`（内部类型）来包裹真实的底层 scope，用于追踪依赖图。当 Provider 函数内调用 `i.Scope("name")` 时：
+
+1. `virtualScope.Scope("name")` 透传到底层真实 scope
+2. 真实 scope 创建名为 "name" 的子作用域
+3. 第二次 Invoke Transient 服务时，**新的** `virtualScope` 被创建，但仍透传到**同一个**真实 scope
+4. 真实 scope 检测到 "name" 子作用域已存在 → panic
+
+**复现代码**
+
+```go
+type IMyService interface{}
+type MyService struct{}
+
+func NewMyServiceWithScope(i do.Injector) (IMyService, error) {
+    // 第二次 Invoke 时这里会 panic:
+    // "DI: scope `myservice` has already been declared"
+    _ = i.Scope("myservice")
+    return &MyService{}, nil
+}
+
+func TestTransientWithScope(t *testing.T) {
+    injector := do.New(
+        do.TransientNamed("service", NewMyServiceWithScope),
+    )
+
+    inst1 := do.MustInvokeNamed[IMyService](injector, "service") // ✓ 首次成功
+    _ = inst1
+
+    // ✗ 第二次 Invoke 触发 NewMyServiceWithScope → i.Scope("myservice")
+    // → scope "myservice" 已存在 → panic
+    _, err := do.InvokeNamed[IMyService](injector, "service")
+    if err != nil {
+        t.Logf("预期中的 panic 已捕获: %v", err)
+    }
+}
+```
+
+**修复方案**
+
+| 方案 | 做法 | 适用场景 |
+|------|------|---------|
+| **优先避免** | 不在 Transient Provider 内部创建子作用域 | 所有 Transient 服务 |
+| **父作用域预先创建** | 在父作用域中预先创建子作用域，Transient Provider 内直接注册服务 | 必须使用 Scope 隔离的场景 |
+| **改用 Lazy** | 若必须使用 Scope，改用 Lazy 加载（单例），自行管理生命周期 | Provider 内部副作用少的场景 |
+| **移除死代码** | 检查 Provider 内创建的 Scope 是否真的被使用（如 Leader.injector 从未被读），直接删除 | Legacy 代码清理 |
+:::
 
 ---
 

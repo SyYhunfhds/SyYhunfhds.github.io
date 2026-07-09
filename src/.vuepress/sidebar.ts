@@ -37,6 +37,12 @@ export default sidebar({
       children: "structure",
     },
     {
+      text: "TypeScript",
+      icon: "laptop-code",
+      prefix: "TS/",
+      children: "structure",
+    },
+    {
       text: "Dart",
       icon: "laptop-code",
       prefix: "Dart/",

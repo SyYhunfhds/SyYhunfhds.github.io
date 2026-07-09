@@ -363,6 +363,18 @@ wheel := do.MustInvoke[*SteeringWheel](apiModule)
 Scope 可以多层嵌套：`root.Scope("api").Scope("v1").Scope("public")`。查找顺序为当前 scope → 父 scope → 直到 root。
 :::
 
+::: danger Transient + Scope 不兼容
+**不要在 Transient Provider 函数内部调用 `i.Scope(...)` 创建子作用域。**
+
+Transient 服务每次 Invoke 会创建一个内部 `virtualScope` 来包裹真实 scope。`i.Scope(name)` 透传到底层真实 scope 创建子作用域；第二次 Invoke 时同名子作用域已存在，导致 panic：
+
+```
+DI: scope `name` has already been declared
+```
+
+详见 [调试与进阶特性 → Transient + Scope 组合陷阱](samber_do%20调试与进阶特性.md#4.4-其他注意事项)。
+:::
+
 ## 六、服务生命周期
 
 ### 6.1 健康检查
