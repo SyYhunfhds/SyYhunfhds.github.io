@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-index: false
+index: true
 icon: typescript
 category: 零零散散
 ---

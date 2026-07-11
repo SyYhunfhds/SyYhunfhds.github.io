@@ -9,34 +9,6 @@
         "dimension": 82.83642224012893,
         "children": [
           {
-            "id": "876b495090e109ac",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Dont Update/Golang/自建测试框架.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "自建测试框架"
-            }
-          },
-          {
-            "id": "24150526be95e2f6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Golang/标准库/sync库学习笔记.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "sync库学习笔记"
-            }
-          },
-          {
             "id": "4f7d4701ad167151",
             "type": "leaf",
             "state": {
@@ -51,21 +23,49 @@
             }
           },
           {
-            "id": "b6e5873933d8d77f",
+            "id": "cfbd88fcdac90cd3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "TS/语法/10-异步编程：Promise与async-await.md",
+                "file": "TS/语法/05-泛型编程.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "05-泛型编程"
+            }
+          },
+          {
+            "id": "c7cabfcb036c3168",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TS/语法/08-高级类型：联合-交叉-映射类型.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "10-异步编程：Promise与async-await"
+              "title": "08-高级类型：联合-交叉-映射类型"
+            }
+          },
+          {
+            "id": "b5a23d5e16c355ba",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "TS/语法/01-基础类型与变量声明.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "01-基础类型与变量声明"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       },
       {
         "id": "8f25ac20309dd67b",
@@ -78,13 +78,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "TS/语法/10-异步编程：Promise与async-await.md",
+                "file": "TS/语法/08-高级类型：联合-交叉-映射类型.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "10-异步编程：Promise与async-await 的大纲"
+              "title": "08-高级类型：联合-交叉-映射类型 的大纲"
             }
           }
         ]
@@ -223,38 +223,44 @@
       "obsidian-excalidraw-plugin:新建绘图文件": false
     }
   },
-  "active": "b6e5873933d8d77f",
+  "active": "c7cabfcb036c3168",
   "lastOpenFiles": [
-    "Golang/技术探讨/游戏后端技术栈与Pomelo协议详解.md",
-    "TS/语法/01-基础类型与变量声明.md",
-    "TS/语法/README.md",
-    "Golang/后端框架/依赖注入框架/samber_do 依赖注入框架核心指南.md",
-    "TS/标准库/10-Dayjs与日期处理.md",
-    "TS/标准库/09-Axios与HTTP请求.md",
-    "TS/语法/11-装饰器与元数据反射.md",
-    "TS/标准库/08-Zod与运行时数据校验.md",
-    "TS/语法/10-异步编程：Promise与async-await.md",
-    "TS/标准库/07-Lodash与实用工具库.md",
-    "TS/其他/07-包管理器与构建工具入门.md",
-    "TS/语法/09-模块系统与命名空间.md",
-    "TS/其他/06-ESLint-Prettier代码规范.md",
-    "TS/标准库/06-DOM操作与浏览器API.md",
-    "TS/语法/08-高级类型：联合-交叉-映射类型.md",
     "TS/语法/07-类型守卫与类型断言.md",
-    "TS/标准库/05-正则表达式与字符串处理.md",
-    "TS/其他/05-tsconfig配置详解.md",
     "TS/语法/06-枚举与字面量类型.md",
-    "TS/标准库/04-Promise与异步工具.md",
-    "TS/其他/04-TS推荐项目结构规范.md",
+    "TS/语法/01-基础类型与变量声明.md",
+    "TS/语法/08-高级类型：联合-交叉-映射类型.md",
+    "TS/附录/复合数据结构：数组.md",
+    "TS/标准库/01-内置数据类型与工具类型.md",
     "TS/语法/05-泛型编程.md",
+    "TS/语法/09-模块系统与命名空间.md",
     "TS/标准库/03-Map-Set-WeakMap与数据结构.md",
+    "TS/附录",
+    "TS/标准库/02-Array与集合操作.md",
+    "TS/语法/02-接口与类型别名.md",
     "TS/语法/04-类与面向对象编程.md",
-    "TS/其他/03-JavaScript核心语法速通.md",
     "TS/语法/03-函数签名与重载.md",
-    "TS/其他",
-    "TS/标准库",
-    "TS/语法",
-    "TS",
+    "TS/标准库/05-正则表达式与字符串处理.md",
+    "TS/标准库/10-Dayjs与日期处理.md",
+    "TS/语法/README.md",
+    "TS/README.md",
+    "TS/语法/11-装饰器与元数据反射.md",
+    "TS/语法/10-异步编程：Promise与async-await.md",
+    "TS/标准库/04-Promise与异步工具.md",
+    "TS/其他/07-包管理器与构建工具入门.md",
+    "TS/其他/06-ESLint-Prettier代码规范.md",
+    "TS/其他/05-tsconfig配置详解.md",
+    "TS/其他/04-TS推荐项目结构规范.md",
+    "TS/其他/03-JavaScript核心语法速通.md",
+    "TS/其他/02-CSS3核心基础与布局.md",
+    "TS/journey/src/runner.ts",
+    "TS/journey/src/utils/test.ts",
+    "TS/journey/src/utils",
+    "TS/journey/notes/语法",
+    "TS/journey/notes/其他",
+    "TS/journey/notes/标准库",
+    "TS/journey/notes",
+    "TS/journey/新建文件夹",
+    "TS/temp_syntax/ch07-type-guards/exercises.ts",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260708190946.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230956.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706230938.png",
@@ -264,12 +270,6 @@
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706225035.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224456.png",
     "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224412.png",
-    "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224217.png",
-    "自我充电/解谜游戏/巴别塔圣歌/assets",
-    "自我充电/解谜游戏/巴别塔圣歌",
-    "自我充电/解谜游戏",
-    "翻译/Medium/puneetpm",
-    "Golang/后端框架/依赖注入框架",
-    "Dont Update/assets"
+    "自我充电/解谜游戏/巴别塔圣歌/assets/Pasted image 20260706224217.png"
   ]
 }

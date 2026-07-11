@@ -1,5 +1,5 @@
 ---
-title: Promise与异步工具
+title: 04-Promise与异步工具
 date: 2026-07-09
 footer: Trae编辑
 ---

@@ -1,6 +1,6 @@
 ---
 title: TypeScript 语法
-index: false
+index: true
 ---
 
 <Catalog />
